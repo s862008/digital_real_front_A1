@@ -1,1 +1,0 @@
-@charset "UTF-8";*,*:after,*:before{box-sizing:border-box;margin:0}:root{--main-font-size: 16px;--standart-border: 1px solid black}.container-main{max-width:1024px;margin:0 auto;border:var(--standart-border)}.-back-gray{background-color:gray}
