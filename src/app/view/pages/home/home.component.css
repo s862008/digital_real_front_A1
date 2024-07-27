@@ -1,0 +1,15 @@
+.filter-page {
+  overflow: hidden;
+}
+
+.home-page{
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-top: 65px;
+}
+
+.prepear-search {
+  margin-top: 5%;
+  margin-bottom: 10%;
+  padding: 0 40px 0 100px;
+}
