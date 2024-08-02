@@ -7,6 +7,7 @@ import {FooterComponent} from "./view/components/footer/footer.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {DashboardModule} from "./dashboard/dashboard.module"
+import {ContainerComponent} from "./view/components/container/container.component";
 
 
 
@@ -15,7 +16,8 @@ import {DashboardModule} from "./dashboard/dashboard.module"
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent],
+    FooterComponent,
+    ContainerComponent],
   imports: [
     BrowserModule,
     CommonModule,
