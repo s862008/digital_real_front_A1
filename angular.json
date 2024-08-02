@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "0f781ee4-6715-4108-ab96-a908116fa7e3"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -21,12 +24,11 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -92,8 +94,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "0f781ee4-6715-4108-ab96-a908116fa7e3"
   }
 }
