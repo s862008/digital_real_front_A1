@@ -15,9 +15,10 @@ export class HomeComponent implements OnInit  {
   count: number =  34;
   tempText:string = "14";
   dt: string ="10.10.24";
+  cards: string[]= ['1','2'];
 
   constructor() {
-    console.log('!!!!')
+    console.log('!!load Home-page!!')
   }
 
   ngOnInit(): void {}

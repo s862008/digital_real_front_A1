@@ -15,7 +15,8 @@ export const routes: Routes = [
     redirectTo: '',
     component: HomeComponent
   },
-  {path: 'apartment',
+  {
+    path: 'apartment/:id',
     component:ApartmentComponent
   },
   {

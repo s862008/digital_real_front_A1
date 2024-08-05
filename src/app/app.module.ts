@@ -16,6 +16,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {AppRoutingModule} from "./app.routes";
 import {BannerComponent} from "./main/components/banner/banner.component";
+import {FilterSearchComponent} from "./main/pages/filter-search/filter-search.component";
+import {ApartmentComponent} from "./main/pages/apartment/apartment.component";
 
 
 
@@ -26,7 +28,9 @@ import {BannerComponent} from "./main/components/banner/banner.component";
     HeaderComponent,
     FooterComponent,
     ContainerComponent,
-    BannerComponent
+    BannerComponent,
+    FilterSearchComponent,
+    ApartmentComponent,
  ],
   imports: [
     BrowserModule,
