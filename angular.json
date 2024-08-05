@@ -18,7 +18,7 @@
           "options": {
             "outputPath": "dist/digital-real-front-a1",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "browser": "src/index.ts",
             "polyfills": [
               "zone.js"
             ],
