@@ -10,7 +10,6 @@
 }
 :root{
   --main-font-size: 16px;
-
   --standart-border: 1px solid black;
 
 }
@@ -216,4 +215,9 @@ main {
 }
 .-back-gray{
   background-color: gray;
+}
+
+.filter-page, .home-page {
+  overflow: hidden;
+  padding-top: 65px;
 }
