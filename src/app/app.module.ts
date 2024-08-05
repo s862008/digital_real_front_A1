@@ -15,6 +15,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {AppRoutingModule} from "./app.routes";
+import {BannerComponent} from "./main/components/banner/banner.component";
 
 
 
@@ -24,7 +25,8 @@ import {AppRoutingModule} from "./app.routes";
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    ContainerComponent
+    ContainerComponent,
+    BannerComponent
  ],
   imports: [
     BrowserModule,

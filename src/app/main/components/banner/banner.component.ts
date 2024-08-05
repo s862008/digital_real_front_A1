@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
+import {ContainerComponent} from "../container/container.component";
 
 @Component({
   selector: 'app-banner',
-  standalone: true,
-  imports: [],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.css'
 })
