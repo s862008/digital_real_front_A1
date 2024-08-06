@@ -10,6 +10,11 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getData(id: string): Observable<any> {
-    return this.http.get(`/api/data/${id}`);
+    return this.http.get('/test/cnt');
+  }
+
+  public getApartment(uid: string): Observable<Object> {
+    // return this.http.get('/api/v1/apartments/card/card/${uid}');
+     return this.http.get('/test/aparts');
   }
 }

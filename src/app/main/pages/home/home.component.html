@@ -101,8 +101,8 @@
               </svg>
             </div>
 
-            <div class="cards"  *ngFor="let item of cards">
-              <div class="card card-body p-0 brdr" onclick="location.href='gk.html'">
+            <div class="cards" >
+              <div class="card card-body p-0 brdr" *ngFor="let item of cards" [routerLink]="['/r-complex', item]">
 
                 <div class="img_section">
                   <div class="title_img" title="стел">

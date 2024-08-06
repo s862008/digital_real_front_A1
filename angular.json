@@ -67,7 +67,11 @@
               "buildTarget": "digital_real_front_A1:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options":{
+            "browserTarget": "digital_real_front_A1:build",
+            "proxyConfig": "proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
@@ -94,5 +98,9 @@
         }
       }
     }
-  }
+  },
+  "name": "",
+  "dark": false,
+  "author": "",
+  "ui": {}
 }

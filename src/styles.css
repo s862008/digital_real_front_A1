@@ -108,6 +108,18 @@ ul, li {
   width: 100px;
   height: 42px;
 }
+.my-btn-long {
+  border-radius: 10px;
+  width: 280px;
+  height: 47px;
+  background: linear-gradient(180deg, #27758d 0%, #1c4344 100%);
+  font-weight: 400;
+  font-size: 24px;
+  color: #fff;
+  border: 0;
+
+}
+
 
 .vertical-center {
   margin: 0;
@@ -199,7 +211,7 @@ main {
 }
 
 .apartment-page {
-  min-height: 3100px;
+  min-height: 3200px;
 }
 
 .gk-page {

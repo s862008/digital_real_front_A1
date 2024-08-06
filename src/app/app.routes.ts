@@ -4,6 +4,7 @@ import {ApartmentComponent} from "./main/pages/apartment/apartment.component";
 import {FilterSearchComponent} from "./main/pages/filter-search/filter-search.component";
 import {NgModule} from "@angular/core";
 import {NotFoundComponent} from "./main/pages/not-found/not-found.component";
+import {RComplexComponent} from "./main/pages/residential-complex/r-complex.component";
 
 export const routes: Routes = [
   {
@@ -18,6 +19,10 @@ export const routes: Routes = [
   {
     path: 'apartment/:id',
     component:ApartmentComponent
+  },
+  {
+    path: 'r-complex/:id',
+    component:RComplexComponent
   },
   {
     path: 'filter-search',

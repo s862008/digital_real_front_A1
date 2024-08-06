@@ -17,7 +17,7 @@ export class ApartmentComponent {
   public cards: Apartment[] = [];
   public apartment!: Apartment;
 
-  constructor(private route: ActivatedRoute /*,  private dataService: DataService*/) {
+  constructor(private route: ActivatedRoute ,  private dataService: DataService) {
 
   }
 
@@ -25,9 +25,16 @@ export class ApartmentComponent {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') || '';
 
-      // this.dataService.getData(this.id).subscribe(data => {
-      //   this.data = data;
-      // });
+       this.dataService.getData(this.id).subscribe(data => {
+         this.data = data;
+       });
+
+      this.dataService.getApartment(this.id).subscribe({
+        next: (data: any): void => {
+          this.correctStyleIndicators();
+          this.cards = data;
+        }
+      })
 
     this.apartment = {
         room: '1 комната',
@@ -43,7 +50,7 @@ export class ApartmentComponent {
       };
 
       let x = 0;
-      while (x < 10) {
+      while (x <3) {
         this.cards.push({
           company: "",
           height_roof: "",
@@ -65,5 +72,10 @@ export class ApartmentComponent {
 
   showPhone(){
     alert("Phone-number");
+  }
+
+  private correctStyleIndicators() {
+    // const carouselIndicators = document.getElementsByClassName("carousel-indicators ng-star-inserted")[0] as HTMLElement;
+    // carouselIndicators.style.left = "35%";
   }
 }

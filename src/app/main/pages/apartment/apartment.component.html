@@ -95,9 +95,9 @@
       </section>
 
       <section class="apartment-similar">
-        <h2 class="title"> Похожие квартиры </h2>
+        <h2 class="title"> Похожие квартиры {{data}}  </h2>
         <div class="d-flex flex-column">
-          <div class="cards-block__item" *ngFor="let item of cards" onclick="location.href='apartment.html'">
+          <div class="cards-block__item" *ngFor="let item of cards" [routerLink]="['/apartment', item.room] ">
             <div class="img-block">
               <img alt="img" routerlink="/apartment.html" style="cursor: pointer;"
                    src="https://stelinvest.ru/upload/iblock/f51/050bwd03si669vthe835po4tresfzgsw/1et_8_1pod_4_kv.jpg ">

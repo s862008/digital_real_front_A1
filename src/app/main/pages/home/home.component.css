@@ -59,17 +59,6 @@
   border: 1px solid #999999;
 }
 
-.my-btn-long {
-  border-radius: 10px;
-  width: 280px;
-  height: 47px;
-  background: linear-gradient(180deg, #27758d 0%, #1c4344 100%);
-  font-weight: 400;
-  font-size: 24px;
-  color: #fff;
-  border: 0;
-
-}
 
 .phone-btn {
   width: 90%;

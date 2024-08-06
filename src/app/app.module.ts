@@ -18,6 +18,9 @@ import {AppRoutingModule} from "./app.routes";
 import {BannerComponent} from "./main/components/banner/banner.component";
 import {FilterSearchComponent} from "./main/pages/filter-search/filter-search.component";
 import {ApartmentComponent} from "./main/pages/apartment/apartment.component";
+import {HttpClientModule} from "@angular/common/http";
+import {DataService} from "./core/services/data.service";
+import {RComplexComponent} from "./main/pages/residential-complex/r-complex.component";
 
 
 
@@ -31,6 +34,7 @@ import {ApartmentComponent} from "./main/pages/apartment/apartment.component";
     BannerComponent,
     FilterSearchComponent,
     ApartmentComponent,
+    RComplexComponent
  ],
   imports: [
     BrowserModule,
@@ -43,9 +47,12 @@ import {ApartmentComponent} from "./main/pages/apartment/apartment.component";
     AppRoutingModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
   ],
+  providers:[DataService],
   bootstrap: [AppComponent]
+
 })
 export class AppModule {
 }

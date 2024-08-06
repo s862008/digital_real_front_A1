@@ -5,6 +5,7 @@
 
 }
 
+
 .as__gallery-side {
   border-radius: 25px;
   min-height: 545px;
@@ -26,6 +27,16 @@
   color: #707070;
 }
 
+.r-item__title-info, .price {
+  font-family: 'Lato SemiBold', sans-serif;
+  font-weight: 500;
+  font-size: 23px;
+  color: #000;
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+
 .as__main-img {
 
   border: 0.50px solid #999;
@@ -43,7 +54,7 @@
 
 .as__group-imgs {
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .as__group-imgs img {
@@ -150,4 +161,59 @@
 
 .ab-info__content iframe {
   min-height: 250px;
+}
+
+.apartment-similar {
+
+
+}
+
+.apartment-similar > div:nth-of-type(1) {
+  height: 1200px;
+  overflow-y: scroll;
+
+}
+
+.img-block {
+  height: 326px;
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /*центрируем элемент по горизонтали */
+  align-items: center; /* и вертикали */
+  border: 0.50px solid #999;
+  border-radius: 5px;
+}
+.percent-h2 {
+  font-family: var(--font-family-bold);
+  font-weight: 800;
+  font-size: 48px;
+  color: #106681 !important;
+}
+.cards-block__price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 36px;
+  color: #000;
+
+}
+
+.cards-block__price-sqr {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 26px;
+  color: #999;
+}
+.cards-block__item {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 20px 0 0 17px;
+  padding: 16px 0px 31px 20px;
+  grid-gap: 52px;
+  justify-content: space-evenly;
+  border: 1px solid rgba(153, 153, 153, 0.01);
+  border-radius: 10px;
+  box-shadow: -1px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: rgba(217, 217, 217, 0);
+  cursor: pointer;
 }
