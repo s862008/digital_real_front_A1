@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Apartment} from "../../../core/models/apartment";
+import {ApartmentShort} from "../../../core/models/apartment";
 
 @Component({
   selector: 'app-filter-search',
@@ -11,7 +11,7 @@ import {Apartment} from "../../../core/models/apartment";
 export class FilterSearchComponent {
 
   public srok: string = "10.10.2024"
-  public apartments: Apartment[] = [];
+  public apartments: ApartmentShort[] = [];
 
   constructor() {
 
@@ -21,13 +21,14 @@ export class FilterSearchComponent {
     let x = 0;
     while (x < 10) {
       this.apartments.push({
+        company: "",
         room: '1 комната',
         square: '30 м²',
         type_build: 'монолит',
         address: 'ул. Ленина, д. 1',
         kitchen: '6 м²',
         roof: 'мансарда',
-        date_relise: '2020-01-01'
+        date_release: '2020-01-01'
       });
       x++;
     }

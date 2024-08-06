@@ -174,10 +174,11 @@
 
           </div>
 
+
           <div class="row">
             <div class="result-search__items">
 
-              <div class="result-search__item" *ngFor="let item of apartments" [routerLink]="['/apartment', 123] " >
+              <div class="result-search__item" *ngFor="let item of apartments; let i=index" [routerLink]="['/apartment', i] " >
                 <div class="r-item-img">
                   <img src="./assets/img/image 8.png">
                 </div>
@@ -191,7 +192,7 @@
                     <div>Этаж . . . . . . . . . . . . . . .</div>
                     <span>{{item.roof}}</span>
                     <div>Срок сдачи . . . . . . . . . . </div>
-                    <span>{{item.date_relise}}</span>
+                    <span>{{item.date_release}}</span>
                   </div>
 
                   <div class="r-item__price-block">
