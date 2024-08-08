@@ -1,4 +1,9 @@
+export interface ApartmentWEB extends ApartmentShort{
+  webid:string;
+}
+
 export interface Apartment {
+  id:number;
   room: string;
   square:string;
   type_build:string;
@@ -9,8 +14,10 @@ export interface Apartment {
   height_roof:string;
   parking:string;
   company:string;
+  price:number;
 }
 export interface ApartmentShort {
+  id:number;
   room: string;
   square:string;
   type_build:string;

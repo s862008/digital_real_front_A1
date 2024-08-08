@@ -77,8 +77,9 @@
           <div class="extended-filter">
             <a href="param_search.html"><span> <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
-  <path d="M22.5 7C22.5 10.0376 20.0376 12.5 17 12.5C13.9624 12.5 11.5 10.0376 11.5 7C11.5 3.96243 13.9624 1.5 17 1.5C20.0376 1.5 22.5 3.96243 22.5 7Z"
-        stroke="#174449" stroke-width="3"/>
+  <path
+    d="M22.5 7C22.5 10.0376 20.0376 12.5 17 12.5C13.9624 12.5 11.5 10.0376 11.5 7C11.5 3.96243 13.9624 1.5 17 1.5C20.0376 1.5 22.5 3.96243 22.5 7Z"
+    stroke="#174449" stroke-width="3"/>
   <path d="M0 7H11.5" stroke="#174449" stroke-width="4"/>
   <path d="M22.5 7L48 7" stroke="#174449" stroke-width="4"/>
   <path d="M0 24H26.5" stroke="#174449" stroke-width="4"/>
@@ -101,13 +102,13 @@
               </svg>
             </div>
 
-            <div class="cards" >
-              <div class="card card-body p-0 brdr" *ngFor="let item of cards" [routerLink]="['/r-complex', item]">
+            <div class="cards">
+              <div class="card card-body p-0 brdr" *ngFor="let item of gk_cards" [routerLink]="['/r-complex', item]">
 
                 <div class="img_section">
                   <div class="title_img" title="стел">
                     <button class="bageSoon">
-                       {{dt}}
+                      {{dt}}
                     </button>
 
                   </div>
@@ -167,8 +168,9 @@
                       <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
                            xmlns="http://www.w3.org/2000/svg">
                         <circle cx="9.5" cy="9.5" r="9.5" fill="#174449"/>
-                        <path d="M12 8.69231C12 10.3077 10.5 13 9.5 13C8.5 13 7 10.1792 7 8.69231C7 7.20539 8.11929 6 9.5 6C10.8807 6 12 7.20539 12 8.69231Z"
-                              fill="white"/>
+                        <path
+                          d="M12 8.69231C12 10.3077 10.5 13 9.5 13C8.5 13 7 10.1792 7 8.69231C7 7.20539 8.11929 6 9.5 6C10.8807 6 12 7.20539 12 8.69231Z"
+                          fill="white"/>
                         <circle cx="9.5" cy="8.5" r="0.5" fill="#174449"/>
                       </svg>
                     </div>
@@ -185,8 +187,9 @@
                         до 12,5млн
                         <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
-                          <path d="M13.3536 4.35355C13.5488 4.15829 13.5488 3.84171 13.3536 3.64645L10.1716 0.464466C9.97631 0.269204 9.65973 0.269204 9.46447 0.464466C9.2692 0.659728 9.2692 0.976311 9.46447 1.17157L12.2929 4L9.46447 6.82843C9.2692 7.02369 9.2692 7.34027 9.46447 7.53553C9.65973 7.7308 9.97631 7.7308 10.1716 7.53553L13.3536 4.35355ZM0 4.5H13V3.5H0V4.5Z"
-                                fill="#032F30"/>
+                          <path
+                            d="M13.3536 4.35355C13.5488 4.15829 13.5488 3.84171 13.3536 3.64645L10.1716 0.464466C9.97631 0.269204 9.65973 0.269204 9.46447 0.464466C9.2692 0.659728 9.2692 0.976311 9.46447 1.17157L12.2929 4L9.46447 6.82843C9.2692 7.02369 9.2692 7.34027 9.46447 7.53553C9.65973 7.7308 9.97631 7.7308 10.1716 7.53553L13.3536 4.35355ZM0 4.5H13V3.5H0V4.5Z"
+                            fill="#032F30"/>
                         </svg>
                       </a></li>
                       <li class="list-apart__item"><span>2-комнатные (10)</span><a> от 3,45млн
@@ -213,7 +216,8 @@
           </div>
           <div class="card__show-button">
 
-              <button class="show-button" routerLink="filter-search"> Показать: {{count}} вариантов в {{tempText}} ЖК</button>
+            <button class="show-button" routerLink="filter-search"> Показать: {{count}} вариантов в {{tempText}}ЖК
+            </button>
 
           </div>
         </div>

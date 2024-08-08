@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {DataService} from "../../../core/services/data.service";
 import {Apartment} from "../../../core/models/apartment";
 
@@ -10,14 +10,13 @@ import {Apartment} from "../../../core/models/apartment";
 })
 
 
-
 export class ApartmentComponent {
-  id: string =""; // Переменная для хранения параметра
-  data:any;
+  id: string = ""; // Переменная для хранения параметра
+  data: any;
   public cards: Apartment[] = [];
   public apartment!: Apartment;
 
-  constructor(private route: ActivatedRoute ,  private dataService: DataService) {
+  constructor(private route: ActivatedRoute, private dataService: DataService) {
 
   }
 
@@ -25,9 +24,9 @@ export class ApartmentComponent {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') || '';
 
-       this.dataService.getData(this.id).subscribe(data => {
-         this.data = data;
-       });
+      this.dataService.getData(this.id).subscribe(data => {
+        this.data = data;
+      });
 
       this.dataService.getApartment(this.id).subscribe({
         next: (data: any): void => {
@@ -36,7 +35,8 @@ export class ApartmentComponent {
         }
       })
 
-    this.apartment = {
+      this.apartment = {
+        id:1001,
         room: '1 комната',
         square: '30 м²',
         type_build: 'кирпичный',
@@ -44,15 +44,17 @@ export class ApartmentComponent {
         kitchen: '6 м²',
         roof: 'мансарда',
         date_release: '2020-01-01',
-        height_roof:"4 m",
+        height_roof: "4 m",
         parking: "подземная",
-        company:""
+        company: "",
+        price:6300000
       };
 
-      let x = 0;
-      while (x <3) {
+      let x:number = 0;
+      while (x < 3) {
         this.cards.push({
           company: "",
+          id:x,
           height_roof: "",
           parking: "",
           room: '1 комната',
@@ -61,7 +63,8 @@ export class ApartmentComponent {
           address: 'ул. Ленина, д. 1',
           kitchen: '6 м²',
           roof: 'мансарда',
-          date_release: '2020-01-01'
+          date_release: '2020-01-01',
+          price:6300000
         });
         x++;
       }
@@ -70,7 +73,7 @@ export class ApartmentComponent {
     });
   }
 
-  showPhone(){
+  showPhone() {
     alert("Phone-number");
   }
 

@@ -21,6 +21,7 @@ export class FilterSearchComponent {
     let x = 0;
     while (x < 10) {
       this.apartments.push({
+        id: 0,
         company: "",
         room: '1 комната',
         square: '30 м²',

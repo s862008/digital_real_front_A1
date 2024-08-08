@@ -214,7 +214,7 @@
 
 .fp-label--check:checked + span {
   border: 0;
-  background: url(../img/checked.svg) left top no-repeat;
+  background: url(/assets/img/checked.svg) left top no-repeat;
 }
 
 .fp-input {

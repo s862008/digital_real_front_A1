@@ -10,7 +10,7 @@
   <div class="form-param__choosed">
     <div class="d-flex flex-wrap gap-3 justify-content-start align-content-start fp-choosed fp-choosed--temp"
          id="choosed-block">
-      <div class="fp-choosed__item"><span>{{param-choosed}}</span><span>X</span></div>
+      <div class="fp-choosed__item"><span> parametrs choosed </span><span>X</span></div>
 
     </div>
     <div class="d-flex justify-content-end"><a class="link--base"> Очистить </a></div>
@@ -1124,3 +1124,32 @@
     </svg>
   </div>
 </form>
+<script>
+
+  function listChecked() {
+    const checkedInputs = document.querySelectorAll('input[type="checkbox"]:checked');
+    let choosed = "";
+
+    checkedInputs.forEach(input => {
+
+      const lbl = input.parentNode.querySelector('.fp-label--tx').textContent;
+      const parent = input.parentNode.parentNode.querySelector('h4').innerText
+      const id = input.id;
+      choosed += "<div class='fp-choosed__item'><span>" + parent + " " + lbl.toLowerCase() + "</span><label for='" + id + "'>X</label></div>";
+
+    });
+    document.getElementById("choosed-block").innerHTML = choosed;
+  }
+
+  listChecked();
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function () {
+      // if (this.checked) {
+      listChecked();
+      // }
+    });
+  });
+
+
+</script>

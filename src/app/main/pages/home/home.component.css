@@ -85,39 +85,7 @@
   border-radius: 5px;
 }
 
-.my-listdown, .my-select {
-  display: inline-block;
-  border: 0px solid #999;
-  border-radius: 10px;
-  width: 182px;
-  height: 41px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  background: #fffefe;
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #174449;
-}
-.my-select--smpl {
-  border: 1px solid #999;
-  box-shadow: none ;
-}
 
-.my-select--filter{
-  width: 162px;
-  height: 32px;
-  font-size: 15px;
-}
-
-
-.my-select ~ svg {
-  display: inline-block;
-  font-weight: 900;
-  color: black;
-  top: -2px;
-  left: -1.8rem;
-  position: relative;
-
-}
 
 
 .my-btn-lg > .btn {

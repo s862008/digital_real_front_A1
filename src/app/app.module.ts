@@ -21,6 +21,7 @@ import {ApartmentComponent} from "./main/pages/apartment/apartment.component";
 import {HttpClientModule} from "@angular/common/http";
 import {DataService} from "./core/services/data.service";
 import {RComplexComponent} from "./main/pages/residential-complex/r-complex.component";
+import {SmartParametrsComponent} from "./main/components/smart-parametrs/smart-parametrs.component";
 
 
 
@@ -34,7 +35,8 @@ import {RComplexComponent} from "./main/pages/residential-complex/r-complex.comp
     BannerComponent,
     FilterSearchComponent,
     ApartmentComponent,
-    RComplexComponent
+    RComplexComponent,
+    SmartParametrsComponent
  ],
   imports: [
     BrowserModule,
