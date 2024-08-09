@@ -22,6 +22,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {DataService} from "./core/services/data.service";
 import {RComplexComponent} from "./main/pages/residential-complex/r-complex.component";
 import {SmartParametrsComponent} from "./main/components/smart-parametrs/smart-parametrs.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -40,6 +45,11 @@ import {SmartParametrsComponent} from "./main/components/smart-parametrs/smart-p
  ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
     CommonModule,
     DashboardModule,
     AdminModule,

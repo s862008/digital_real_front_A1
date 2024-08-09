@@ -126,6 +126,7 @@
   font-size: 32px;
   border-style: hidden;
   outline: none;
+  cursor: pointer;
 }
 
 .extended-filter span {

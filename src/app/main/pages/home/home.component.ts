@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {BannerComponent} from "../../components/banner/banner.component";
+import {MatDialog} from "@angular/material/dialog";
+import {SmartParametrsComponent} from "../../components/smart-parametrs/smart-parametrs.component";
+import {absoluteFrom} from "@angular/compiler-cli";
 
 
 @Component({
@@ -17,11 +20,20 @@ export class HomeComponent implements OnInit  {
   dt: string ="10.10.24";
   gk_cards: string[]= ['1','2'];
 
-  constructor() {
-    console.log('!!load Home-page!!')
+  constructor(private dialog: MatDialog) {}
+  ngOnInit(): void {}
+
+  openDialog() {
+    const dialogRef = this.dialog.open(SmartParametrsComponent,{height:'100%',width:'90%'});
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Данные из формы:', result);
+      }
+    });
   }
 
-  ngOnInit(): void {}
+
 
 
 

@@ -1,9 +1,12 @@
-<form class="form-param" action="search.html">
+<!--<h2 mat-dialog-title>Delete all elements?</h2>-->
+<!--<mat-dialog-content>-->
+<form class="form-param" [formGroup]="smartForm" (ngSubmit)="onSubmit()"  action="search.html">
+ <div class="container">
   <div class="form-param__title">
     <div class="row row-cols-2">
       <div class="col-11"><h1 class="title--h1">ПРИМЕНЕНИЕ УМНОГО ФИЛЬТРА</h1></div>
       <div class="col-1">
-        <button type="button" class="form__close btn-close" aria-label="Закрыть"></button>
+        <button type="button" class="form__close btn-close" aria-label="Закрыть" (click)="onCancel()"></button>
       </div>
     </div>
   </div>
@@ -1123,7 +1126,10 @@
       <path d="M36.0843 54.9908L49.5451 43.5796L60.5402 55.303" stroke="#174449" stroke-width="4"/>
     </svg>
   </div>
+ </div>
 </form>
+<!--</mat-dialog-content>-->
+
 <script>
 
   function listChecked() {
