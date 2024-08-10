@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 
@@ -10,7 +10,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 export class SmartParametrsComponent implements OnInit {
   smartForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<any>) {
+  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<any>,private cdRef: ChangeDetectorRef) {
     this.smartForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
@@ -57,18 +57,19 @@ export class SmartParametrsComponent implements OnInit {
       });
     });
 
-
   }
+  clearFilter(){
+    const checkboxes = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
 
-  clearFilter() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    console.log(checkboxes)
     checkboxes.forEach(checkbox => {
-      checkbox.removeAttribute('checked');
+      checkbox.checked = false; // Устанавливаем значение checked в false
     });
-    console.log("clear")
+
     this.listChecked();
+    this.cdRef.detectChanges();
+
   }
+
 
   onSubmit() {
     if (this.smartForm.valid) {
@@ -80,6 +81,7 @@ export class SmartParametrsComponent implements OnInit {
   onCancel() {
     this.dialogRef.close();
   }
+
 
 
 }
