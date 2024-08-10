@@ -249,6 +249,7 @@ ul, li {
   font-weight: 300;
   font-size: 24px;
   color: #106681;
+  cursor: pointer;
 }
 
 .text {

@@ -1,1161 +1,1130 @@
-<!--<h2 mat-dialog-title>Delete all elements?</h2>-->
-<!--<mat-dialog-content>-->
-<form class="form-param" [formGroup]="smartForm" (ngSubmit)="onSubmit()"  action="search.html">
- <div class="container">
-  <div class="form-param__title">
-    <div class="row row-cols-2">
-      <div class="col-11"><h1 class="title--h1">ПРИМЕНЕНИЕ УМНОГО ФИЛЬТРА</h1></div>
-      <div class="col-1">
-        <button type="button" class="form__close btn-close" aria-label="Закрыть" (click)="onCancel()"></button>
+<form class="form-param" [formGroup]="smartForm" (ngSubmit)="onSubmit()" action="search.html">
+  <div class="container">
+    <div class="form-param__title">
+      <div class="row row-cols-2">
+        <div class="col-11"><h1 class="title--h1" (click)="listChecked()">ПРИМЕНЕНИЕ УМНОГО ФИЛЬТРА</h1></div>
+        <div class="col-1">
+          <button type="button" class="form__close btn-close" aria-label="Закрыть" (click)="onCancel()"></button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="form-param__choosed">
-    <div class="d-flex flex-wrap gap-3 justify-content-start align-content-start fp-choosed fp-choosed--temp"
-         id="choosed-block">
-      <div class="fp-choosed__item"><span> parametrs choosed </span><span>X</span></div>
+    <div class="form-param__choosed">
+      <div class="d-flex flex-wrap gap-3 justify-content-start align-content-start fp-choosed fp-choosed--temp"
+           id="choosed-block">
+        <div class="fp-choosed__item"><span> parametrs choosed </span><span>X</span></div>
 
+      </div>
+      <div class="d-flex justify-content-end"><a class="link--base" (click)="clearFilter()"> Очистить </a></div>
     </div>
-    <div class="d-flex justify-content-end"><a class="link--base"> Очистить </a></div>
-  </div>
-  <hr>
-  <div class="form-param__filter fp-filter">
-    <h2 class="fp-filter__title title--h2">ВСЕ ФИЛЬТРЫ</h2>
-    <div class="fp-filter__items">
+    <hr>
+    <div class="form-param__filter fp-filter">
+      <h2 class="fp-filter__title title--h2">ВСЕ ФИЛЬТРЫ</h2>
+      <div class="fp-filter__items">
 
-      <div class="fp-filter__item fp-common">
-        <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
-            data-bs-target="#collapseCommon" aria-expanded="true" aria-controls="collapseCommon">
-          Общие
-          <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-          </svg>
-        </h3>
-        <div class="collapse collapse-horizontal show" id="collapseCommon">
+        <div class="fp-filter__item fp-common">
+          <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
+              data-bs-target="#collapseCommon" aria-expanded="true" aria-controls="collapseCommon">
+            Общие
+            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
+            </svg>
+          </h3>
+          <div class="collapse collapse-horizontal show" id="collapseCommon">
+            <div class="fp-filter-item__inner">
+              <div class="fp-common__type-build">
+                <h4 class="title--h4">Тип жилья</h4>
+                <div class="slider slider--temp">
+                  <input type="range" class="form-range" min="0" max="5" id="rt">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="ccvbfg">
+                  <span></span>
+                  <span class="fp-label--tx">Квартира</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="fgde">
+                  <span></span>
+                  <span class="fp-label--tx">Апартаменты</span>
+                </label>
+
+              </div>
+              <div class="fp-common__planner">
+                <h4 class="title--h4">Планировка</h4>
+                <div class="slider slider--temp">
+                  <input type="range" class="form-range" min="0" max="5" id="cvf">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="uit">
+                  <span></span>
+                  <span class="fp-label--tx">Смежная</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="gh">
+                  <span></span>
+                  <span class="fp-label--tx">Изолированная</span>
+                </label>
+              </div>
+              <div class="fp-common__roof">
+                <h4 class="title--h4">Этаж</h4>
+                <div class="slider slider--temp">
+                  <input type="range" class="form-range" min="0" max="5" id="ert">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <div class="d-flex flex-row justify-content-start gap-3 my-2">
+                  <input type="text" id="area-input" class="d-block fp-input fp-input--sm"
+                         placeholder="от">
+                  <input type="text" class="d-block fp-input fp-input--sm" placeholder="до">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="erff">
+                  <span></span>
+                  <span class="fp-label--tx">Не первый</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="webm">
+                  <span></span>
+                  <span class="fp-label--tx">Не последний</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="4rt">
+                  <span></span>
+                  <span class="fp-label--tx">Только последний</span>
+                </label>
+              </div>
+              <div class="fp-common__roof-in-build">
+                <h4 class="title--h4">Этажей в доме</h4>
+                <div class="slider slider--temp">
+                  <input type="range" class="form-range" min="0" max="5" id="856jh">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <div class="d-flex flex-row justify-content-between  my-2">
+                  <input type="text" id="gt5" class="d-block fp-input fp-input--long"
+                         placeholder="от">
+                  <input type="text" id="6yhtr" class="d-block fp-input fp-input--long"
+                         placeholder="до">
+                </div>
+                <select class="form-select fp-select" required aria-label="select example">
+                  <option value="">Выбрать застройщика</option>
+                  <option value="1">Один</option>
+                  <option value="2">Два</option>
+                  <option value="3">Три</option>
+                </select>
+
+                <select class="form-select fp-select" required aria-label="select example">
+                  <option value="">Исключить застройщика</option>
+                  <option value="1">Один</option>
+                  <option value="2">Два</option>
+                  <option value="3">Три</option>
+                </select>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fp-filter__item fp-common-gray">
+          <img alt="back-logo" class="banner__back-logo" src="./assets/img/back_baner_logo.png">
           <div class="fp-filter-item__inner">
-            <div class="fp-common__type-build">
-              <h4 class="title--h4">Тип жилья</h4>
-              <div class="slider slider--temp">
-                <input type="range" class="form-range" min="0" max="5" id="rt">
+            <div class="fp-cmn-gray__square">
+              <div class="slider">
+                <h4 class="title--h4">Площадь</h4>
+                <input type="range" class="form-range" min="0" max="5" id="tne54">
                 <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
               </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="ccvbfg">
-                <span></span>
-                <span class="fp-label--tx">Квартира</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="fgde">
-                <span></span>
-                <span class="fp-label--tx">Апартаменты</span>
-              </label>
-
-            </div>
-            <div class="fp-common__planner">
-              <h4 class="title--h4">Планировка</h4>
-              <div class="slider slider--temp">
-                <input type="range" class="form-range" min="0" max="5" id="cvf">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="uit">
-                <span></span>
-                <span class="fp-label--tx">Смежная</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="gh">
-                <span></span>
-                <span class="fp-label--tx">Изолированная</span>
-              </label>
-            </div>
-            <div class="fp-common__roof">
-              <h4 class="title--h4">Этаж</h4>
-              <div class="slider slider--temp">
-                <input type="range" class="form-range" min="0" max="5" id="ert">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <div class="d-flex flex-row justify-content-start gap-3 my-2">
-                <input type="text" id="area-input" class="d-block fp-input fp-input--sm"
-                       placeholder="от">
-                <input type="text" class="d-block fp-input fp-input--sm" placeholder="до">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="erff">
-                <span></span>
-                <span class="fp-label--tx">Не первый</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="webm">
-                <span></span>
-                <span class="fp-label--tx">Не последний</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="4rt">
-                <span></span>
-                <span class="fp-label--tx">Только последний</span>
-              </label>
-            </div>
-            <div class="fp-common__roof-in-build">
-              <h4 class="title--h4">Этажей в доме</h4>
-              <div class="slider slider--temp">
-                <input type="range" class="form-range" min="0" max="5" id="856jh">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
+              <p class="fp-label--tx">Общая</p>
               <div class="d-flex flex-row justify-content-between  my-2">
-                <input type="text" id="gt5" class="d-block fp-input fp-input--long"
+                <input type="text" id="он" class="d-block fp-input fp-input--base "
                        placeholder="от">
-                <input type="text" id="6yhtr" class="d-block fp-input fp-input--long"
+                <input type="text" id="гше" class="d-block fp-input fp-input--base "
                        placeholder="до">
               </div>
-              <select class="form-select fp-select" required aria-label="select example">
-                <option value="">Выбрать застройщика</option>
-                <option value="1">Один</option>
-                <option value="2">Два</option>
-                <option value="3">Три</option>
-              </select>
-
-              <select class="form-select fp-select" required aria-label="select example">
-                <option value="">Исключить застройщика</option>
-                <option value="1">Один</option>
-                <option value="2">Два</option>
-                <option value="3">Три</option>
-              </select>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fp-filter__item fp-common-gray">
-        <img alt="back-logo" class="banner__back-logo" src="img/back_baner_logo.png">
-        <div class="fp-filter-item__inner">
-          <div class="fp-cmn-gray__square">
-            <div class="slider">
-              <h4 class="title--h4">Площадь</h4>
-              <input type="range" class="form-range" min="0" max="5" id="tne54">
-              <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-            </div>
-            <p class="fp-label--tx">Общая</p>
-            <div class="d-flex flex-row justify-content-between  my-2">
-              <input type="text" id="он" class="d-block fp-input fp-input--base "
-                     placeholder="от">
-              <input type="text" id="гше" class="d-block fp-input fp-input--base "
-                     placeholder="до">
-            </div>
-            <p class="fp-label--tx">Жилая</p>
-            <div class="d-flex flex-row justify-content-between  my-2">
-              <input type="text" id="гнур7" class="d-block fp-input fp-input--base "
-                     placeholder="от">
-              <input type="text" id="4ny" class="d-block fp-input fp-input--base "
-                     placeholder="до">
-            </div>
-            <p class="fp-label--tx">Кухня</p>
-            <div class="d-flex flex-row justify-content-between  my-2">
-              <input type="text" id="е5но" class="d-block fp-input fp-input--base "
-                     placeholder="от">
-              <input type="text" id="е5" class="d-block fp-input fp-input--base "
-                     placeholder="до">
-            </div>
-          </div>
-          <div class="fp-cmn-gray__cost">
-            <div class="slider">
-              <h4 class="title--h4">Стоимость, P</h4>
-              <input type="range" class="form-range" min="0" max="5" id="ntye">
-              <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-            </div>
-
-            <div class="d-flex flex-row justify-content-between">
-              <input type="text" id="tern" class="d-block fp-input fp-input--base "
-                     placeholder="от">
-              <input type="text" id="ty48" class="d-block fp-input fp-input--base "
-                     placeholder="до">
-            </div>
-          </div>
-          <div class="fp-cmn-gray__price">
-            <div class="slider">
-              <h4 class="title--h4">Цена за, м<sup>2</sup></h4>
-              <input type="range" class="form-range" min="0" max="5" id="567tyr">
-              <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-            </div>
-
-            <div class="d-flex flex-row justify-content-between">
-              <input type="text" id="m6r7" class="d-block fp-input fp-input--base "
-                     placeholder="от">
-              <input type="text" id="eyue47y" class="d-block fp-input fp-input--base "
-                     placeholder="до">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fp-filter__item fp-about-apart">
-        <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
-            data-bs-target="#collapseAboutApart" aria-expanded="true"
-            aria-controls="collapseAboutApart">
-          О квартире
-          <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-          </svg>
-        </h3>
-        <div class="collapse collapse-horizontal show" id="collapseAboutApart">
-          <div class="fp-filter-item__inner">
-            <div class="fp-about-apart__count-room">
-              <h4 class="title--h4">Количество комнат</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="8td">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="brty">
-                <span></span>
-                <span class="fp-label--tx">Студия</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="nd66">
-                <span></span>
-                <span class="fp-label--tx">1 комната</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="rty54">
-                <span></span>
-                <span class="fp-label--tx">Еврооднушка</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="rn4">
-                <span></span>
-                <span class="fp-label--tx">2 комнаты</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="rn44">
-                <span></span>
-                <span class="fp-label--tx">Евродвушка</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="5nd">
-                <span></span>
-                <span class="fp-label--tx">3 комнаты</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="fn5">
-                <span></span>
-                <span class="fp-label--tx">Евротрешка</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="rn4y">
-                <span></span>
-                <span class="fp-label--tx">4 комнаты</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="57457f">
-                <span></span>
-                <span class="fp-label--tx">5 комнат и более</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="n44">
-                <span></span>
-                <span class="fp-label--tx">Свободная планировка</span>
-              </label>
-
-            </div>
-            <div class="fp-about-apart__view">
-              <h4 class="title--h4">Вид из окна</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="456y">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="rytr">
-                <span></span>
-                <span class="fp-label--tx">Во двор</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="h56">
-                <span></span>
-                <span class="fp-label--tx">На улицу</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="hfty54">
-                <span></span>
-                <span class="fp-label--tx">На солнечную сторону</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="r5ty4">
-                <span></span>
-                <span class="fp-label--tx">На две стороны</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="rt3y">
-                <span></span>
-                <span class="fp-label--tx">Западная сторона</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="8y9789">
-                <span></span>
-                <span class="fp-label--tx">Северная сторона</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="5567f">
-                <span></span>
-                <span class="fp-label--tx">Южная сторона</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="asdar">
-                <span></span>
-                <span class="fp-label--tx">Восточная сторона</span>
-              </label>
-            </div>
-            <div class="fp-about-apart__balcony-type">
-              <h4 class="title--h4">Балкон</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="ad73">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="sdr45">
-                <span></span>
-                <span class="fp-label--tx">Балкон</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="ad3">
-                <span></span>
-                <span class="fp-label--tx">Лоджия</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="xc33">
-                <span></span>
-                <span class="fp-label--tx">Утепленый балкон</span>
-              </label>
-            </div>
-            <div class="fp-about-apart__bathroom">
-              <h4 class="title--h4">Санузел</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="zr63">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="zcd3e">
-                <span></span>
-                <span class="fp-label--tx">Совмещенный</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="zasw3">
-                <span></span>
-                <span class="fp-label--tx">Разделенный</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="axc334">
-                <span></span>
-                <span class="fp-label--tx">2 и более</span>
-              </label>
-            </div>
-            <div class="fp-about-apart__stove">
-              <h4 class="title--h4">Плита на кухне</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="zxsa33">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="zasd43">
-                <span></span>
-                <span class="fp-label--tx">Газовая</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="szxza3">
-                <span></span>
-                <span class="fp-label--tx">Электрическая</span>
-              </label>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fp-filter__item fp-finishing">
-        <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
-            data-bs-target="#collapseFinishing" aria-expanded="true" aria-controls="collapseFinishing">
-          Отделка и ремонт
-          <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-          </svg>
-        </h3>
-        <div class="collapse collapse-horizontal show" id="collapseFinishing">
-          <div class="fp-filter-item__inner">
-            <div class="fp-finishing__main">
-              <h4 class="title--h4">Отделка</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="xcvwe">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="dsd4">
-                <span></span>
-                <span class="fp-label--tx">Предчистовая</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="sdf44">
-                <span></span>
-                <span class="fp-label--tx">Чистовая</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="gdg">
-                <span></span>
-                <span class="fp-label--tx">Эконом-класс</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="sf4">
-                <span></span>
-                <span class="fp-label--tx">Комфорт-класс</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="sse43">
-                <span></span>
-                <span class="fp-label--tx">Бизнес-класс</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="cvf4">
-                <span></span>
-                <span class="fp-label--tx">Без отделки</span>
-              </label>
-            </div>
-            <div class="fp-finishing__wall">
-              <h4 class="title--h4">Отделка стен</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="bvdcg">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="bxfff">
-                <span></span>
-                <span class="fp-label--tx">Обои</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="bdfdr">
-                <span></span>
-                <span class="fp-label--tx">Краска</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="bdfg">
-                <span></span>
-                <span class="fp-label--tx">Панели</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="drr7896">
-                <span></span>
-                <span class="fp-label--tx">Линкруст</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="hh46">
-                <span></span>
-                <span class="fp-label--tx">Декоративная штукатурка</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="fg55">
-                <span></span>
-                <span class="fp-label--tx">Декоративный кирпич</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="dfg5">
-                <span></span>
-                <span class="fp-label--tx">Без покрытия</span>
-              </label>
-            </div>
-            <div class="fp-finishing__ceiling">
-              <h4 class="title--h4">Отделка потолка</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="cdf">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="cdfg">
-                <span></span>
-                <span class="fp-label--tx">Побелка</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="4ty">
-                <span></span>
-                <span class="fp-label--tx">Покраска</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="b34">
-                <span></span>
-                <span class="fp-label--tx">Потолочная плитка</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="93d">
-                <span></span>
-                <span class="fp-label--tx">Подвесной потолок</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="l076">
-                <span></span>
-                <span class="fp-label--tx">Натяжной потолок</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="dscfasf">
-                <span></span>
-                <span class="fp-label--tx">Без покрытия</span>
-              </label>
-            </div>
-            <div class="fp-finishing__floor">
-              <h4 class="title--h4">Покрытие пола</h4>
-              <div class="slider slider--temp">
-                <input type="range" class="form-range" min="0" max="5" id="cdfz">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="cwfc">
-                <span></span>
-                <span class="fp-label--tx">Линолеум</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="cdd">
-                <span></span>
-                <span class="fp-label--tx">Ламинат</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="cdwqz">
-                <span></span>
-                <span class="fp-label--tx">Паркет</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="zxcs">
-                <span></span>
-                <span class="fp-label--tx">Керамогранит</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="zbvfrrt">
-                <span></span>
-                <span class="fp-label--tx">Кварцвинил</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="zert">
-                <span></span>
-                <span class="fp-label--tx">Без покрытия</span>
-              </label>
-            </div>
-            <div class="fp-finishing__type">
-              <h4 class="title--h4">Ремонт</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="ti5">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="tuer4">
-                <span></span>
-                <span class="fp-label--tx">Косметический</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="ret45">
-                <span></span>
-                <span class="fp-label--tx">Евро</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="gre5">
-                <span></span>
-                <span class="fp-label--tx">Дизайнерский</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="gety43">
-                <span></span>
-                <span class="fp-label--tx">Без ремонта</span>
-              </label>
-
-            </div>
-            <div class="fp-finishing__glazing">
-              <h4 class="title--h4">Остекление балкона/лоджии</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="fggr">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="gfe">
-                <span></span>
-                <span class="fp-label--tx">ПВХ</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="gfr">
-                <span></span>
-                <span class="fp-label--tx">Алюминий</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="grrt">
-                <span></span>
-                <span class="fp-label--tx">Витражное остекление</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="gffe">
-                <span></span>
-                <span class="fp-label--tx">Без остекления</span>
-              </label>
-
-            </div>
-            <div class="fp-finishing__bath">
-              <h4 class="title--h4">Отделка санузла</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="g5re">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="je3">
-                <span></span>
-                <span class="fp-label--tx">Без отделки</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="ethdx">
-                <span></span>
-                <span class="fp-label--tx">С отделкой</span>
-              </label>
-
-            </div>
-            <div class="fp-finishing__radiator">
-              <h4 class="title--h4">Радиоторы</h4>
-              <div class="slider slider--temp">
-                <input type="range" class="form-range" min="0" max="5" id="custnge2">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="27">
-                <span></span>
-                <span class="fp-label--tx">Биметал</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="674">
-                <span></span>
-                <span class="fp-label--tx">Стальные</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="989">
-                <span></span>
-                <span class="fp-label--tx">Алюминивые</span>
-              </label>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="fp-filter__item fp-about-build">
-        <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
-            data-bs-target="#collapseAboutBuild" aria-expanded="true"
-            aria-controls="collapseAboutBuild">
-          О доме
-          <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-          </svg>
-        </h3>
-        <div class="collapse collapse-horizontal show" id="collapseAboutBuild">
-          <div class="fp-filter-item__inner">
-            <div class="fp-about-build__type">
-              <h4 class="title--h4">Тип дома</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="67">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="tyn4">
-                <span></span>
-                <span class="fp-label--tx">Кирпичный</span>
-                <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="n456">
-                <span></span>
-                <span class="fp-label--tx">Монолитный</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="fny63">
-                <span></span>
-                <span class="fp-label--tx">Панельный</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="65756yg">
-                <span></span>
-                <span class="fp-label--tx">Кирпично-монолитный</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="7756">
-                <span></span>
-                <span class="fp-label--tx">Блочный</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="9933">
-                <span></span>
-                <span class="fp-label--tx">Другой</span>
-                <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </label>
-            </div>
-            <div class="fp-about-build__class">
-              <h4 class="title--h4 d-inline-block">Класс цифровизации дома</h4>
-              <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="e7">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="vew44">
-                <span></span>
-                <span class="fp-label--tx">A</span>
-                <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="fgh56">
-                <span></span>
-                <span class="fp-label--tx">B</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="rth479">
-                <span></span>
-                <span class="fp-label--tx">C</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="4567grt">
-                <span></span>
-                <span class="fp-label--tx">D</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="4568rrf">
-                <span></span>
-                <span class="fp-label--tx">E</span>
-              </label>
-            </div>
-            <div class="fp-about-build__seismic">
-              <h4 class="title--h4">Сейсмоустойчивость</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="6jyy7">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="ms4">
-                <span></span>
-                <span class="fp-label--tx">до 5 баллов</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="rtmy">
-                <span></span>
-                <span class="fp-label--tx">до 6 баллов</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="fgff">
-                <span></span>
-                <span class="fp-label--tx">7 и выше</span>
-              </label>
-            </div>
-            <div class="fp-about-build__date">
-              <h4 class="title--h4">Срок сдачи</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="6j7">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
+              <p class="fp-label--tx">Жилая</p>
               <div class="d-flex flex-row justify-content-between  my-2">
-                <input type="text" id="g8" class="d-block fp-input fp-input--long"
-                       placeholder="2024">
-                <input type="text" id="r5" class="d-block fp-input fp-input--long"
-                       placeholder="2025">
+                <input type="text" id="гнур7" class="d-block fp-input fp-input--base "
+                       placeholder="от">
+                <input type="text" id="4ny" class="d-block fp-input fp-input--base "
+                       placeholder="до">
               </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="msfgf">
-                <span></span>
-                <span class="fp-label--tx">Квартал</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="34t">
-                <span></span>
-                <span class="fp-label--tx">Год</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="rtart">
-                <span></span>
-                <span class="fp-label--tx">Дом сдан</span>
-              </label>
-            </div>
-            <div class="fp-about-build__height-floor">
-              <h4 class="title--h4">Высота потолков</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="6jhj7">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="msj4">
-                <span></span>
-                <span class="fp-label--tx">от 2.7м</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="we">
-                <span></span>
-                <span class="fp-label--tx">до 2.7м</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="3">
-                <span></span>
-                <span class="fp-label--tx">от 3м</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="3k">
-                <span></span>
-                <span class="fp-label--tx">от 3.5м</span>
-              </label>
-            </div>
-            <div class="fp-about-build__count-elevator">
-              <h4 class="title--h4">Количество лифтов</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="6hj7">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="sj4">
-                <span></span>
-                <span class="fp-label--tx">1</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="wge">
-                <span></span>
-                <span class="fp-label--tx">2</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="3o">
-                <span></span>
-                <span class="fp-label--tx">3 и более</span>
-              </label>
-            </div>
-            <div class="fp-about-build__smart-home">
-              <h4 class="title--h4">Умный дом</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="hj7">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="j4">
-                <span></span>
-                <span class="fp-label--tx">Да</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="ge">
-                <span></span>
-                <span class="fp-label--tx">Нет</span>
-              </label>
-            </div>
-            <div class="fp-about-build__count-apart">
-              <h4 class="title--h4">Количество квартир на этаже</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="6uj7">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
+              <p class="fp-label--tx">Кухня</p>
               <div class="d-flex flex-row justify-content-between  my-2">
-                <input type="text" id="75" class="d-block fp-input fp-input--long"
-                       placeholder="2">
-                <input type="text" id="ki8" class="d-block fp-input fp-input--long"
-                       placeholder="5">
+                <input type="text" id="е5но" class="d-block fp-input fp-input--base "
+                       placeholder="от">
+                <input type="text" id="е5" class="d-block fp-input fp-input--base "
+                       placeholder="до">
+              </div>
+            </div>
+            <div class="fp-cmn-gray__cost">
+              <div class="slider">
+                <h4 class="title--h4">Стоимость, P</h4>
+                <input type="range" class="form-range" min="0" max="5" id="ntye">
+                <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
               </div>
 
-            </div>
-            <div class="fp-about-build__elevator">
-              <h4 class="title--h4">Лифт</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="6nhj7">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+              <div class="d-flex flex-row justify-content-between">
+                <input type="text" id="tern" class="d-block fp-input fp-input--base "
+                       placeholder="от">
+                <input type="text" id="ty48" class="d-block fp-input fp-input--base "
+                       placeholder="до">
               </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="swj4">
-                <span></span>
-                <span class="fp-label--tx">Пассажирский</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="wg3e">
-                <span></span>
-                <span class="fp-label--tx">Грузовой</span>
-              </label>
             </div>
-            <div class="fp-about-build__boiler">
-              <h4 class="title--h4">Своя котельная</h4>
+            <div class="fp-cmn-gray__price">
               <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="6nш">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                <h4 class="title--h4">Цена за, м<sup>2</sup></h4>
+                <input type="range" class="form-range" min="0" max="5" id="567tyr">
+                <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
               </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="sмwj4">
-                <span></span>
-                <span class="fp-label--tx">Да</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="wg3цe">
-                <span></span>
-                <span class="fp-label--tx">Нет</span>
-              </label>
+
+              <div class="d-flex flex-row justify-content-between">
+                <input type="text" id="m6r7" class="d-block fp-input fp-input--base "
+                       placeholder="от">
+                <input type="text" id="eyue47y" class="d-block fp-input fp-input--base "
+                       placeholder="до">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fp-filter__item fp-about-apart">
+          <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
+              data-bs-target="#collapseAboutApart" aria-expanded="true"
+              aria-controls="collapseAboutApart">
+            О квартире
+            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
+            </svg>
+          </h3>
+          <div class="collapse collapse-horizontal show" id="collapseAboutApart">
+            <div class="fp-filter-item__inner">
+              <div class="fp-about-apart__count-room">
+                <h4 class="title--h4">Количество комнат</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="8td">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="brty">
+                  <span></span>
+                  <span class="fp-label--tx">Студия</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="nd66">
+                  <span></span>
+                  <span class="fp-label--tx">1 комната</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="rty54">
+                  <span></span>
+                  <span class="fp-label--tx">Еврооднушка</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="rn4">
+                  <span></span>
+                  <span class="fp-label--tx">2 комнаты</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="rn44">
+                  <span></span>
+                  <span class="fp-label--tx">Евродвушка</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="5nd">
+                  <span></span>
+                  <span class="fp-label--tx">3 комнаты</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="fn5">
+                  <span></span>
+                  <span class="fp-label--tx">Евротрешка</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="rn4y">
+                  <span></span>
+                  <span class="fp-label--tx">4 комнаты</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="57457f">
+                  <span></span>
+                  <span class="fp-label--tx">5 комнат и более</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="n44">
+                  <span></span>
+                  <span class="fp-label--tx">Свободная планировка</span>
+                </label>
+
+              </div>
+              <div class="fp-about-apart__view">
+                <h4 class="title--h4">Вид из окна</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="456y">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="rytr">
+                  <span></span>
+                  <span class="fp-label--tx">Во двор</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="h56">
+                  <span></span>
+                  <span class="fp-label--tx">На улицу</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="hfty54">
+                  <span></span>
+                  <span class="fp-label--tx">На солнечную сторону</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="r5ty4">
+                  <span></span>
+                  <span class="fp-label--tx">На две стороны</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="rt3y">
+                  <span></span>
+                  <span class="fp-label--tx">Западная сторона</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="8y9789">
+                  <span></span>
+                  <span class="fp-label--tx">Северная сторона</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="5567f">
+                  <span></span>
+                  <span class="fp-label--tx">Южная сторона</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="asdar">
+                  <span></span>
+                  <span class="fp-label--tx">Восточная сторона</span>
+                </label>
+              </div>
+              <div class="fp-about-apart__balcony-type">
+                <h4 class="title--h4">Балкон</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="ad73">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="sdr45">
+                  <span></span>
+                  <span class="fp-label--tx">Балкон</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="ad3">
+                  <span></span>
+                  <span class="fp-label--tx">Лоджия</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="xc33">
+                  <span></span>
+                  <span class="fp-label--tx">Утепленый балкон</span>
+                </label>
+              </div>
+              <div class="fp-about-apart__bathroom">
+                <h4 class="title--h4">Санузел</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="zr63">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="zcd3e">
+                  <span></span>
+                  <span class="fp-label--tx">Совмещенный</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="zasw3">
+                  <span></span>
+                  <span class="fp-label--tx">Разделенный</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="axc334">
+                  <span></span>
+                  <span class="fp-label--tx">2 и более</span>
+                </label>
+              </div>
+              <div class="fp-about-apart__stove">
+                <h4 class="title--h4">Плита на кухне</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="zxsa33">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="zasd43">
+                  <span></span>
+                  <span class="fp-label--tx">Газовая</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="szxza3">
+                  <span></span>
+                  <span class="fp-label--tx">Электрическая</span>
+                </label>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fp-filter__item fp-finishing">
+          <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
+              data-bs-target="#collapseFinishing" aria-expanded="true" aria-controls="collapseFinishing">
+            Отделка и ремонт
+            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
+            </svg>
+          </h3>
+          <div class="collapse collapse-horizontal show" id="collapseFinishing">
+            <div class="fp-filter-item__inner">
+              <div class="fp-finishing__main">
+                <h4 class="title--h4">Отделка</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="xcvwe">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="dsd4">
+                  <span></span>
+                  <span class="fp-label--tx">Предчистовая</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="sdf44">
+                  <span></span>
+                  <span class="fp-label--tx">Чистовая</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="gdg">
+                  <span></span>
+                  <span class="fp-label--tx">Эконом-класс</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="sf4">
+                  <span></span>
+                  <span class="fp-label--tx">Комфорт-класс</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="sse43">
+                  <span></span>
+                  <span class="fp-label--tx">Бизнес-класс</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="cvf4">
+                  <span></span>
+                  <span class="fp-label--tx">Без отделки</span>
+                </label>
+              </div>
+              <div class="fp-finishing__wall">
+                <h4 class="title--h4">Отделка стен</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="bvdcg">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="bxfff">
+                  <span></span>
+                  <span class="fp-label--tx">Обои</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="bdfdr">
+                  <span></span>
+                  <span class="fp-label--tx">Краска</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="bdfg">
+                  <span></span>
+                  <span class="fp-label--tx">Панели</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="drr7896">
+                  <span></span>
+                  <span class="fp-label--tx">Линкруст</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="hh46">
+                  <span></span>
+                  <span class="fp-label--tx">Декоративная штукатурка</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="fg55">
+                  <span></span>
+                  <span class="fp-label--tx">Декоративный кирпич</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="dfg5">
+                  <span></span>
+                  <span class="fp-label--tx">Без покрытия</span>
+                </label>
+              </div>
+              <div class="fp-finishing__ceiling">
+                <h4 class="title--h4">Отделка потолка</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="cdf">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="cdfg">
+                  <span></span>
+                  <span class="fp-label--tx">Побелка</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="4ty">
+                  <span></span>
+                  <span class="fp-label--tx">Покраска</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="b34">
+                  <span></span>
+                  <span class="fp-label--tx">Потолочная плитка</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="93d">
+                  <span></span>
+                  <span class="fp-label--tx">Подвесной потолок</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="l076">
+                  <span></span>
+                  <span class="fp-label--tx">Натяжной потолок</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="dscfasf">
+                  <span></span>
+                  <span class="fp-label--tx">Без покрытия</span>
+                </label>
+              </div>
+              <div class="fp-finishing__floor">
+                <h4 class="title--h4">Покрытие пола</h4>
+                <div class="slider slider--temp">
+                  <input type="range" class="form-range" min="0" max="5" id="cdfz">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="cwfc">
+                  <span></span>
+                  <span class="fp-label--tx">Линолеум</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="cdd">
+                  <span></span>
+                  <span class="fp-label--tx">Ламинат</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="cdwqz">
+                  <span></span>
+                  <span class="fp-label--tx">Паркет</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="zxcs">
+                  <span></span>
+                  <span class="fp-label--tx">Керамогранит</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="zbvfrrt">
+                  <span></span>
+                  <span class="fp-label--tx">Кварцвинил</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="zert">
+                  <span></span>
+                  <span class="fp-label--tx">Без покрытия</span>
+                </label>
+              </div>
+              <div class="fp-finishing__type">
+                <h4 class="title--h4">Ремонт</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="ti5">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="tuer4">
+                  <span></span>
+                  <span class="fp-label--tx">Косметический</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="ret45">
+                  <span></span>
+                  <span class="fp-label--tx">Евро</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="gre5">
+                  <span></span>
+                  <span class="fp-label--tx">Дизайнерский</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="gety43">
+                  <span></span>
+                  <span class="fp-label--tx">Без ремонта</span>
+                </label>
+
+              </div>
+              <div class="fp-finishing__glazing">
+                <h4 class="title--h4">Остекление балкона/лоджии</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="fggr">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="gfe">
+                  <span></span>
+                  <span class="fp-label--tx">ПВХ</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="gfr">
+                  <span></span>
+                  <span class="fp-label--tx">Алюминий</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="grrt">
+                  <span></span>
+                  <span class="fp-label--tx">Витражное остекление</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="gffe">
+                  <span></span>
+                  <span class="fp-label--tx">Без остекления</span>
+                </label>
+
+              </div>
+              <div class="fp-finishing__bath">
+                <h4 class="title--h4">Отделка санузла</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="g5re">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="je3">
+                  <span></span>
+                  <span class="fp-label--tx">Без отделки</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="ethdx">
+                  <span></span>
+                  <span class="fp-label--tx">С отделкой</span>
+                </label>
+
+              </div>
+              <div class="fp-finishing__radiator">
+                <h4 class="title--h4">Радиоторы</h4>
+                <div class="slider slider--temp">
+                  <input type="range" class="form-range" min="0" max="5" id="custnge2">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="27">
+                  <span></span>
+                  <span class="fp-label--tx">Биметал</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="674">
+                  <span></span>
+                  <span class="fp-label--tx">Стальные</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="989">
+                  <span></span>
+                  <span class="fp-label--tx">Алюминивые</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="fp-filter__item fp-about-build">
+          <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
+              data-bs-target="#collapseAboutBuild" aria-expanded="true"
+              aria-controls="collapseAboutBuild">
+            О доме
+            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
+            </svg>
+          </h3>
+          <div class="collapse collapse-horizontal show" id="collapseAboutBuild">
+            <div class="fp-filter-item__inner">
+              <div class="fp-about-build__type">
+                <h4 class="title--h4">Тип дома</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="67">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="tyn4">
+                  <span></span>
+                  <span class="fp-label--tx">Кирпичный</span>
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="n456">
+                  <span></span>
+                  <span class="fp-label--tx">Монолитный</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="fny63">
+                  <span></span>
+                  <span class="fp-label--tx">Панельный</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="65756yg">
+                  <span></span>
+                  <span class="fp-label--tx">Кирпично-монолитный</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="7756">
+                  <span></span>
+                  <span class="fp-label--tx">Блочный</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="9933">
+                  <span></span>
+                  <span class="fp-label--tx">Другой</span>
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </label>
+              </div>
+              <div class="fp-about-build__class">
+                <h4 class="title--h4 d-inline-block">Класс цифровизации дома</h4>
+                <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="e7">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="vew44">
+                  <span></span>
+                  <span class="fp-label--tx">A</span>
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="fgh56">
+                  <span></span>
+                  <span class="fp-label--tx">B</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="rth479">
+                  <span></span>
+                  <span class="fp-label--tx">C</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="4567grt">
+                  <span></span>
+                  <span class="fp-label--tx">D</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="4568rrf">
+                  <span></span>
+                  <span class="fp-label--tx">E</span>
+                </label>
+              </div>
+              <div class="fp-about-build__seismic">
+                <h4 class="title--h4">Сейсмоустойчивость</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="6jyy7">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="ms4">
+                  <span></span>
+                  <span class="fp-label--tx">до 5 баллов</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="rtmy">
+                  <span></span>
+                  <span class="fp-label--tx">до 6 баллов</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="fgff">
+                  <span></span>
+                  <span class="fp-label--tx">7 и выше</span>
+                </label>
+              </div>
+              <div class="fp-about-build__date">
+                <h4 class="title--h4">Срок сдачи</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="6j7">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <div class="d-flex flex-row justify-content-between  my-2">
+                  <input type="text" id="g8" class="d-block fp-input fp-input--long"
+                         placeholder="2024">
+                  <input type="text" id="r5" class="d-block fp-input fp-input--long"
+                         placeholder="2025">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="msfgf">
+                  <span></span>
+                  <span class="fp-label--tx">Квартал</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="34t">
+                  <span></span>
+                  <span class="fp-label--tx">Год</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="rtart">
+                  <span></span>
+                  <span class="fp-label--tx">Дом сдан</span>
+                </label>
+              </div>
+              <div class="fp-about-build__height-floor">
+                <h4 class="title--h4">Высота потолков</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="6jhj7">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="msj4">
+                  <span></span>
+                  <span class="fp-label--tx">от 2.7м</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="we">
+                  <span></span>
+                  <span class="fp-label--tx">до 2.7м</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="3">
+                  <span></span>
+                  <span class="fp-label--tx">от 3м</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="3k">
+                  <span></span>
+                  <span class="fp-label--tx">от 3.5м</span>
+                </label>
+              </div>
+              <div class="fp-about-build__count-elevator">
+                <h4 class="title--h4">Количество лифтов</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="6hj7">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="sj4">
+                  <span></span>
+                  <span class="fp-label--tx">1</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="wge">
+                  <span></span>
+                  <span class="fp-label--tx">2</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="3o">
+                  <span></span>
+                  <span class="fp-label--tx">3 и более</span>
+                </label>
+              </div>
+              <div class="fp-about-build__smart-home">
+                <h4 class="title--h4">Умный дом</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="hj7">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="j4">
+                  <span></span>
+                  <span class="fp-label--tx">Да</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="ge">
+                  <span></span>
+                  <span class="fp-label--tx">Нет</span>
+                </label>
+              </div>
+              <div class="fp-about-build__count-apart">
+                <h4 class="title--h4">Количество квартир на этаже</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="6uj7">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <div class="d-flex flex-row justify-content-between  my-2">
+                  <input type="text" id="75" class="d-block fp-input fp-input--long"
+                         placeholder="2">
+                  <input type="text" id="ki8" class="d-block fp-input fp-input--long"
+                         placeholder="5">
+                </div>
+
+              </div>
+              <div class="fp-about-build__elevator">
+                <h4 class="title--h4">Лифт</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="6nhj7">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="swj4">
+                  <span></span>
+                  <span class="fp-label--tx">Пассажирский</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="wg3e">
+                  <span></span>
+                  <span class="fp-label--tx">Грузовой</span>
+                </label>
+              </div>
+              <div class="fp-about-build__boiler">
+                <h4 class="title--h4">Своя котельная</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="6nш">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="sмwj4">
+                  <span></span>
+                  <span class="fp-label--tx">Да</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="wg3цe">
+                  <span></span>
+                  <span class="fp-label--tx">Нет</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fp-filter__item fp-comfort">
+          <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
+              data-bs-target="#collapseComfort" aria-expanded="true"
+              aria-controls="collapseComfort">
+            Комфорт жизни
+            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
+            </svg>
+          </h3>
+          <div class="collapse collapse-horizontal show" id="collapseComfort">
+            <div class="fp-filter-item__inner">
+              <div class="fp-comfort__nearby">
+                <h4 class="title--h4">Рядом</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="867">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="bdfgh">
+                  <span></span>
+                  <span class="fp-label--tx">ТЦ</span>
+                  <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="gdbbb">
+                  <span></span>
+                  <span class="fp-label--tx">Фитнес</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="345g">
+                  <span></span>
+                  <span class="fp-label--tx">Парк</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="g53nc">
+                  <span></span>
+                  <span class="fp-label--tx">Школа</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="57r6">
+                  <span></span>
+                  <span class="fp-label--tx">Детский сад</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="9w133">
+                  <span></span>
+                  <span class="fp-label--tx">Поликлинника</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="91p33">
+                  <span></span>
+                  <span class="fp-label--tx">Остановка</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="t9133">
+                  <span></span>
+                  <span class="fp-label--tx">Автосервис</span>
+                </label>
+              </div>
+              <div class="fp-comfort__parking">
+                <h4 class="title--h4 d-inline-block">Парковка</h4>
+                <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="et7">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="veyw44">
+                  <span></span>
+                  <span class="fp-label--tx">Подземная</span>
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="34kt">
+                  <span></span>
+                  <span class="fp-label--tx">Наземная многоуровневая</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="yu5">
+                  <span></span>
+                  <span class="fp-label--tx">Открытая во дворе</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="wetr">
+                  <span></span>
+                  <span class="fp-label--tx d-inline">Закрытая территория двора</span>
+                </label>
+              </div>
+              <div class="fp-comfort__courtyard">
+                <h4 class="title--h4">Закрытый двор</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="yt67">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="nyted">
+                  <span></span>
+                  <span class="fp-label--tx">Да</span>
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="faq">
+                  <span></span>
+                  <span class="fp-label--tx">Нет</span>
+                </label>
+              </div>
+              <div class="fp-comfort__furniture">
+                <h4 class="title--h4">Меблировка</h4>
+                <div class="slider">
+                  <input type="range" class="form-range" min="0" max="5" id="yи67">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </div>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="кеуа">
+                  <span></span>
+                  <span class="fp-label--tx">Без мебели</span>
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="мыа">
+                  <span></span>
+                  <span class="fp-label--tx">Мебель на кухне</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="кен">
+                  <span></span>
+                  <span class="fp-label--tx">Во всей квартире</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fp-filter__item fp-deal">
+          <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
+              data-bs-target="#collapseDeal" aria-expanded="true"
+              aria-controls="collapseDeal">
+            Сделка
+            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
+            </svg>
+          </h3>
+          <div class="collapse collapse-horizontal show" id="collapseDeal">
+            <div class="fp-filter-item__inner">
+              <div class="fp-deal__sale-type">
+                <h4 class="title--h4">Способ продажи</h4>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="ddu" id="ddu">
+                  <span></span>
+                  <span class="fp-label--tx">ДДУ</span>
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="dogovor">
+                  <span></span>
+                  <span class="fp-label--tx">Договор ЖСК</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="te5gh">
+                  <span></span>
+                  <span class="fp-label--tx">Переуступка</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="dkp">
+                  <span></span>
+                  <span class="fp-label--tx">ДКП</span>
+                </label>
+              </div>
+              <div class="fp-deal__warranty">
+                <h4 class="title--h4 d-inline-block">Гарантия на квартиру</h4>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="gveyw44">
+                  <span></span>
+                  <span class="fp-label--tx">Да</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="u34kt">
+                  <span></span>
+                  <span class="fp-label--tx">Нет</span>
+                </label>
+              </div>
+              <div class="fp-deal__online-booking">
+                <h4 class="title--h4">Онлайн-бронирование</h4>
+
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="nyfted">
+                  <span></span>
+                  <span class="fp-label--tx">Да</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="faqo">
+                  <span></span>
+                  <span class="fp-label--tx">Нет</span>
+                </label>
+              </div>
+              <div class="fp-deal__el-registration">
+                <h4 class="title--h4">Электронная регистрация сделки</h4>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="кiеуа">
+                  <span></span>
+                  <span class="fp-label--tx">Да</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="мыаu">
+                  <span></span>
+                  <span class="fp-label--tx">Нет</span>
+                </label>
+              </div>
+              <div class="fp-deal__promo">
+                <h4 class="title--h4">АКЦИИ</h4>
+                <label class="fp-label">
+                  <input class="fp-label--check" checked type="checkbox" name="" id="кjiеуа">
+                  <span></span>
+                  <span class="fp-label--tx">Да</span>
+                </label>
+                <label class="fp-label">
+                  <input class="fp-label--check" type="checkbox" name="" id="мыаuj">
+                  <span></span>
+                  <span class="fp-label--tx">Нет</span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="fp-filter__item fp-comfort">
-        <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
-            data-bs-target="#collapseComfort" aria-expanded="true"
-            aria-controls="collapseComfort">
-          Комфорт жизни
-          <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-          </svg>
-        </h3>
-        <div class="collapse collapse-horizontal show" id="collapseComfort">
-          <div class="fp-filter-item__inner">
-            <div class="fp-comfort__nearby">
-              <h4 class="title--h4">Рядом</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="867">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="bdfgh">
-                <span></span>
-                <span class="fp-label--tx">ТЦ</span>
-                <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="gdbbb">
-                <span></span>
-                <span class="fp-label--tx">Фитнес</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="345g">
-                <span></span>
-                <span class="fp-label--tx">Парк</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="g53nc">
-                <span></span>
-                <span class="fp-label--tx">Школа</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="57r6">
-                <span></span>
-                <span class="fp-label--tx">Детский сад</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="9w133">
-                <span></span>
-                <span class="fp-label--tx">Поликлинника</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="91p33">
-                <span></span>
-                <span class="fp-label--tx">Остановка</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="t9133">
-                <span></span>
-                <span class="fp-label--tx">Автосервис</span>
-              </label>
-            </div>
-            <div class="fp-comfort__parking">
-              <h4 class="title--h4 d-inline-block">Парковка</h4>
-              <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="et7">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="veyw44">
-                <span></span>
-                <span class="fp-label--tx">Подземная</span>
-                <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="34kt">
-                <span></span>
-                <span class="fp-label--tx">Наземная многоуровневая</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="yu5">
-                <span></span>
-                <span class="fp-label--tx">Открытая во дворе</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="wetr">
-                <span></span>
-                <span class="fp-label--tx d-inline">Закрытая территория двора</span>
-              </label>
-            </div>
-            <div class="fp-comfort__courtyard">
-              <h4 class="title--h4">Закрытый двор</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="yt67">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="nyted">
-                <span></span>
-                <span class="fp-label--tx">Да</span>
-                <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="faq">
-                <span></span>
-                <span class="fp-label--tx">Нет</span>
-              </label>
-            </div>
-            <div class="fp-comfort__furniture">
-              <h4 class="title--h4">Меблировка</h4>
-              <div class="slider">
-                <input type="range" class="form-range" min="0" max="5" id="yи67">
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </div>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="кеуа">
-                <span></span>
-                <span class="fp-label--tx">Без мебели</span>
-                <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="мыа">
-                <span></span>
-                <span class="fp-label--tx">Мебель на кухне</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="кен">
-                <span></span>
-                <span class="fp-label--tx">Во всей квартире</span>
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fp-filter__item fp-deal">
-        <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
-            data-bs-target="#collapseDeal" aria-expanded="true"
-            aria-controls="collapseDeal">
-          Сделка
-          <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-          </svg>
-        </h3>
-        <div class="collapse collapse-horizontal show" id="collapseDeal">
-          <div class="fp-filter-item__inner">
-            <div class="fp-deal__sale-type">
-              <h4 class="title--h4">Способ продажи</h4>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="ddu" id="ddu">
-                <span></span>
-                <span class="fp-label--tx">ДДУ</span>
-                <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="dogovor">
-                <span></span>
-                <span class="fp-label--tx">Договор ЖСК</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="te5gh">
-                <span></span>
-                <span class="fp-label--tx">Переуступка</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="dkp">
-                <span></span>
-                <span class="fp-label--tx">ДКП</span>
-              </label>
-            </div>
-            <div class="fp-deal__warranty">
-              <h4 class="title--h4 d-inline-block">Гарантия на квартиру</h4>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="gveyw44">
-                <span></span>
-                <span class="fp-label--tx">Да</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="u34kt">
-                <span></span>
-                <span class="fp-label--tx">Нет</span>
-              </label>
-            </div>
-            <div class="fp-deal__online-booking">
-              <h4 class="title--h4">Онлайн-бронирование</h4>
-
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="nyfted">
-                <span></span>
-                <span class="fp-label--tx">Да</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="faqo">
-                <span></span>
-                <span class="fp-label--tx">Нет</span>
-              </label>
-            </div>
-            <div class="fp-deal__el-registration">
-              <h4 class="title--h4">Электронная регистрация сделки</h4>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="кiеуа">
-                <span></span>
-                <span class="fp-label--tx">Да</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="мыаu">
-                <span></span>
-                <span class="fp-label--tx">Нет</span>
-              </label>
-            </div>
-            <div class="fp-deal__promo">
-              <h4 class="title--h4">АКЦИИ</h4>
-              <label class="fp-label">
-                <input class="fp-label--check" checked type="checkbox" name="" id="кjiеуа">
-                <span></span>
-                <span class="fp-label--tx">Да</span>
-              </label>
-              <label class="fp-label">
-                <input class="fp-label--check" type="checkbox" name="" id="мыаuj">
-                <span></span>
-                <span class="fp-label--tx">Нет</span>
-              </label>
-            </div>
-          </div>
-        </div>
+      <div class="d-flex flex-row justify-content-center">
+        <input type="submit" class="fp-submit" value="Подоборать обьекты">
+        <span class="flex-lg-grow-0 mx-2"></span>
+        <input type="reset" class="fp-reset" value="Сброс">
       </div>
     </div>
-    <div class="d-flex flex-row justify-content-center">
-      <input type="submit"  class="fp-submit" value="Подоборать обьекты">
-      <span class="flex-lg-grow-0 mx-2"></span>
-      <input type="reset" class="fp-reset" value="Сброс">
+    <div class="fp-scroll-top">
+      <svg width="96" height="100" viewBox="0 0 96 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M95.202 49.6186C95.202 76.7633 73.9853 98.7372 47.851 98.7372C21.7167 98.7372 0.5 76.7633 0.5 49.6186C0.5 22.4739 21.7167 0.5 47.851 0.5C73.9853 0.5 95.202 22.4739 95.202 49.6186Z"
+          stroke="#174449"/>
+        <path d="M36.0843 54.9908L49.5451 43.5796L60.5402 55.303" stroke="#174449" stroke-width="4"/>
+      </svg>
     </div>
   </div>
-  <div class="fp-scroll-top">
-    <svg width="96" height="100" viewBox="0 0 96 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M95.202 49.6186C95.202 76.7633 73.9853 98.7372 47.851 98.7372C21.7167 98.7372 0.5 76.7633 0.5 49.6186C0.5 22.4739 21.7167 0.5 47.851 0.5C73.9853 0.5 95.202 22.4739 95.202 49.6186Z"
-            stroke="#174449"/>
-      <path d="M36.0843 54.9908L49.5451 43.5796L60.5402 55.303" stroke="#174449" stroke-width="4"/>
-    </svg>
-  </div>
- </div>
 </form>
-<!--</mat-dialog-content>-->
 
-<script>
-
-  function listChecked() {
-    const checkedInputs = document.querySelectorAll('input[type="checkbox"]:checked');
-    let choosed = "";
-
-    checkedInputs.forEach(input => {
-
-      const lbl = input.parentNode.querySelector('.fp-label--tx').textContent;
-      const parent = input.parentNode.parentNode.querySelector('h4').innerText
-      const id = input.id;
-      choosed += "<div class='fp-choosed__item'><span>" + parent + " " + lbl.toLowerCase() + "</span><label for='" + id + "'>X</label></div>";
-
-    });
-    document.getElementById("choosed-block").innerHTML = choosed;
-  }
-
-  listChecked();
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
-      // if (this.checked) {
-      listChecked();
-      // }
-    });
-  });
-
-
-</script>
