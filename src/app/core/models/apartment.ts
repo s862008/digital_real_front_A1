@@ -3,8 +3,8 @@ export interface ApartmentWEB extends ApartmentShort{
 }
 
 export interface Apartment {
-  id:number;
-  room: string;
+  externalId:number;
+  quantityRooms: number;
   square:string;
   type_build:string;
   address:string;
@@ -17,8 +17,8 @@ export interface Apartment {
   price:number;
 }
 export interface ApartmentShort {
-  id:number;
-  room: string;
+  externalId:number;
+  quantityRooms: number;
   square:string;
   type_build:string;
   address:string;

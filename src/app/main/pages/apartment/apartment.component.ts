@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DataService} from "../../../core/services/data.service";
 import {Apartment} from "../../../core/models/apartment";
@@ -10,14 +10,28 @@ import {Apartment} from "../../../core/models/apartment";
 })
 
 
-export class ApartmentComponent {
+export class ApartmentComponent implements OnInit {
   id: string = ""; // Переменная для хранения параметра
   data: any;
+  rooms:string = "1 комната";
   public cards: Apartment[] = [];
-  public apartment!: Apartment;
-
+  public apartment: Apartment;
   constructor(private route: ActivatedRoute, private dataService: DataService) {
+    this.apartment = {
+      externalId:0,
+      quantityRooms:0,
+      square: '',
+      address: "",
+      company: "",
+      date_release: "",
+      height_roof: "",
+      kitchen: "",
+      parking: "",
+      price: 0,
+      roof: "",
+      type_build: ""
 
+    };
   }
 
   ngOnInit(): void {
@@ -30,45 +44,25 @@ export class ApartmentComponent {
 
       this.dataService.getApartment(this.id).subscribe({
         next: (data: any): void => {
+
+          this.apartment = data;
+          console.log(this.apartment);
+          if(this.apartment.quantityRooms>1){
+            this.rooms=this.apartment.quantityRooms+" комнаты"
+          }
+          if(this.apartment.quantityRooms>4){
+            this.rooms=this.apartment.quantityRooms+" комнат"
+          }
+        }
+
+      })
+
+      this.dataService.getSimillarApartments(this.id).subscribe({
+        next: (data: any): void => {
           this.correctStyleIndicators();
           this.cards = data;
         }
       })
-
-      this.apartment = {
-        id:1001,
-        room: '1 комната',
-        square: '30 м²',
-        type_build: 'кирпичный',
-        address: 'ул. Ленина, д. 1',
-        kitchen: '6 м²',
-        roof: 'мансарда',
-        date_release: '2020-01-01',
-        height_roof: "4 m",
-        parking: "подземная",
-        company: "",
-        price:6300000
-      };
-
-      let x:number = 0;
-      while (x < 3) {
-        this.cards.push({
-          company: "",
-          id:x,
-          height_roof: "",
-          parking: "",
-          room: '1 комната',
-          square: '30 м²',
-          type_build: 'монолит',
-          address: 'ул. Ленина, д. 1',
-          kitchen: '6 м²',
-          roof: 'мансарда',
-          date_release: '2020-01-01',
-          price:6300000
-        });
-        x++;
-      }
-
 
     });
   }

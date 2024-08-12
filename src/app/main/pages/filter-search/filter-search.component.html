@@ -176,12 +176,12 @@
           <div class="row">
             <div class="result-search__items">
 
-              <div class="result-search__item" *ngFor="let item of apartments; let i=index" [routerLink]="['/apartment', i]" >
+              <div class="result-search__item" *ngFor="let item of apartments; let i=index" [routerLink]="['/apartment', item.externalId]" >
                 <div class="r-item-img">
                   <img src="./assets/img/image 8.png">
                 </div>
                 <div class="r-item-info">
-                  <h2 class="r-item__title-info">{{item.room}} {{item.square}} </h2>
+                  <h2 class="r-item__title-info">{{item.quantityRooms}} {{item.square}} </h2>
                   <div class="r-item__type-build">{{item.type_build}}</div>
                   <div class="r-item__address">{{item.address}}</div>
                   <div class="r-item__categories">

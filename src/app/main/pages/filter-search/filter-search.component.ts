@@ -21,9 +21,9 @@ export class FilterSearchComponent {
     let x = 0;
     while (x < 10) {
       this.apartments.push({
-        id: 0,
+        externalId: 3332600+x,
         company: "",
-        room: '1 комната',
+        quantityRooms:0,
         square: '30 м²',
         type_build: 'монолит',
         address: 'ул. Ленина, д. 1',

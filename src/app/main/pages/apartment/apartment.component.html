@@ -6,7 +6,7 @@
           <div class="col-8">
             <div class="as__gallery-side">
               <h2 class="r-item__title-info px-3" style="margin-bottom: 30px ">
-                {{apartment.room}} {{id}} </h2>
+                {{rooms}} {{id}} </h2>
 
               <div class="btn-group" style="margin-bottom: 10px " role="group"
                    aria-label="Basic radio toggle button group">
@@ -34,7 +34,7 @@
           <div class="col-4">
             <div class="as__info-side">
               <div class="as__price-block">
-                <div class="price">6 076 000 ₽</div>
+                <div class="price">{{apartment.price}} ₽</div>
                 <div class="price-squad">77 205 <span> р/м<sup>2</sup></span></div>
               </div>
 
@@ -97,7 +97,7 @@
       <section class="apartment-similar">
         <h2 class="title"> Похожие квартиры {{data}}  </h2>
         <div class="d-flex flex-column">
-          <div class="cards-block__item" *ngFor="let item of cards" [routerLink]="['/apartment', item.room] ">
+          <div class="cards-block__item" *ngFor="let item of cards" [routerLink]="['/apartment', item.externalId] ">
             <div class="img-block">
               <img alt="img" routerlink="/apartment.html" style="cursor: pointer;"
                    src="https://stelinvest.ru/upload/iblock/f51/050bwd03si669vthe835po4tresfzgsw/1et_8_1pod_4_kv.jpg ">
@@ -105,7 +105,7 @@
 
             <div class="col r-item-info d-flex flex-column justify-content-between ">
 
-              <h2 class="r-item__title-info">{{item.room}} {{item.square}} </h2>
+              <h2 class="r-item__title-info">{{item.quantityRooms}},  {{item.square}} </h2>
 
               <div class="d-flex flex-column">
                 <div class="r-item__type-build">{{item.type_build}}</div>
