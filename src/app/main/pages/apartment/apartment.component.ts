@@ -16,6 +16,7 @@ export class ApartmentComponent implements OnInit {
   rooms:string = "1 комната";
   public cards: Apartment[] = [];
   public apartment: Apartment;
+  loading: boolean = true;
   constructor(private route: ActivatedRoute, private dataService: DataService) {
     this.apartment = {
       externalId:0,
@@ -53,6 +54,11 @@ export class ApartmentComponent implements OnInit {
           if(this.apartment.quantityRooms>4){
             this.rooms=this.apartment.quantityRooms+" комнат"
           }
+          this.loading=false
+        },
+        error:(err) =>{
+          console.error(err);
+          this.loading =false;
         }
 
       })
