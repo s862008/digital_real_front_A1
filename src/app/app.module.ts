@@ -27,6 +27,9 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatSliderModule} from "@angular/material/slider";
+import {SearchComponent} from "./main/pages/smart-search/search.component";
+
 
 
 
@@ -39,6 +42,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     ContainerComponent,
     BannerComponent,
     FilterSearchComponent,
+    SearchComponent,
     ApartmentComponent,
     RComplexComponent,
     SmartParametrsComponent
@@ -59,6 +63,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatSliderModule,
     MatToolbarModule,
     HttpClientModule
   ],

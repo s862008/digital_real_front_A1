@@ -5,6 +5,7 @@ import {FilterSearchComponent} from "./main/pages/filter-search/filter-search.co
 import {NgModule} from "@angular/core";
 import {NotFoundComponent} from "./main/pages/not-found/not-found.component";
 import {RComplexComponent} from "./main/pages/residential-complex/r-complex.component";
+import {SearchComponent} from "./main/pages/smart-search/search.component";
 
 export const routes: Routes = [
   {
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path: 'filter-search',
     component:FilterSearchComponent
+  },
+  {
+    path: 'smart-search',
+    component: SearchComponent
   },
   {
     path: '**',

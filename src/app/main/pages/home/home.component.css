@@ -1,5 +1,4 @@
 
-
 /*  - ----prepear-search---- - */
 .prepare-search {
   margin-top: 5%;
@@ -84,8 +83,6 @@
   border: 0.50px solid #999;
   border-radius: 5px;
 }
-
-
 
 
 .my-btn-lg > .btn {
@@ -260,7 +257,6 @@
 }
 
 
-
 .info_section {
   padding: 30px 24px 10px 24px;
   position: relative;
@@ -355,22 +351,6 @@
 }
 
 
-.show-button {
-  padding: 0 10px;
-  background-color: #18454a;
-  height: 60px;
-  max-width: 600px;
-  border-radius: 15px;
-  color: #ffffff;
-  font-size: 28px;
-  border-style: hidden;
-  outline: none;
-  lighting-color: white;
-  font-weight: 600;
-  font-family: var(--font-family);
-}
-
-
 .send-section {
   top: -60px;
   margin-bottom: 0;
@@ -436,7 +416,6 @@
 .send-form .row p{
   font-family: var(--font-family);
   font-size: 20px;
-  color: #000;
   font-weight: 700;
   color: #18454a;
 }

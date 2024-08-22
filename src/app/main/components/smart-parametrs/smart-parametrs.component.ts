@@ -1,16 +1,19 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-smart-parametrs',
   templateUrl: './smart-parametrs.component.html',
   styleUrl: './smart-parametrs.component.css'
 })
+
 export class SmartParametrsComponent implements OnInit {
   smartForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<any>,private cdRef: ChangeDetectorRef) {
+
+  constructor(private fb: FormBuilder,private router: Router, private dialogRef: MatDialogRef<any>,private cdRef: ChangeDetectorRef) {
     this.smartForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
@@ -20,7 +23,7 @@ export class SmartParametrsComponent implements OnInit {
   listChecked() {
     const checkedInputs = document.querySelectorAll('input[type="checkbox"]:checked');
     let choosed = "";
-    console.log("listChecked")
+
     checkedInputs.forEach(input => {
       const lblElement = input.parentNode?.querySelector('.fp-label--tx');
       const parentElement = input.parentNode?.parentNode?.querySelector('h4');
@@ -40,6 +43,13 @@ export class SmartParametrsComponent implements OnInit {
     }
   }
 
+  formatLabel(value: number): string {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+
+    return `${value}`;
+  }
 
   ngOnInit() {
 
@@ -58,6 +68,7 @@ export class SmartParametrsComponent implements OnInit {
     });
 
   }
+
   clearFilter(){
     const checkboxes = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
 
@@ -72,10 +83,12 @@ export class SmartParametrsComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.smartForm.valid) {
+    console.log("SUBMIT");
+    if ("this.smartForm.value") {
       console.log(this.smartForm.value);
       this.dialogRef.close(this.smartForm.value);
     }
+    this.router.navigate(['/smart-search']);
   }
 
   onCancel() {
