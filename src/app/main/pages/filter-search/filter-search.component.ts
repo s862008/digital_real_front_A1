@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {ApartmentShort} from "../../../core/models/apartment";
+import {ApartmentFilterSearch, ApartmentShort,ApartmentShortCard} from "../../../core/models/apartment";
+import {DataService} from "../../../core/services/data.service";
 
 @Component({
   selector: 'app-filter-search',
@@ -9,29 +10,31 @@ import {ApartmentShort} from "../../../core/models/apartment";
 
 
 export class FilterSearchComponent {
-
+  public toSearch!: ApartmentFilterSearch;
   public srok: string = "10.10.2024"
   public apartments: ApartmentShort[] = [];
 
-  constructor() {
+  public cards?: ApartmentShortCard[];
+  public totalPages!: number;
+  public totalElements!: number;
+  public pageSizeOptions: number[] = [5, 10, 25, 50, 100];
+  public size: number = 10;
+  public page: number = 0;
+
+  constructor(private readonly dataservice: DataService) {
 
   }
 
   ngOnInit(): void {
-    let x = 0;
-    while (x < 10) {
-      this.apartments.push({
-        externalId: 3332600+x,
-        company: "",
-        quantityRooms:0,
-        square: '30 м²',
-        type_build: 'монолит',
-        address: 'ул. Ленина, д. 1',
-        kitchen: '6 м²',
-        roof: 'мансарда',
-        date_release: '2020-01-01'
-      });
-      x++;
-    }
+    this.toSearch = JSON.parse(sessionStorage.getItem("toFilterSearch")!) ;
+    console.log(this.toSearch);
+    this.dataservice.search(this.toSearch, this.size, this.page).subscribe({
+      next: (data: any): void => {
+        console.log(data);
+        this.cards = data?.body.content
+        this.totalPages = data?.body.totalPages
+        this.totalElements = data?.body.totalElements
+      }
+    })
   }
 }

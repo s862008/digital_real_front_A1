@@ -12,25 +12,25 @@
               <div class="btn-group my-btn-lg" id="cnt-room-input" role="group"
                    aria-label="Группа кнопок по умолчанию">
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1"
+                <input [(ngModel)]="isAtelier" type="checkbox" class="btn-check" name="btnradio" id="btnradio1"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio1">Cтудия</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2"
+                <input [(ngModel)]="isOne" type="checkbox" class="btn-check" name="btnradio" id="btnradio2"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio2">1</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3"
+                <input [(ngModel)]="isTwo" type="checkbox" class="btn-check" name="btnradio" id="btnradio3"
                        autocomplete="off" checked>
                 <label class="btn btn-outline-dark" for="btnradio3">2</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio4"
+                <input [(ngModel)]="isThree" type="checkbox" class="btn-check" name="btnradio" id="btnradio4"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio4">3</label>
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio5"
+                <input [(ngModel)]="isFour" type="checkbox" class="btn-check" name="btnradio" id="btnradio5"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio5">4</label>
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio6"
+                <input [(ngModel)]="isFivePlus" type="checkbox" class="btn-check" name="btnradio" id="btnradio6"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio6">5+</label>
 
@@ -38,10 +38,10 @@
 
             </div>
             <div class="block-filter">
-              <label for="cost-input"> Цена, руб. </label>
+              <label for="cost-input"> Цена, руб.</label>
               <div class="cost block-inputs">
-                <input type="text" class="my-input-lg" id="cost-input" placeholder="от">
-                <input type="text" class="my-input-lg" placeholder="до">
+                <input [(ngModel)]="priceMin" type="text" class="my-input-lg" id="cost-input" placeholder="от">
+                <input [(ngModel)]="priceMax" type="text" class="my-input-lg" placeholder="до">
                 <div class="w-50"></div>
 
               </div>
@@ -49,8 +49,8 @@
             <div class="block-filter">
               <label for="area-input"> Площадь, м<sup>2</sup> </label>
               <div class="area block-inputs">
-                <input type="text" id="area-input" class="my-input-lg" placeholder="от">
-                <input type="text" class="my-input-lg" placeholder="до">
+                <input [(ngModel)]="areaTotalMin" type="text" id="area-input" class="my-input-lg" placeholder="от">
+                <input [(ngModel)]="areaTotalMax" type="text" class="my-input-lg" placeholder="до">
                 <div class="w-75"></div>
               </div>
             </div>
@@ -216,7 +216,7 @@
           </div>
           <div class="card__show-button">
 
-            <button class="show-button" routerLink="filter-search"> Показать: {{count}} вариантов в {{tempText}}ЖК
+            <button class="show-button" (click)="filterSearch()"  routerLink="/filter-search"> Показать: {{count}} вариантов в {{tempText}}ЖК
             </button>
 
           </div>

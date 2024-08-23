@@ -176,26 +176,26 @@
           <div class="row">
             <div class="result-search__items">
 
-              <div class="result-search__item" *ngFor="let item of apartments; let i=index" [routerLink]="['/apartment', item.externalId]" >
+              <div class="result-search__item" *ngFor="let item of cards; let i=index" [routerLink]="['/apartment', item.id]" >
                 <div class="r-item-img">
                   <img src="./assets/img/image 8.png">
                 </div>
                 <div class="r-item-info">
-                  <h2 class="r-item__title-info">{{item.quantityRooms}} {{item.square}} </h2>
-                  <div class="r-item__type-build">{{item.type_build}}</div>
+                  <h2 class="r-item__title-info">{{item.numberOfRooms}} {{item.areaTotal}} </h2>
+                  <div class="r-item__type-build">{{item.apartmentType}}</div>
                   <div class="r-item__address">{{item.address}}</div>
                   <div class="r-item__categories">
                     <div>Кухня: . . . . . . . . . . . . . . </div>
-                    <span>{{item.square}}</span>
+                    <span>{{item.areaKitchen}}</span>
                     <div>Этаж . . . . . . . . . . . . . . .</div>
-                    <span>{{item.roof}}</span>
+                    <span>{{item.floor}}</span>
                     <div>Срок сдачи . . . . . . . . . . </div>
-                    <span>{{item.date_release}}</span>
+                    <span>{{item.dueYear}}</span>
                   </div>
 
                   <div class="r-item__price-block">
-                    <div class="price">6 342 534</div>
-                    <div class="price-squad">77 205 <span> р/м<sup>2</sup></span></div>
+                    <div class="price">{{item.priceAfterFormat}}</div>
+                    <div class="price-squad">{{item.priceSqmtAfterFormat}} <span> р/м<sup>2</sup></span></div>
                   </div>
                 </div>
               </div>

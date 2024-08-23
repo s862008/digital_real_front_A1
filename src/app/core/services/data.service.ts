@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {ApartmentFilterSearch} from "../models/apartment";
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,10 @@ export class DataService {
   public getSimillarApartments(uid: string): Observable<Object> {
 
      return this.http.get('/test/aparts');
+  }
+  public search(toSearch: ApartmentFilterSearch, size: number, page: number): Observable<Object> {
+
+
+    return this.http.post(`/api/v1/apartments/all?size=${size}&page=${page}`, toSearch);
   }
 }
