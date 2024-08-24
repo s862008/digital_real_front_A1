@@ -21,9 +21,14 @@ export class DataService {
 
      return this.http.get('/test/aparts');
   }
+
+
   public search(toSearch: ApartmentFilterSearch, size: number, page: number): Observable<Object> {
-
-
     return this.http.post(`/api/v1/apartments/all?size=${size}&page=${page}`, toSearch);
   }
+
+  loadPrepearInfo(toSearch: ApartmentFilterSearch):Observable<Object> {
+    return this.http.post(`/api/v1/apartments/count`, toSearch);
+  }
+
 }

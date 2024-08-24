@@ -59,9 +59,9 @@ export interface ApartmentShortCard {
 }
 
 export interface ApartmentFilterSearch {
-  priceMin : number;
-  priceMax: number;
-  areaTotalMin : number;
-  areaTotalMax : number;
+  priceMin : string;
+  priceMax: string;
+  areaTotalMin : string;
+  areaTotalMax : string;
   numberOfRooms: string[] | null;
 }
