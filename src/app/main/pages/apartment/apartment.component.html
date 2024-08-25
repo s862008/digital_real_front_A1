@@ -22,7 +22,7 @@
                 <label class="btn btn-outline-primary as__toogle" for="btnradio2">План этажа</label>
               </div>
               <div class="as__main-img" style="margin-bottom: 30px ">
-                <img [src]="apartment.photoMainPath" alt="picture">
+                <img [src]="gallery[0].planningPath" alt="picture">
               </div>
 
               <div class="as__group-imgs ">
@@ -39,15 +39,15 @@
               <div *ngIf="loading">Загрузка...</div>
               <div *ngIf="!loading">
                 <div class="as__price-block">
-                  <div class="price">{{apartment.priceAfterFormat}} ₽</div>
-                  <div class="price-squad">{{apartment.priceSqmtAfterFormat}} <span> р/м<sup>2</sup></span></div>
+                  <div class="price">{{apartment.price}} ₽</div>
+                  <div class="price-squad">{{apartment.priceSqmt}} <span> р/м<sup>2</sup></span></div>
                 </div>
               </div>
               <div class="as-info__items">
                 <div *ngIf="loading">Загрузка...</div>
                 <div *ngIf="!loading">
-                  <div class="as-item__type-build">{{apartment.type_build}}</div>
-                  <div class="as-item__address">{{apartment.address}}</div>
+                  <div class="as-item__type-build">{{apartment.rcomplexDto.type_build}}</div>
+                  <div class="as-item__address">{{apartment.rcomplexDto.address}}</div>
                   <div class="as-item__categories">
                     <div>Площадь: . . . . . . . . . . . . . .</div>
                     <span>{{apartment.areaTotal}}</span>
@@ -56,15 +56,15 @@
                     <div>Этаж: . . . . . . . . . . . . . . . . . .</div>
                     <span>{{apartment.roof}}</span>
                     <div>Срок сдачи: . . . . . . . . . . . . .</div>
-                    <span>{{apartment.dueYear}}</span>
+                    <span>{{apartment.rcomplexDto.dueYear}}</span>
                     <div>Высота потолков: . . . . . . . .</div>
                     <span>{{apartment.height_roof}}</span>
                     <div>Срок сдачи: . . . . . . . . . . . . .</div>
-                    <span>1 кв 2023г</span>
+                    <span>{{apartment.rcomplexDto.dueYear}}</span>
                     <div>Парковка: . . . . . . . . . . . . . . .</div>
-                    <span>{{apartment.parking}}</span>
+                    <span>{{apartment.rcomplexDto.parking}}</span>
                     <div>Тип дома: . . . . . . . . . . . . . . .</div>
-                    <span>{{apartment.type_build}}</span>
+                    <span>{{apartment.rcomplexDto.type_build}}</span>
                   </div>
                 </div>
               </div>
@@ -102,7 +102,7 @@
       </section>
 
       <section class="apartment-similar">
-        <h2 class="title"> Похожие квартиры {{data}}  </h2>
+        <h2 class="title"> Похожие квартиры {{gallery}}  </h2>
         <div class="d-flex flex-column">
           <div class="cards-block__item" *ngFor="let item of cards" [routerLink]="['/apartment', item.id] ">
             <div class="img-block">

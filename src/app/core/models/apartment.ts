@@ -30,16 +30,17 @@ export interface ApartmentFull {
   price: bigint;
   priceSqmt: bigint;
   floor: number;
-  parking:string;
   apartmentType: string;
-  dueYear: string;
-  dueQuart: number;
-  type_build:string;
-  address:string;
   kitchen:string;
   roof: string;
   height_roof:string;
   company:string;
+  rcomplexDto: {
+    address:string;
+    type_build:string;
+    dueYear: string;
+    dueQuart: number;
+    parking:string;}
 }
 
 export interface ApartmentShortCard {

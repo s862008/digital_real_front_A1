@@ -12,7 +12,15 @@ import {Apartment, ApartmentFull, ApartmentShortCard} from "../../../core/models
 
 export class ApartmentComponent implements OnInit {
   id: string = ""; // Переменная для хранения параметра
-  data: any;
+
+  // gallery: Object[] =[{
+  //     apartmentsId:0,
+  //     photoPath: "string",
+  //     order: 0,
+  //     planningPath:"string",
+  //     id: 0n
+  // }];
+  gallery:any =[];
   rooms:string = "1 комната";
   public cards: ApartmentShortCard[] = [];
   public apartment!: ApartmentFull;
@@ -25,11 +33,13 @@ export class ApartmentComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') || '';
 
-      this.dataService.getData(this.id).subscribe(data => {
-        this.data = data;
+      this.dataService.getApartmentGallery(this.id).subscribe(data => {
+  if(data != null)
+       this.gallery = data;
+console.log(this.gallery)
       });
 
-      this.dataService.getApartment(this.id).subscribe({
+      this.dataService.getApartmentFull(this.id).subscribe({
         next: (data: any): void => {
 
           this.apartment = data;
