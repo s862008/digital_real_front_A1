@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {Filter} from "../models/filter";
+import {FilterSearch} from "../models/filterSearch";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
-  private filterData: Filter = {
+  private filterData: FilterSearch = {
     priceMin: '0',
     priceMax: '1000000',
     areaTotalMin: '0',
@@ -18,7 +18,7 @@ export class FilterService {
     isFivePlus: false
   };
 
-  setFilterData(data: Filter) {
+  setFilterData(data: FilterSearch) {
     this.filterData = data;
   }
 
@@ -39,5 +39,30 @@ export class FilterService {
     isFour: false,
     isFivePlus: false
   };
-}
+ }
+
+ numberOfRooms(filter: FilterSearch): string [] | null {
+    let numberOfRooms: string [] = []
+    if (filter.isAtelier)
+      numberOfRooms.push('Студия');
+    numberOfRooms.push('0.5');
+    if (filter.isOne)
+      numberOfRooms.push('1 комната');
+    numberOfRooms.push('1');
+    if (filter.isTwo)
+      numberOfRooms.push('2 комнаты');
+    numberOfRooms.push('2');
+    if (filter.isThree)
+      numberOfRooms.push('3 комнаты');
+    numberOfRooms.push('3');
+    if (filter.isFour)
+      numberOfRooms.push('4 комнаты');
+    numberOfRooms.push('1');
+    if (filter.isFivePlus)
+      numberOfRooms.push('5 комнат и более');
+      numberOfRooms.push('5');
+
+    return numberOfRooms.length > 0 ? numberOfRooms : null;
+  }
+
 }

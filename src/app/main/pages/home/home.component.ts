@@ -4,7 +4,7 @@ import {SmartParametrsComponent} from "../../components/smart-parametrs/smart-pa
 import {ApartmentFilterSearch} from "../../../core/models/apartment";
 import {absoluteFrom} from "@angular/compiler-cli";
 import {Router} from "@angular/router";
-import {Filter} from "../../../core/models/filter";
+import {FilterSearch} from "../../../core/models/filterSearch";
 import {FormControl} from "@angular/forms";
 import {DataService} from "../../../core/services/data.service";
 import {FilterService} from "../../../core/services/filter.service";
@@ -40,19 +40,6 @@ export class HomeComponent implements OnInit {
   formControl = new FormControl(false);
 
 
-  formatPrice(num: string){
-    if (!/^\d+$/.test(num)) {
-       return 0
-    }else {
-     //  if (num.length > 3) {
-     //   num = this.formatPrice(num.substring(0, num.length - 3)) + " " + num.substring(num.length - 3, num.length)
-     //  }
-       num = num.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-
-      return num
-    }
-  }
-
   constructor(private dialog: MatDialog, private router: Router, private filterservice: FilterService, private readonly dataservice: DataService) {
     this.priceMin = '';
     this.priceMax = '';
@@ -67,50 +54,48 @@ export class HomeComponent implements OnInit {
 
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
 
     this.formControl.valueChanges.subscribe(value => {
-
       setTimeout(() => {
         this.loadPrepearInfo();
       });
-
     });
-  }
-  ngOnInit(): void {
 
+  }
+
+  ngOnInit(): void {
 
   }
 
   loadPrepearInfo() {
 
-    console.log(this.toSearch);
-
-      this.dataservice.loadPrepearInfo(this.toSearch = {
-        numberOfRooms: this.numberOfRooms(),
-        priceMin: this.priceMin,
-        priceMax: this.priceMax,
-        areaTotalMin: this.areaTotalMin,
-        areaTotalMax: this.areaTotalMax
-      }).subscribe({
-        next: (data: any): void => {
-          console.log(data);
-          this.apartmentCount = data[0];
-          this.rcomplexCount = data[1];
-        }
-      })
-
-  }
-
-  public filterSearch(): void {
-    this.toSearch = {
+    this.dataservice.loadPrepearInfo(this.toSearch = {
       numberOfRooms: this.numberOfRooms(),
       priceMin: this.priceMin,
       priceMax: this.priceMax,
       areaTotalMin: this.areaTotalMin,
       areaTotalMax: this.areaTotalMax
-    }
-    let filter: Filter = {
+    }).subscribe({
+      next: (data: any): void => {
+        console.log(data);
+        this.apartmentCount = data[0];
+        this.rcomplexCount = data[1];
+      }
+    })
+
+  }
+
+  public filterSearch(): void {
+
+    // this.toSearch = {
+    //   numberOfRooms: this.numberOfRooms(),
+    //   priceMin: this.priceMin,
+    //   priceMax: this.priceMax,
+    //   areaTotalMin: this.areaTotalMin,
+    //   areaTotalMax: this.areaTotalMax
+    // }
+    let filter: FilterSearch = {
       priceMin: this.priceMin,
       priceMax: this.priceMax,
       areaTotalMin: this.areaTotalMin,
@@ -125,8 +110,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.filterservice.setFilterData(filter);
-    console.log("page one: " + this.filterservice.getFilterData().priceMax)
-    sessionStorage.setItem('toFilterSearch', JSON.stringify(this.toSearch));
+    // sessionStorage.setItem('toFilterSearch', JSON.stringify(this.toSearch));
     this.router.navigate(['/filter-search']);
   }
 
@@ -134,17 +118,22 @@ export class HomeComponent implements OnInit {
     let numberOfRooms: string [] = []
     if (this.isAtelier)
       numberOfRooms.push('Студия');
+      numberOfRooms.push('0.5');
     if (this.isOne)
       numberOfRooms.push('1 комната');
+      numberOfRooms.push('1');
     if (this.isTwo)
       numberOfRooms.push('2 комнаты');
+      numberOfRooms.push('2');
     if (this.isThree)
       numberOfRooms.push('3 комнаты');
+      numberOfRooms.push('3');
     if (this.isFour)
       numberOfRooms.push('4 комнаты');
+      numberOfRooms.push('1');
     if (this.isFivePlus)
       numberOfRooms.push('5 комнат и более');
-
+      numberOfRooms.push('5');
 
     return numberOfRooms.length > 0 ? numberOfRooms : null;
   }

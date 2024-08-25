@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {ApartmentWEB} from "../../../core/models/apartment";
+import {ApartmentShortCard, ApartmentWEB} from "../../../core/models/apartment";
 
 @Component({
   selector: 'app-r-complex',
@@ -9,7 +9,7 @@ import {ApartmentWEB} from "../../../core/models/apartment";
 })
 export class RComplexComponent {
   public id!:string;
-  public apart_cards: ApartmentWEB[] = [];
+  public apart_cards: ApartmentShortCard[] = [];
 
 
   constructor(private route: ActivatedRoute) {

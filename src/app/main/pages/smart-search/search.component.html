@@ -167,7 +167,7 @@
             <div class="col-xxl-9 search-section__card-side cards-block">
               <div class="d-flex flex-column overflow-y-scroll">
 
-                <div class="cards-block__item" *ngFor="let item of apartments; let i=index" [routerLink]="['/apartment', item.externalId]">
+                <div class="cards-block__item" *ngFor="let item of apartments; let i=index" [routerLink]="['/apartment', item.id]">
                   <div class="img-block">
                     <img alt="img" routerlink="/apartment.html" style="cursor: pointer;"
                          src="https://stelinvest.ru/upload/iblock/f51/050bwd03si669vthe835po4tresfzgsw/1et_8_1pod_4_kv.jpg ">
@@ -175,7 +175,7 @@
 
                   <div class="col r-item-info d-flex flex-column justify-content-between ">
 
-                    <h2 class="r-item__title-info">{{item.quantityRooms}} {{item.square}} </h2>
+                    <h2 class="r-item__title-info">{{item.numberOfRooms}} {{item.areaTotal}} </h2>
 
                     <div class="d-flex flex-column">
                       <div class="r-item__type-build">{{item.type_build}}</div>
@@ -183,11 +183,11 @@
                     </div>
                     <div class="r-item__categories">
                       <div>Кухня: . . . . . . . . . . . . . .</div>
-                      <span>{{item.square}}</span>
+                      <span>{{item.areaKitchen}}</span>
                       <div>Этаж . . . . . . . . . . . . . . .</div>
-                      <span>{{item.roof}}</span>
+                      <span>{{item.floor}}</span>
                       <div>Срок сдачи . . . . . . . . . .</div>
-                      <span>{{item.date_release}}</span>
+                      <span>{{item.dueYear}}</span>
                     </div>
                     <div class="r-item__company">
                       {{company}}

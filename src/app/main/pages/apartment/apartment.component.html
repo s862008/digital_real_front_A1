@@ -5,11 +5,11 @@
         <div class="row">
           <div class="col-8">
 
-            <div class="as__gallery-side">
+            <div class="as__gallery-side" data-id="{{id}}">
               <div *ngIf="loading">Загрузка...</div>
               <div *ngIf="!loading">
                 <h2 class="r-item__title-info px-3" style="margin-bottom: 30px ">
-                  {{rooms}} {{id}} </h2>
+                  {{rooms}}  </h2>
               </div>
               <div class="btn-group" style="margin-bottom: 10px " role="group"
                    aria-label="Basic radio toggle button group">
@@ -22,7 +22,7 @@
                 <label class="btn btn-outline-primary as__toogle" for="btnradio2">План этажа</label>
               </div>
               <div class="as__main-img" style="margin-bottom: 30px ">
-                <img src="./assets/img/image%202.png" alt="picture">
+                <img [src]="apartment.photoMainPath" alt="picture">
               </div>
 
               <div class="as__group-imgs ">
@@ -39,8 +39,8 @@
               <div *ngIf="loading">Загрузка...</div>
               <div *ngIf="!loading">
                 <div class="as__price-block">
-                  <div class="price">{{apartment.price}} ₽</div>
-                  <div class="price-squad">77 205 <span> р/м<sup>2</sup></span></div>
+                  <div class="price">{{apartment.priceAfterFormat}} ₽</div>
+                  <div class="price-squad">{{apartment.priceSqmtAfterFormat}} <span> р/м<sup>2</sup></span></div>
                 </div>
               </div>
               <div class="as-info__items">
@@ -50,13 +50,13 @@
                   <div class="as-item__address">{{apartment.address}}</div>
                   <div class="as-item__categories">
                     <div>Площадь: . . . . . . . . . . . . . .</div>
-                    <span>{{apartment.square}}</span>
+                    <span>{{apartment.areaTotal}}</span>
                     <div>Кухня: . . . . . . . . . . . . . . . . .</div>
                     <span>{{apartment.kitchen}}</span>
                     <div>Этаж: . . . . . . . . . . . . . . . . . .</div>
                     <span>{{apartment.roof}}</span>
                     <div>Срок сдачи: . . . . . . . . . . . . .</div>
-                    <span>{{apartment.date_release}}</span>
+                    <span>{{apartment.dueYear}}</span>
                     <div>Высота потолков: . . . . . . . .</div>
                     <span>{{apartment.height_roof}}</span>
                     <div>Срок сдачи: . . . . . . . . . . . . .</div>
@@ -104,7 +104,7 @@
       <section class="apartment-similar">
         <h2 class="title"> Похожие квартиры {{data}}  </h2>
         <div class="d-flex flex-column">
-          <div class="cards-block__item" *ngFor="let item of cards" [routerLink]="['/apartment', item.externalId] ">
+          <div class="cards-block__item" *ngFor="let item of cards" [routerLink]="['/apartment', item.id] ">
             <div class="img-block">
               <img alt="img" routerlink="/apartment.html" style="cursor: pointer;"
                    src="https://stelinvest.ru/upload/iblock/f51/050bwd03si669vthe835po4tresfzgsw/1et_8_1pod_4_kv.jpg ">
@@ -112,7 +112,7 @@
 
             <div class="col r-item-info d-flex flex-column justify-content-between ">
 
-              <h2 class="r-item__title-info">{{item.quantityRooms}},  {{item.square}} </h2>
+              <h2 class="r-item__title-info">{{item.numberOfRooms}},  {{item.areaTotal}} м² </h2>
 
               <div class="d-flex flex-column">
                 <div class="r-item__type-build">{{item.type_build}}</div>
@@ -120,11 +120,11 @@
               </div>
               <div class="r-item__categories">
                 <div>Кухня: . . . . . . . . . . . . . .</div>
-                <span>{{item.kitchen}}</span>
+                <span>{{item.areaKitchen}} м²</span>
                 <div>Этаж . . . . . . . . . . . . . . .</div>
-                <span>{{item.roof}}</span>
+                <span>{{item.floor}}</span>
                 <div>Срок сдачи . . . . . . . . . .</div>
-                <span>{{item.date_release}}</span>
+                <span>{{item.dueYear}}</span>
               </div>
               <div class="r-item__company">
                 {{item.company}}

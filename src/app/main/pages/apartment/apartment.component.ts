@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DataService} from "../../../core/services/data.service";
-import {Apartment} from "../../../core/models/apartment";
+import {Apartment, ApartmentFull, ApartmentShortCard} from "../../../core/models/apartment";
 
 @Component({
   selector: 'app-apartment',
@@ -14,25 +14,11 @@ export class ApartmentComponent implements OnInit {
   id: string = ""; // Переменная для хранения параметра
   data: any;
   rooms:string = "1 комната";
-  public cards: Apartment[] = [];
-  public apartment: Apartment;
+  public cards: ApartmentShortCard[] = [];
+  public apartment!: ApartmentFull;
   loading: boolean = true;
   constructor(private route: ActivatedRoute, private dataService: DataService) {
-    this.apartment = {
-      externalId:0,
-      quantityRooms:0,
-      square: '',
-      address: "",
-      company: "",
-      date_release: "",
-      height_roof: "",
-      kitchen: "",
-      parking: "",
-      price: 0,
-      roof: "",
-      type_build: ""
 
-    };
   }
 
   ngOnInit(): void {
@@ -47,13 +33,10 @@ export class ApartmentComponent implements OnInit {
         next: (data: any): void => {
 
           this.apartment = data;
+
           console.log(this.apartment);
-          if(this.apartment.quantityRooms>1){
-            this.rooms=this.apartment.quantityRooms+" комнаты"
-          }
-          if(this.apartment.quantityRooms>4){
-            this.rooms=this.apartment.quantityRooms+" комнат"
-          }
+          this.rooms=this.apartment.numberOfRooms
+
           this.loading=false
         },
         error:(err) =>{
