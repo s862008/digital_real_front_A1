@@ -41,7 +41,7 @@ export class DataService {
 
   public searchSimillarApartments(id: string): Observable<Object> {
 
-    return this.http.get('/test/aparts/${id}');
+    return this.http.get(`/test/aparts/${id}`);
   }
 
   //---------------------------------------------------

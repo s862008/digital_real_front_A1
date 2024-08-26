@@ -24,12 +24,15 @@ export class FilterSearchComponent {
   public size: number = 10;
   public page: number = 0;
   formControl = new FormControl('');
+  loading: boolean = true;
+  isApartmen: boolean = true;
 
   constructor(private dataservice: DataService, private filterservice: FilterService) {
 
   }
 
   ngOnInit(): void {
+
     // this.toSearch = JSON.parse(sessionStorage.getItem("toFilterSearch")!);
     this.filter = this.filterservice.getFilterData()
     console.log("Filter" + this.filter)
@@ -40,7 +43,7 @@ export class FilterSearchComponent {
   }
 
   public filterSearch(): void {
-
+    this.loading=true;
     if (this.filter != null) {
       this.toSearch = {
         numberOfRooms: this.filterservice.numberOfRooms(this.filter),
@@ -50,14 +53,29 @@ export class FilterSearchComponent {
         areaTotalMax: this.filter.areaTotalMax
       }
     }
+
     this.dataservice.search(this.toSearch, this.size, this.page).subscribe({
       next: (data: any): void => {
         console.log(data);
         this.apartments = data?.body.content
         this.totalPages = data?.body.totalPages
         this.totalElements = data?.body.totalElements
+        this.isApartmen =false;
+        window.scroll({
+          top: 1000,
+          left: 0,
+          behavior: "smooth",
+        });
+
+
+        if (this.apartments != null && this.apartments.length > 0) {
+          this.isApartmen = true
+        }
+
+        this.loading=false;
       }
     })
+
   }
 
   clearSearch() {
