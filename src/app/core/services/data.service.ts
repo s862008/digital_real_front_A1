@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ApartmentFilterSearch} from "../models/apartment";
+import {Gallery} from "../models/gallery";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class DataService {
     return this.http.post(`/api/v1/apartments/count`, toSearch);
   }
 
-  public getApartmentGallery(id: string): Observable<Object> {
+  public getApartmentGallery(id: string): Observable<any> {
     return this.http.get(`/api/v1/apartments/gallery/${id}`);
   }
 
@@ -38,9 +39,9 @@ export class DataService {
     return this.http.get(`/test/apart/${id}`);
   }
 
-  public getSimillarApartments(uid: string): Observable<Object> {
+  public searchSimillarApartments(id: string): Observable<Object> {
 
-    return this.http.get('/test/aparts');
+    return this.http.get('/test/aparts/${id}');
   }
 
   //---------------------------------------------------

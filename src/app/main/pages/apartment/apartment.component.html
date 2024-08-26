@@ -22,7 +22,7 @@
                 <label class="btn btn-outline-primary as__toogle" for="btnradio2">План этажа</label>
               </div>
               <div class="as__main-img" style="margin-bottom: 30px ">
-                <img [src]="gallery[0].planningPath" alt="picture">
+                <img [src]="imgPathMain" alt="picture">
               </div>
 
               <div class="as__group-imgs ">
@@ -39,8 +39,8 @@
               <div *ngIf="loading">Загрузка...</div>
               <div *ngIf="!loading">
                 <div class="as__price-block">
-                  <div class="price">{{apartment.price}} ₽</div>
-                  <div class="price-squad">{{apartment.priceSqmt}} <span> р/м<sup>2</sup></span></div>
+                  <div class="price">{{ apartment.price | pricePipe }} ₽</div>
+                  <div class="price-squad">{{apartment.priceSqmt | pricePipe}} <span> р/м<sup>2</sup></span></div>
                 </div>
               </div>
               <div class="as-info__items">
@@ -63,8 +63,8 @@
                     <span>{{apartment.rcomplexDto.dueYear}}</span>
                     <div>Парковка: . . . . . . . . . . . . . . .</div>
                     <span>{{apartment.rcomplexDto.parking}}</span>
-                    <div>Тип дома: . . . . . . . . . . . . . . .</div>
-                    <span>{{apartment.rcomplexDto.type_build}}</span>
+                    <div *ngIf="apartment.rcomplexDto.type_build">Тип дома: . . . . . . . . . . . . . . .</div>
+                    <span *ngIf="apartment.rcomplexDto.type_build">{{apartment.rcomplexDto.type_build}}</span>
                   </div>
                 </div>
               </div>
@@ -102,7 +102,7 @@
       </section>
 
       <section class="apartment-similar">
-        <h2 class="title"> Похожие квартиры {{gallery}}  </h2>
+        <h2 class="title"> Похожие квартиры  </h2>
         <div class="d-flex flex-column">
           <div class="cards-block__item" *ngFor="let item of cards" [routerLink]="['/apartment', item.id] ">
             <div class="img-block">

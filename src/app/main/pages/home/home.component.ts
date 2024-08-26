@@ -116,24 +116,24 @@ export class HomeComponent implements OnInit {
 
   private numberOfRooms(): string [] | null {
     let numberOfRooms: string [] = []
-    if (this.isAtelier)
+    if (this.isAtelier){
       numberOfRooms.push('Студия');
-      numberOfRooms.push('0.5');
-    if (this.isOne)
+      numberOfRooms.push('0.5');}
+    if (this.isOne){
       numberOfRooms.push('1 комната');
-      numberOfRooms.push('1');
-    if (this.isTwo)
+      numberOfRooms.push('1');}
+    if (this.isTwo){
       numberOfRooms.push('2 комнаты');
-      numberOfRooms.push('2');
-    if (this.isThree)
+      numberOfRooms.push('2');}
+    if (this.isThree){
       numberOfRooms.push('3 комнаты');
-      numberOfRooms.push('3');
-    if (this.isFour)
+      numberOfRooms.push('3');}
+    if (this.isFour){
       numberOfRooms.push('4 комнаты');
-      numberOfRooms.push('1');
-    if (this.isFivePlus)
+      numberOfRooms.push('4');}
+    if (this.isFivePlus){
       numberOfRooms.push('5 комнат и более');
-      numberOfRooms.push('5');
+      numberOfRooms.push('5');}
 
     return numberOfRooms.length > 0 ? numberOfRooms : null;
   }

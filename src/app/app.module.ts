@@ -30,24 +30,26 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatSliderModule} from "@angular/material/slider";
 import {SearchComponent} from "./main/pages/smart-search/search.component";
 import { FormsModule } from '@angular/forms';
+import {PricePipe} from "./main/pipes/price.pipe";
 
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    ContainerComponent,
-    BannerComponent,
-    FilterSearchComponent,
-    SearchComponent,
-    ApartmentComponent,
-    RComplexComponent,
-    SmartParametrsComponent
- ],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        HeaderComponent,
+        FooterComponent,
+        ContainerComponent,
+        BannerComponent,
+        FilterSearchComponent,
+        SearchComponent,
+        ApartmentComponent,
+        RComplexComponent,
+        SmartParametrsComponent,
+        PricePipe
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -212,13 +212,27 @@ ul, li {
 
 }
 
-
-элемент {
+.bageSoon {
+  padding: 0;
+  position: absolute;
+  border-radius: 10px;
+  text-align: center;
+  top: 29px;
+  left: 31px;
+  border: 0;
+  background-color: rgba(246, 246, 246, 0.800000011920929);
+  min-height: 33px;
+  width: 90px;
+  font-weight: 500;
+  font-size: 15px;
 }
-.mdc-dialog--open .mat-mdc-dialog-surface, .mdc-dialog--closing .mat-mdc-dialog-surface {
-  transform: none;
 
-}
+
+/*.mdc-dialog--open .mat-mdc-dialog-surface, .mdc-dialog--closing .mat-mdc-dialog-surface {*/
+/*  transform: none;*/
+
+/*}*/
+
 .mat-mdc-dialog-container{
   height: 96% !important;
 }

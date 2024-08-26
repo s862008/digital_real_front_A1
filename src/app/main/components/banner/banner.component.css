@@ -54,7 +54,7 @@
   width: min(992px, 36%);
   display: flex;
   flex-flow:column nowrap;
-  justify-content: end;
+  justify-content: center;
   grid-gap: 16px;
   margin-left: 15px;
 }
@@ -74,6 +74,7 @@
   outline: none;
   line-height: 1;
   font-family: var(--font-family-bold);
+  margin-top: 5vh;
 }
 
 .banner-info {
