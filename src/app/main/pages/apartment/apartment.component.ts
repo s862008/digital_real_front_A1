@@ -27,7 +27,8 @@ export class ApartmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.scroll(0, 0)
+    // window.scroll(0, 0)
+
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') || '';
 

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {ApartmentFilterSearch, ApartmentShortCard} from "../../../core/models/apartment";
 import {DataService} from "../../../core/services/data.service";
 import {FilterSearch} from "../../../core/models/filterSearch";
@@ -39,6 +39,12 @@ export class FilterSearchComponent {
 
     this.filterSearch()
 
+
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  beforeunloadHandler() {
+    console.log("RELOAD")
 
   }
 

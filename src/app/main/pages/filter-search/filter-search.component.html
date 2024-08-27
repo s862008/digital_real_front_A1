@@ -188,6 +188,7 @@
            </div>
             <div *ngIf="loading">Загрузка...</div>
             <div class="result-search__items" *ngIf="!loading">
+
               <div class="result-search__item" *ngFor="let  item of apartments; let i=index"
                    [routerLink]="['/apartment', item.id]">
                 <div class="r-item-img">
