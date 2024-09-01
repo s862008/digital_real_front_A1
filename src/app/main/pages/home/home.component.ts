@@ -62,7 +62,11 @@ export class HomeComponent implements OnInit {
       });
     });
 
+    this.loadSuggest()
+
   }
+
+
 
   ngOnInit(): void {
 
@@ -151,4 +155,24 @@ export class HomeComponent implements OnInit {
   }
 
 
+  private loadSuggest() {
+
+
+    this.dataservice.getRComplex(this.toSearch = {
+      numberOfRooms: this.numberOfRooms(),
+      priceMin: this.priceMin,
+      priceMax: this.priceMax,
+      areaTotalMin: this.areaTotalMin,
+      areaTotalMax: this.areaTotalMax
+    }).subscribe({
+      next: (data: any): void => {
+        console.log(data);
+        this.apartmentCount = data[0];
+        this.rcomplexCount = data[1];
+      }
+    })
+
+  }
 }
+
+

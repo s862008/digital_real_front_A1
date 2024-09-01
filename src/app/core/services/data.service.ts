@@ -26,7 +26,10 @@ export class DataService {
   public getApartmentGallery(id: string): Observable<any> {
     return this.http.get(`/api/v1/apartments/gallery/${id}`);
   }
-
+   public  getRComplex(param: {method: string; id:string,limit:number }): Observable<Object> {
+   if(param.method == "suggest")
+     return this.http.get(`/api/v1/rcomplex/suggest`);
+  }
 
   //---------------------------------------------------
 
@@ -45,4 +48,5 @@ export class DataService {
   }
 
   //---------------------------------------------------
+
 }

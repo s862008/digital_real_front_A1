@@ -68,7 +68,7 @@ export class FilterSearchComponent {
         this.totalElements = data?.body.totalElements
         this.isApartmen =false;
         window.scroll({
-          top: 1000,
+          top: 900,
           left: 0,
           behavior: "smooth",
         });
