@@ -8,6 +8,7 @@ import {FilterSearch} from "../../../core/models/filterSearch";
 import {FormControl} from "@angular/forms";
 import {DataService} from "../../../core/services/data.service";
 import {FilterService} from "../../../core/services/filter.service";
+import {RComplex} from "../../../core/models/rcomplex";
 
 
 @Component({
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
   apartmentCount: number = 34;
   rcomplexCount: string = "14";
   dt: string = "10.10.24";
-  gk_cards: string[] = ['1', '2'];
+  rcomplexCards?: RComplex[];
   formControl = new FormControl(false);
 
 
@@ -158,17 +159,14 @@ export class HomeComponent implements OnInit {
   private loadSuggest() {
 
 
-    this.dataservice.getRComplex(this.toSearch = {
-      numberOfRooms: this.numberOfRooms(),
-      priceMin: this.priceMin,
-      priceMax: this.priceMax,
-      areaTotalMin: this.areaTotalMin,
-      areaTotalMax: this.areaTotalMax
+    this.dataservice.getRComplex( {
+      method: "popular",
+      id: 0n ,
+      limit: 0
     }).subscribe({
       next: (data: any): void => {
         console.log(data);
-        this.apartmentCount = data[0];
-        this.rcomplexCount = data[1];
+
       }
     })
 

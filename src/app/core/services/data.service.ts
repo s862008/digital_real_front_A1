@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {ApartmentFilterSearch} from "../models/apartment";
 import {Gallery} from "../models/gallery";
 
@@ -9,7 +9,8 @@ import {Gallery} from "../models/gallery";
 })
 export class DataService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   public getApartmentFull(id: string): Observable<Object> {
     return this.http.get(`/api/v1/apartments/full/${id}`);
@@ -26,9 +27,16 @@ export class DataService {
   public getApartmentGallery(id: string): Observable<any> {
     return this.http.get(`/api/v1/apartments/gallery/${id}`);
   }
-   public  getRComplex(param: {method: string; id:string,limit:number }): Observable<Object> {
-   if(param.method == "suggest")
-     return this.http.get(`/api/v1/rcomplex/suggest`);
+
+  public getRComplex(param: { method: string; limit: number; id: bigint }): Observable<any> {
+    if (param.method == "popular")
+      return this.http.get(`/api/v1/rcomplex/popular`);
+    if (param.method == "suggest")
+      return this.http.get(`/api/v1/rcomplex/suggest`);
+    if (param.method == "findByid")
+      return this.http.get(`/api/v1/rcomplex/${param.id}`);
+
+    return of('');
   }
 
   //---------------------------------------------------
