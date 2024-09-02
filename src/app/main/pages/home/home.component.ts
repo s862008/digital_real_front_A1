@@ -8,7 +8,7 @@ import {FilterSearch} from "../../../core/models/filterSearch";
 import {FormControl} from "@angular/forms";
 import {DataService} from "../../../core/services/data.service";
 import {FilterService} from "../../../core/services/filter.service";
-import {RComplex} from "../../../core/models/rcomplex";
+import {RComplex, RComplexPopular} from "../../../core/models/rcomplex";
 
 
 @Component({
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   apartmentCount: number = 34;
   rcomplexCount: string = "14";
   dt: string = "10.10.24";
-  rcomplexCards?: RComplex[];
+  public rcomplexPopulars: RComplexPopular[] = [];
   formControl = new FormControl(false);
 
 
@@ -66,7 +66,6 @@ export class HomeComponent implements OnInit {
     this.loadSuggest()
 
   }
-
 
 
   ngOnInit(): void {
@@ -121,24 +120,30 @@ export class HomeComponent implements OnInit {
 
   private numberOfRooms(): string [] | null {
     let numberOfRooms: string [] = []
-    if (this.isAtelier){
+    if (this.isAtelier) {
       numberOfRooms.push('Студия');
-      numberOfRooms.push('0.5');}
-    if (this.isOne){
+      numberOfRooms.push('0.5');
+    }
+    if (this.isOne) {
       numberOfRooms.push('1 комната');
-      numberOfRooms.push('1');}
-    if (this.isTwo){
+      numberOfRooms.push('1');
+    }
+    if (this.isTwo) {
       numberOfRooms.push('2 комнаты');
-      numberOfRooms.push('2');}
-    if (this.isThree){
+      numberOfRooms.push('2');
+    }
+    if (this.isThree) {
       numberOfRooms.push('3 комнаты');
-      numberOfRooms.push('3');}
-    if (this.isFour){
+      numberOfRooms.push('3');
+    }
+    if (this.isFour) {
       numberOfRooms.push('4 комнаты');
-      numberOfRooms.push('4');}
-    if (this.isFivePlus){
+      numberOfRooms.push('4');
+    }
+    if (this.isFivePlus) {
       numberOfRooms.push('5 комнат и более');
-      numberOfRooms.push('5');}
+      numberOfRooms.push('5');
+    }
 
     return numberOfRooms.length > 0 ? numberOfRooms : null;
   }
@@ -159,14 +164,36 @@ export class HomeComponent implements OnInit {
   private loadSuggest() {
 
 
-    this.dataservice.getRComplex( {
+    this.dataservice.getRComplex({
       method: "popular",
-      id: 0n ,
+      id: 0n,
       limit: 0
     }).subscribe({
       next: (data: any): void => {
         console.log(data);
+        let iterationCount = 0;
+        const maxIterations = 2;
+        for (const dataKey in data) {
+          if (iterationCount >= maxIterations) {
+            break; // Прерываем цикл, если достигнуто максимальное количество итераций
+          }
 
+          const dataValue = data[dataKey];
+          const r: RComplexPopular = {
+            address: dataValue.address,
+            company: dataValue.company,
+            id: dataValue.id,
+            name: dataValue.name,
+            orderByRooms: dataValue.orderByRooms,
+            phone: dataValue.phone,
+            countApartments:dataValue.countApartments,
+            priceMax: 0,
+            priceMin: 0,
+          }
+          this.rcomplexPopulars.push(r)
+          iterationCount++;
+        }
+        console.log(this.rcomplexPopulars);
       }
     })
 

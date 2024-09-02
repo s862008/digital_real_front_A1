@@ -103,7 +103,7 @@
 <!--            </div>-->
 
             <div class="cards">
-              <div class="card card-body p-0 brdr" *ngFor="let item of rcomplexCards" [routerLink]="['/r-complex', item]">
+              <div class="card card-body p-0 brdr" *ngFor="let item of rcomplexPopulars" [routerLink]="['/r-complex', item]">
 
                 <div class="img_section">
                   <div class="title_img" title="стел">
@@ -159,8 +159,8 @@
                 </div>
 
                 <div class="info_section">
-                  <div class=""> ЖК Композитор</div>
-                  <div class="">ул. Независимости, 55л</div>
+                  <div class=""> {{item.name}}</div>
+                  <div class=""> {{item.address}}</div>
                   <div class=""> от 3,45млн до 12,5млн</div>
                   <div class="row align-items-center justify-content-center">
                     <div class=col-1>
@@ -181,7 +181,7 @@
 
                   <div class="card__extended-block ex-bl">
                     <div class="h-divider"></div>
-                    <div class="ex-bl__build-cnt">Квартир: 26</div>
+                    <div class="ex-bl__build-cnt">Квартир: {{item.countApartments}}</div>
                     <ul class="ex-bl__list-apart">
                       <li class="list-apart__item"><span>1-комнатные (10)</span><a> от 3,45млн
                         до 12,5млн
