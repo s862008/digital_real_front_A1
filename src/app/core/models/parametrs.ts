@@ -10,15 +10,22 @@ interface Parametrs {
   isNotFirstFloor: boolean
   isNotLastFloor: boolean;
   isLastFloor: boolean;
-
-
+  countFloorMin: number;
+  countFloorMax: number;
+  areaTotalMin: number;
+  areaTotalMax: any;
+  areaLivingMin: any;
+  areaLivingMax: any;
+  areaKitchenMax: any;
+  areaKitchenMin: any;
 }
 
 export interface iSmartParametrs extends Parametrs {
   planWeight: number;
   apartmentTypeWeight: number;
   floorWeight: number;
-
+  countFloorWeight: number;
+  areaWeight: number;
 }
 @Injectable({ providedIn: 'root' })
 export class SmartParametrs implements  iSmartParametrs{
@@ -34,6 +41,15 @@ export class SmartParametrs implements  iSmartParametrs{
   isNotFirstFloor: boolean= false;
   isNotLastFloor: boolean= false;
   isLastFloor: boolean= false;
-  countFloorWeight!: number;
+  countFloorWeight!: number =0;
+  countFloorMin!: number;
+  countFloorMax!: number;
+  areaWeight!: number =0;
+  areaTotalMin!: number;
+  areaTotalMax!: number;
+  areaLivingMin!: number;
+  areaLivingMax!: number;
+  areaKitchenMax!: number;
+  areaKitchenMin!: number;
 
 }
