@@ -18,6 +18,10 @@ interface Parametrs {
   areaLivingMax: any;
   areaKitchenMax: any;
   areaKitchenMin: any;
+  priceWeight: number;
+  priceMin : number;
+  areaPriceMin: number;
+  areaPriceMax: number;
 }
 
 export interface iSmartParametrs extends Parametrs {
@@ -26,6 +30,9 @@ export interface iSmartParametrs extends Parametrs {
   floorWeight: number;
   countFloorWeight: number;
   areaWeight: number;
+  priceMax : number;
+  areaPriceWeight: number;
+  numberOfRoomsWeight: number;
 }
 @Injectable({ providedIn: 'root' })
 export class SmartParametrs implements  iSmartParametrs{
@@ -51,5 +58,12 @@ export class SmartParametrs implements  iSmartParametrs{
   areaLivingMax!: number;
   areaKitchenMax!: number;
   areaKitchenMin!: number;
+  priceWeight!: number;
+  priceMin !: number;
+  priceMax !: number;
+  areaPriceWeight!: number=0;
+  areaPriceMin!: number;
+  areaPriceMax!: number;
+  numberOfRoomsWeight: number=0;
 
 }

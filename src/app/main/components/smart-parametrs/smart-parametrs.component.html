@@ -183,23 +183,22 @@
               </div>
             </div>
 
-
+            <!-- "Стоимость / Цена" -->
 
             <div class="fp-cmn-gray__cost">
               <div class="slider">
                 <h4 class="title--h4">Стоимость, P</h4>
 <!--                <input type="range" class="form-range" min="0" max="5" id="ntye">-->
                 <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                  <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                  <input matSliderThumb [(ngModel)]="smartParametrs.priceWeight" [ngModelOptions]="{standalone: true}">
                 </mat-slider>
                 <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
               </div>
-
               <div class="d-flex flex-row justify-content-between">
                 <input type="text" id="tern" class="d-block fp-input fp-input--base "
-                       placeholder="от">
+                       placeholder="от" [(ngModel)]="smartParametrs.priceMin" [ngModelOptions]="{standalone: true}">
                 <input type="text" id="ty48" class="d-block fp-input fp-input--base "
-                       placeholder="до">
+                       placeholder="до" [(ngModel)]="smartParametrs.priceMax" [ngModelOptions]="{standalone: true}">
               </div>
             </div>
             <div class="fp-cmn-gray__price">
@@ -207,16 +206,16 @@
                 <h4 class="title--h4">Цена за, м<sup>2</sup></h4>
 <!--                <input type="range" class="form-range" min="0" max="5" id="567tyr">-->
                 <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                  <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                  <input matSliderThumb [(ngModel)]="smartParametrs.areaPriceWeight" [ngModelOptions]="{standalone: true}">
                 </mat-slider>
                 <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
               </div>
 
               <div class="d-flex flex-row justify-content-between">
                 <input type="text" id="m6r7" class="d-block fp-input fp-input--base "
-                       placeholder="от">
+                       placeholder="от"  [(ngModel)]="smartParametrs.areaPriceMin" [ngModelOptions]="{standalone: true}">
                 <input type="text" id="eyue47y" class="d-block fp-input fp-input--base "
-                       placeholder="до">
+                       placeholder="до"  [(ngModel)]="smartParametrs.areaPriceMax" [ngModelOptions]="{standalone: true}">
               </div>
             </div>
           </div>
@@ -238,7 +237,7 @@
                 <div class="slider">
 <!--                  <input type="range" class="form-range" min="0" max="5" id="8td">-->
                   <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.numberOfRoomsWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
