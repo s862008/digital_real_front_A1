@@ -2,7 +2,16 @@ import {SmartParametrsComponent} from "../../main/components/smart-parametrs/sma
 import {inject, Injectable} from "@angular/core";
 
 interface Parametrs {
-
+  isAtelier: boolean
+  isOne: boolean
+  isTwo: boolean
+  isThree: boolean
+  isFour: boolean
+  isOneEuro: boolean
+  isTwoEuro: boolean
+  isThreeEuro: boolean
+  isFreeLayout: boolean
+  isFivePlus: boolean
   isApartments: boolean
   isFlat: boolean
   isIsolatePlan: boolean
@@ -19,7 +28,7 @@ interface Parametrs {
   areaKitchenMax: any;
   areaKitchenMin: any;
   priceWeight: number;
-  priceMin : number;
+  priceMin: number;
   areaPriceMin: number;
   areaPriceMax: number;
 }
@@ -30,28 +39,29 @@ export interface iSmartParametrs extends Parametrs {
   floorWeight: number;
   countFloorWeight: number;
   areaWeight: number;
-  priceMax : number;
+  priceMax: number;
   areaPriceWeight: number;
   numberOfRoomsWeight: number;
 }
-@Injectable({ providedIn: 'root' })
-export class SmartParametrs implements  iSmartParametrs{
-  apartmentTypeWeight: number =2;
-  isApartments: boolean= false;
-  isBlandPlan: boolean= false;
-  isFlat: boolean= false;
-  isIsolatePlan: boolean= false;
-  planWeight: number= 0;
-  floorWeight: number;
-  floorMin: number=0;
-  floorMax: number=100;
-  isNotFirstFloor: boolean= false;
-  isNotLastFloor: boolean= false;
-  isLastFloor: boolean= false;
-  countFloorWeight!: number =0;
+
+@Injectable({providedIn: 'root'})
+export class SmartParametrs implements iSmartParametrs {
+  apartmentTypeWeight: number = 2;
+  isApartments: boolean = false;
+  isBlandPlan: boolean = false;
+  isFlat: boolean = false;
+  isIsolatePlan: boolean = false;
+  planWeight: number = 0;
+  floorWeight: number = 0;
+  floorMin: number = 0;
+  floorMax: number = 100;
+  isNotFirstFloor: boolean = false;
+  isNotLastFloor: boolean = false;
+  isLastFloor: boolean = false;
+  countFloorWeight: number = 0;
   countFloorMin!: number;
   countFloorMax!: number;
-  areaWeight!: number =0;
+  areaWeight: number = 0;
   areaTotalMin!: number;
   areaTotalMax!: number;
   areaLivingMin!: number;
@@ -61,9 +71,20 @@ export class SmartParametrs implements  iSmartParametrs{
   priceWeight!: number;
   priceMin !: number;
   priceMax !: number;
-  areaPriceWeight!: number=0;
+  areaPriceWeight: number = 0;
   areaPriceMin!: number;
   areaPriceMax!: number;
-  numberOfRoomsWeight: number=0;
+  numberOfRoomsWeight: number = 0;
+
+  public isAtelier: boolean = false;
+  public isOne: boolean = false;
+  public isTwo: boolean = false;
+  public isThree: boolean = false;
+  public isFour: boolean = false;
+  public isOneEuro: boolean = false;
+  public isTwoEuro: boolean = false;
+  public isThreeEuro: boolean = false;
+  public isFreeLayout: boolean = false;
+  public isFivePlus: boolean = false;
 
 }
