@@ -298,72 +298,73 @@
                 <div class="slider">
 <!--                  <input type="range" class="form-range" min="0" max="5" id="456y">-->
                   <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.viewFromWindowsWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="rytr">
+                  <input [(ngModel)]="smartParametrs.isViewYard" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="rytr">
                   <span></span>
                   <span class="fp-label--tx">Во двор</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="h56">
+                  <input [(ngModel)]="smartParametrs.isViewStreet" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="h56">
                   <span></span>
                   <span class="fp-label--tx">На улицу</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="hfty54">
+                  <input  [(ngModel)]="smartParametrs.isViewSunnySide" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="hfty54">
                   <span></span>
                   <span class="fp-label--tx">На солнечную сторону</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="r5ty4">
+                  <input  [(ngModel)]="smartParametrs.isViewBothSide" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="r5ty4">
                   <span></span>
                   <span class="fp-label--tx">На две стороны</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="rt3y">
+                  <input [(ngModel)]="smartParametrs.isViewWestSide" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="rt3y">
                   <span></span>
                   <span class="fp-label--tx">Западная сторона</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="8y9789">
+                  <input [(ngModel)]="smartParametrs.isViewNorthSide" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="8y9789">
                   <span></span>
                   <span class="fp-label--tx">Северная сторона</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="5567f">
+                  <input [(ngModel)]="smartParametrs.isSouthBothSide" [ngModelOptions]="{standalone: true}"  class="fp-label--check"  type="checkbox" name="" id="5567f">
                   <span></span>
                   <span class="fp-label--tx">Южная сторона</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="asdar">
+                  <input [(ngModel)]="smartParametrs.isViewEastSide" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="asdar">
                   <span></span>
                   <span class="fp-label--tx">Восточная сторона</span>
                 </label>
               </div>
+
               <div class="fp-about-apart__balcony-type">
                 <h4 class="title--h4">Балкон</h4>
                 <div class="slider">
 <!--                  <input type="range" class="form-range" min="0" max="5" id="ad73">-->
                   <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.balconyWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="sdr45">
+                  <input [(ngModel)]="smartParametrs.isBalcony" [ngModelOptions]="{standalone: true}"  class="fp-label--check"  type="checkbox" name="" id="sdr45">
                   <span></span>
                   <span class="fp-label--tx">Балкон</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="ad3">
+                  <input [(ngModel)]="smartParametrs.isLoggia" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="ad3">
                   <span></span>
                   <span class="fp-label--tx">Лоджия</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="xc33">
+                  <input [(ngModel)]="smartParametrs.isInsulatedBalcony" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="xc33">
                   <span></span>
                   <span class="fp-label--tx">Утепленый балкон</span>
                 </label>

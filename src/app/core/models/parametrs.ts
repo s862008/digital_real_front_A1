@@ -31,6 +31,18 @@ interface Parametrs {
   priceMin: number;
   areaPriceMin: number;
   areaPriceMax: number;
+  isViewYard: boolean;
+  isViewStreet: boolean;
+  isViewSunnySide: boolean;
+  isViewBothSide: boolean;
+  isViewWestSide: boolean;
+  isViewNorthSide: boolean;
+  isSouthBothSide: boolean;
+  isViewEastSide: boolean;
+  balconyWeight: any;
+  isBalcony: any;
+  isLoggia: any;
+  isInsulatedBalcony: any;
 }
 
 export interface iSmartParametrs extends Parametrs {
@@ -42,6 +54,8 @@ export interface iSmartParametrs extends Parametrs {
   priceMax: number;
   areaPriceWeight: number;
   numberOfRoomsWeight: number;
+  viewFromWindowsWeight: number;
+  balconyWeight: number;
 }
 
 @Injectable({providedIn: 'root'})
@@ -86,5 +100,19 @@ export class SmartParametrs implements iSmartParametrs {
   public isThreeEuro: boolean = false;
   public isFreeLayout: boolean = false;
   public isFivePlus: boolean = false;
+  viewFromWindowsWeight: number = 0;
+  isViewYard: boolean = false;
+  isViewStreet: boolean = false;
+  isViewSunnySide: boolean = false;
+  isViewBothSide: boolean = false;
+  isViewWestSide: boolean = false;
+  isViewNorthSide: boolean = false;
+  isSouthBothSide: boolean = false;
+  isViewEastSide: boolean = false;
+  balconyWeight: number = 0;
+  isBalcony: boolean = false;
+  isLoggia: boolean = false;
+  isInsulatedBalcony: boolean = false;
+
 
 }

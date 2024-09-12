@@ -28,6 +28,7 @@ export interface ApartmentFull {
   article: string;
   numberOfRooms: string;
   price: bigint;
+  balcony:string;
   priceSqmt: bigint;
   floor: number;
   apartmentType: string;
