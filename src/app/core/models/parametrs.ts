@@ -39,10 +39,12 @@ interface Parametrs {
   isViewNorthSide: boolean;
   isSouthBothSide: boolean;
   isViewEastSide: boolean;
-  balconyWeight: any;
-  isBalcony: any;
-  isLoggia: any;
-  isInsulatedBalcony: any;
+  isBalcony: boolean;
+  isLoggia: boolean;
+  isInsulatedBalcony: boolean;
+  isCombined: boolean;
+  isSeparate: boolean;
+  isTwoBath: boolean;
 }
 
 export interface iSmartParametrs extends Parametrs {
@@ -56,6 +58,10 @@ export interface iSmartParametrs extends Parametrs {
   numberOfRoomsWeight: number;
   viewFromWindowsWeight: number;
   balconyWeight: number;
+  bathroomWeight: number;
+  stoveWeight: number;
+  isGasStove: boolean;
+  isElectricStove: boolean;
 }
 
 @Injectable({providedIn: 'root'})
@@ -89,7 +95,6 @@ export class SmartParametrs implements iSmartParametrs {
   areaPriceMin!: number;
   areaPriceMax!: number;
   numberOfRoomsWeight: number = 0;
-
   public isAtelier: boolean = false;
   public isOne: boolean = false;
   public isTwo: boolean = false;
@@ -113,6 +118,14 @@ export class SmartParametrs implements iSmartParametrs {
   isBalcony: boolean = false;
   isLoggia: boolean = false;
   isInsulatedBalcony: boolean = false;
+  bathroomWeight: number = 0;
+  isCombined: boolean = false;
+  isSeparate: boolean = false;
+  isTwoBath: boolean = false;
+  stoveWeight: number = 0;
+  isGasStove: boolean= false;
+  isElectricStove: boolean= false;
+
 
 
 }

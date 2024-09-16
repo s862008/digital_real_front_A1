@@ -369,27 +369,30 @@
                   <span class="fp-label--tx">Утепленый балкон</span>
                 </label>
               </div>
+
+              <!-- "Санузел" -->
+
               <div class="fp-about-apart__bathroom">
                 <h4 class="title--h4">Санузел</h4>
                 <div class="slider">
 <!--                  <input type="range" class="form-range" min="0" max="5" id="zr63">-->
                   <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.bathroomWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="zcd3e">
+                  <input [(ngModel)]="smartParametrs.isCombined" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="zcd3e">
                   <span></span>
                   <span class="fp-label--tx">Совмещенный</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="zasw3">
+                  <input [(ngModel)]="smartParametrs.isSeparate" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="zasw3">
                   <span></span>
                   <span class="fp-label--tx">Разделенный</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="axc334">
+                  <input [(ngModel)]="smartParametrs.isTwoBath" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="axc334">
                   <span></span>
                   <span class="fp-label--tx">2 и более</span>
                 </label>
@@ -399,17 +402,17 @@
                 <div class="slider">
 <!--                  <input type="range" class="form-range" min="0" max="5" id="zxsa33">-->
                   <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.stoveWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="zasd43">
+                  <input [(ngModel)]="smartParametrs.isGasStove" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="zasd43">
                   <span></span>
                   <span class="fp-label--tx">Газовая</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="szxza3">
+                  <input [(ngModel)]="smartParametrs.isElectricStove" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="szxza3">
                   <span></span>
                   <span class="fp-label--tx">Электрическая</span>
                 </label>
