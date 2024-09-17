@@ -45,6 +45,19 @@ interface Parametrs {
   isCombined: boolean;
   isSeparate: boolean;
   isTwoBath: boolean;
+  isPreFinishing: boolean;
+  isFinishing: boolean;
+  isEconomyClass: boolean;
+  isComfortClass: boolean;
+  isBusinessClass: boolean;
+  isWithoutFinishing: boolean;
+  isWallpaper: boolean;
+  isPaint: boolean;
+  isPanel: boolean;
+  isLincrusta: boolean;
+  isPlaster: boolean;
+  isBrick: boolean;
+  isWithoutWall: boolean;
 }
 
 export interface iSmartParametrs extends Parametrs {
@@ -62,6 +75,8 @@ export interface iSmartParametrs extends Parametrs {
   stoveWeight: number;
   isGasStove: boolean;
   isElectricStove: boolean;
+  decorationWeight: number;
+  decorationWallWeight: number;
 }
 
 @Injectable({providedIn: 'root'})
@@ -125,6 +140,21 @@ export class SmartParametrs implements iSmartParametrs {
   stoveWeight: number = 0;
   isGasStove: boolean= false;
   isElectricStove: boolean= false;
+  decorationWeight: number = 0;
+  isPreFinishing: boolean= false;
+  isFinishing: boolean= false;
+  isEconomyClass: boolean= false;
+  isComfortClass: boolean= false;
+  isBusinessClass: boolean= false;
+  isWithoutFinishing: boolean= false;
+  decorationWallWeight:  number = 0;
+  isWallpaper: boolean= false;
+  isPaint: boolean= false;
+  isPanel: boolean= false;
+  isLincrusta: boolean= false;
+  isPlaster: boolean= false;
+  isBrick: boolean= false;
+  isWithoutWall: boolean= false;
 
 
 
