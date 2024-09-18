@@ -524,47 +524,48 @@
                 <div class="slider">
 <!--                  <input type="range" class="form-range" min="0" max="5" id="cdf">-->
                   <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.decorationCeilingWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="cdfg">
+                  <input [(ngModel)]="smartParametrs.isWhiteCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="cdfg">
                   <span></span>
                   <span class="fp-label--tx">Побелка</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="4ty">
+                  <input [(ngModel)]="smartParametrs.isColorCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="4ty">
                   <span></span>
                   <span class="fp-label--tx">Покраска</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="b34">
+                  <input [(ngModel)]="smartParametrs.isTilesCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="b34">
                   <span></span>
                   <span class="fp-label--tx">Потолочная плитка</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="93d">
+                  <input [(ngModel)]="smartParametrs.isFalseCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="93d">
                   <span></span>
                   <span class="fp-label--tx">Подвесной потолок</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="l076">
+                  <input [(ngModel)]="smartParametrs.isStretchCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="l076">
                   <span></span>
                   <span class="fp-label--tx">Натяжной потолок</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="dscfasf">
+                  <input [(ngModel)]="smartParametrs.isWithoutCeiling" [ngModelOptions]="{standalone: true}"class="fp-label--check" type="checkbox" name="" id="dscfasf">
                   <span></span>
                   <span class="fp-label--tx">Без покрытия</span>
                 </label>
               </div>
+
               <div class="fp-finishing__floor">
                 <h4 class="title--h4">Покрытие пола</h4>
                 <div class="slider slider--temp">
 <!--                  <input type="range" class="form-range" min="0" max="5" id="cdfz">-->
                   <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.floorCoveringWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>

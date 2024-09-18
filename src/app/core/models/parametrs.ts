@@ -58,6 +58,12 @@ interface Parametrs {
   isPlaster: boolean;
   isBrick: boolean;
   isWithoutWall: boolean;
+  isWhiteCeiling: boolean;
+  isColorCeiling: boolean;
+  isTilesCeiling: boolean;
+  isFalseCeiling: boolean;
+  isStretchCeiling: boolean;
+  isWithoutCeiling: boolean;
 }
 
 export interface iSmartParametrs extends Parametrs {
@@ -77,6 +83,8 @@ export interface iSmartParametrs extends Parametrs {
   isElectricStove: boolean;
   decorationWeight: number;
   decorationWallWeight: number;
+  decorationCeilingWeight: number;
+  floorCoveringWeight: number;
 }
 
 @Injectable({providedIn: 'root'})
@@ -155,6 +163,15 @@ export class SmartParametrs implements iSmartParametrs {
   isPlaster: boolean= false;
   isBrick: boolean= false;
   isWithoutWall: boolean= false;
+  decorationCeilingWeight: number = 0;
+
+  isWhiteCeiling: boolean= false;
+  isColorCeiling: boolean= false;
+  isTilesCeiling: boolean= false;
+  isFalseCeiling: boolean= false;
+  isStretchCeiling: boolean= false;
+  isWithoutCeiling: boolean= false;
+  floorCoveringWeight: number=0;
 
 
 
