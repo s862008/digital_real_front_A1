@@ -41,6 +41,8 @@ interface Parametrs {
   isViewEastSide: boolean;
   isBalcony: boolean;
   isLoggia: boolean;
+  isGasStove: boolean;
+  isElectricStove: boolean;
   isInsulatedBalcony: boolean;
   isCombined: boolean;
   isSeparate: boolean;
@@ -64,6 +66,16 @@ interface Parametrs {
   isFalseCeiling: boolean;
   isStretchCeiling: boolean;
   isWithoutCeiling: boolean;
+  isStoneware: boolean;
+  isLinoleum: boolean;
+  isLaminate: boolean;
+  isParquet: boolean;
+  isQuartzvinyl: boolean;
+  isWithoutFloor: boolean;
+  isCosmeticRep: boolean;
+  isEuroRep: boolean;
+  isDisignRep: boolean;
+  isWithoutRep: boolean;
 }
 
 export interface iSmartParametrs extends Parametrs {
@@ -79,12 +91,11 @@ export interface iSmartParametrs extends Parametrs {
   balconyWeight: number;
   bathroomWeight: number;
   stoveWeight: number;
-  isGasStove: boolean;
-  isElectricStove: boolean;
   decorationWeight: number;
   decorationWallWeight: number;
   decorationCeilingWeight: number;
   floorCoveringWeight: number;
+  repairTypeWeight: number;
 }
 
 @Injectable({providedIn: 'root'})
@@ -146,33 +157,42 @@ export class SmartParametrs implements iSmartParametrs {
   isSeparate: boolean = false;
   isTwoBath: boolean = false;
   stoveWeight: number = 0;
-  isGasStove: boolean= false;
-  isElectricStove: boolean= false;
+  isGasStove: boolean = false;
+  isElectricStove: boolean = false;
   decorationWeight: number = 0;
-  isPreFinishing: boolean= false;
-  isFinishing: boolean= false;
-  isEconomyClass: boolean= false;
-  isComfortClass: boolean= false;
-  isBusinessClass: boolean= false;
-  isWithoutFinishing: boolean= false;
-  decorationWallWeight:  number = 0;
-  isWallpaper: boolean= false;
-  isPaint: boolean= false;
-  isPanel: boolean= false;
-  isLincrusta: boolean= false;
-  isPlaster: boolean= false;
-  isBrick: boolean= false;
-  isWithoutWall: boolean= false;
+  isPreFinishing: boolean = false;
+  isFinishing: boolean = false;
+  isEconomyClass: boolean = false;
+  isComfortClass: boolean = false;
+  isBusinessClass: boolean = false;
+  isWithoutFinishing: boolean = false;
+  decorationWallWeight: number = 0;
+  isWallpaper: boolean = false;
+  isPaint: boolean = false;
+  isPanel: boolean = false;
+  isLincrusta: boolean = false;
+  isPlaster: boolean = false;
+  isBrick: boolean = false;
+  isWithoutWall: boolean = false;
   decorationCeilingWeight: number = 0;
-
-  isWhiteCeiling: boolean= false;
-  isColorCeiling: boolean= false;
-  isTilesCeiling: boolean= false;
-  isFalseCeiling: boolean= false;
-  isStretchCeiling: boolean= false;
-  isWithoutCeiling: boolean= false;
-  floorCoveringWeight: number=0;
-
+  isWhiteCeiling: boolean = false;
+  isColorCeiling: boolean = false;
+  isTilesCeiling: boolean = false;
+  isFalseCeiling: boolean = false;
+  isStretchCeiling: boolean = false;
+  isWithoutCeiling: boolean = false;
+  floorCoveringWeight: number = 0;
+  isLinoleum: boolean = false;
+  isLaminate: boolean = false;
+  isParquet: boolean = false;
+  isQuartzvinyl: boolean = false;
+  isWithoutFloor: boolean = false;
+  isStoneware: boolean = false;
+  repairTypeWeight: number = 0;
+  isCosmeticRep: boolean= false;
+  isEuroRep: boolean= false;
+  isDisignRep: boolean= false;
+  isWithoutRep: boolean= false;
 
 
 }

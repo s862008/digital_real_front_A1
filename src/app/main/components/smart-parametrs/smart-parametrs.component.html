@@ -35,19 +35,22 @@
               <div class="fp-common__type-build">
                 <h4 class="title--h4">Тип жилья</h4>
                 <div class="slider slider--temp">
-<!--               <input type="range" class="form-range" min="0" max="5" id="rt" >-->
-                  <mat-slider min="0" max="10" step="1"  discrete >
-                    <input matSliderThumb [(ngModel)]="smartParametrs.apartmentTypeWeight" [ngModelOptions]="{standalone: true}">
+                  <!--               <input type="range" class="form-range" min="0" max="5" id="rt" >-->
+                  <mat-slider min="0" max="10" step="1" discrete>
+                    <input matSliderThumb [(ngModel)]="smartParametrs.apartmentTypeWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isFlat"  [ngModelOptions]="{standalone: true}"  class="fp-label--check"  type="checkbox" name="" id="ccvbfg">
+                  <input [(ngModel)]="smartParametrs.isFlat" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="ccvbfg">
                   <span></span>
                   <span class="fp-label--tx">Квартира</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isApartments"  [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="fgde">
+                  <input [(ngModel)]="smartParametrs.isApartments" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="fgde">
                   <span></span>
                   <span class="fp-label--tx">Апартаменты</span>
                 </label>
@@ -59,19 +62,21 @@
               <div class="fp-common__planner">
                 <h4 class="title--h4">Планировка</h4>
                 <div class="slider slider--temp">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="cvf" >-->
-                  <mat-slider min="0" max="10" step="1"  discrete   >
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}" >
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="cvf" >-->
+                  <mat-slider min="0" max="10" step="1" discrete>
+                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isBlandPlan"  [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="uit">
+                  <input [(ngModel)]="smartParametrs.isBlandPlan" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="uit">
                   <span></span>
                   <span class="fp-label--tx">Смежная</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isIsolatePlan"  [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="gh">
+                  <input [(ngModel)]="smartParametrs.isIsolatePlan" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="gh">
                   <span></span>
                   <span class="fp-label--tx">Изолированная</span>
                 </label>
@@ -82,29 +87,34 @@
               <div class="fp-common__roof">
                 <h4 class="title--h4">Этаж</h4>
                 <div class="slider slider--temp">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="ert">-->
-                  <mat-slider min="0" max="10" step="1"  discrete >
-                    <input matSliderThumb [(ngModel)]="smartParametrs.floorWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="ert">-->
+                  <mat-slider min="0" max="10" step="1" discrete>
+                    <input matSliderThumb [(ngModel)]="smartParametrs.floorWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <div class="d-flex flex-row justify-content-start gap-3 my-2">
                   <input type="text" id="area-input" class="d-block fp-input fp-input--sm"
                          placeholder="от" [(ngModel)]="smartParametrs.floorMin" [ngModelOptions]="{standalone: true}">
-                  <input type="text" class="d-block fp-input fp-input--sm" placeholder="до" [(ngModel)]="smartParametrs.floorMax" [ngModelOptions]="{standalone: true}">
+                  <input type="text" class="d-block fp-input fp-input--sm" placeholder="до"
+                         [(ngModel)]="smartParametrs.floorMax" [ngModelOptions]="{standalone: true}">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="erff" [(ngModel)]="smartParametrs.isNotFirstFloor" [ngModelOptions]="{standalone: true}">
+                  <input class="fp-label--check" type="checkbox" name="" id="erff"
+                         [(ngModel)]="smartParametrs.isNotFirstFloor" [ngModelOptions]="{standalone: true}">
                   <span></span>
                   <span class="fp-label--tx">Не первый</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="webm" [(ngModel)]="smartParametrs.isNotLastFloor" [ngModelOptions]="{standalone: true}">
+                  <input class="fp-label--check" type="checkbox" name="" id="webm"
+                         [(ngModel)]="smartParametrs.isNotLastFloor" [ngModelOptions]="{standalone: true}">
                   <span></span>
                   <span class="fp-label--tx">Не последний</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="4rt" [(ngModel)]="smartParametrs.isLastFloor" [ngModelOptions]="{standalone: true}">
+                  <input class="fp-label--check" type="checkbox" name="" id="4rt"
+                         [(ngModel)]="smartParametrs.isLastFloor" [ngModelOptions]="{standalone: true}">
                   <span></span>
                   <span class="fp-label--tx">Только последний</span>
                 </label>
@@ -115,17 +125,20 @@
               <div class="fp-common__roof-in-build">
                 <h4 class="title--h4">Этажей в доме</h4>
                 <div class="slider slider--temp">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="856jh">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.countFloorWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="856jh">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.countFloorWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <div class="d-flex flex-row justify-content-between  my-2">
                   <input type="text" id="gt5" class="d-block fp-input fp-input--long"
-                         placeholder="от" [(ngModel)]="smartParametrs.countFloorMin" [ngModelOptions]="{standalone: true}">
+                         placeholder="от" [(ngModel)]="smartParametrs.countFloorMin"
+                         [ngModelOptions]="{standalone: true}">
                   <input type="text" id="6yhtr" class="d-block fp-input fp-input--long"
-                         placeholder="до" [(ngModel)]="smartParametrs.countFloorMax" [ngModelOptions]="{standalone: true}">
+                         placeholder="до" [(ngModel)]="smartParametrs.countFloorMax"
+                         [ngModelOptions]="{standalone: true}">
                 </div>
                 <select class="form-select fp-select" required aria-label="select example">
                   <option value="">Выбрать застройщика</option>
@@ -154,8 +167,8 @@
             <div class="fp-cmn-gray__square">
               <div class="slider">
                 <h4 class="title--h4">Площадь</h4>
-<!--                <input type="range" class="form-range" min="0" max="5" id="tne54">-->
-                <mat-slider min="0" max="10" step="1"  discrete >
+                <!--                <input type="range" class="form-range" min="0" max="5" id="tne54">-->
+                <mat-slider min="0" max="10" step="1" discrete>
                   <input matSliderThumb [(ngModel)]="smartParametrs.areaWeight" [ngModelOptions]="{standalone: true}">
                 </mat-slider>
                 <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
@@ -163,23 +176,27 @@
               <p class="fp-label--tx">Общая</p>
               <div class="d-flex flex-row justify-content-between  my-2">
                 <input type="text" id="он" class="d-block fp-input fp-input--base "
-                       placeholder="от"  [(ngModel)]="smartParametrs.areaTotalMin" [ngModelOptions]="{standalone: true}">
+                       placeholder="от" [(ngModel)]="smartParametrs.areaTotalMin" [ngModelOptions]="{standalone: true}">
                 <input type="text" id="гше" class="d-block fp-input fp-input--base "
-                       placeholder="до"  [(ngModel)]="smartParametrs.areaTotalMax" [ngModelOptions]="{standalone: true}">
+                       placeholder="до" [(ngModel)]="smartParametrs.areaTotalMax" [ngModelOptions]="{standalone: true}">
               </div>
               <p class="fp-label--tx">Жилая</p>
               <div class="d-flex flex-row justify-content-between  my-2">
                 <input type="text" id="гнур7" class="d-block fp-input fp-input--base "
-                       placeholder="от" [(ngModel)]="smartParametrs.areaLivingMin" [ngModelOptions]="{standalone: true}">
+                       placeholder="от" [(ngModel)]="smartParametrs.areaLivingMin"
+                       [ngModelOptions]="{standalone: true}">
                 <input type="text" id="4ny" class="d-block fp-input fp-input--base "
-                       placeholder="до" [(ngModel)]="smartParametrs.areaLivingMax" [ngModelOptions]="{standalone: true}">
+                       placeholder="до" [(ngModel)]="smartParametrs.areaLivingMax"
+                       [ngModelOptions]="{standalone: true}">
               </div>
               <p class="fp-label--tx">Кухня</p>
               <div class="d-flex flex-row justify-content-between  my-2">
                 <input type="text" id="е5но" class="d-block fp-input fp-input--base "
-                       placeholder="от" [(ngModel)]="smartParametrs.areaKitchenMin" [ngModelOptions]="{standalone: true}">
+                       placeholder="от" [(ngModel)]="smartParametrs.areaKitchenMin"
+                       [ngModelOptions]="{standalone: true}">
                 <input type="text" id="е5" class="d-block fp-input fp-input--base "
-                       placeholder="до" [(ngModel)]="smartParametrs.areaKitchenMax" [ngModelOptions]="{standalone: true}">
+                       placeholder="до" [(ngModel)]="smartParametrs.areaKitchenMax"
+                       [ngModelOptions]="{standalone: true}">
               </div>
             </div>
 
@@ -188,8 +205,8 @@
             <div class="fp-cmn-gray__cost">
               <div class="slider">
                 <h4 class="title--h4">Стоимость, P</h4>
-<!--                <input type="range" class="form-range" min="0" max="5" id="ntye">-->
-                <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                <!--                <input type="range" class="form-range" min="0" max="5" id="ntye">-->
+                <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                   <input matSliderThumb [(ngModel)]="smartParametrs.priceWeight" [ngModelOptions]="{standalone: true}">
                 </mat-slider>
                 <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
@@ -204,18 +221,19 @@
             <div class="fp-cmn-gray__price">
               <div class="slider">
                 <h4 class="title--h4">Цена за, м<sup>2</sup></h4>
-<!--                <input type="range" class="form-range" min="0" max="5" id="567tyr">-->
-                <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                  <input matSliderThumb [(ngModel)]="smartParametrs.areaPriceWeight" [ngModelOptions]="{standalone: true}">
+                <!--                <input type="range" class="form-range" min="0" max="5" id="567tyr">-->
+                <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                  <input matSliderThumb [(ngModel)]="smartParametrs.areaPriceWeight"
+                         [ngModelOptions]="{standalone: true}">
                 </mat-slider>
                 <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
               </div>
 
               <div class="d-flex flex-row justify-content-between">
                 <input type="text" id="m6r7" class="d-block fp-input fp-input--base "
-                       placeholder="от"  [(ngModel)]="smartParametrs.areaPriceMin" [ngModelOptions]="{standalone: true}">
+                       placeholder="от" [(ngModel)]="smartParametrs.areaPriceMin" [ngModelOptions]="{standalone: true}">
                 <input type="text" id="eyue47y" class="d-block fp-input fp-input--base "
-                       placeholder="до"  [(ngModel)]="smartParametrs.areaPriceMax" [ngModelOptions]="{standalone: true}">
+                       placeholder="до" [(ngModel)]="smartParametrs.areaPriceMax" [ngModelOptions]="{standalone: true}">
               </div>
             </div>
           </div>
@@ -235,59 +253,70 @@
               <div class="fp-about-apart__count-room">
                 <h4 class="title--h4">Количество комнат</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="8td">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.numberOfRoomsWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="8td">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.numberOfRoomsWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isAtelier" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="brty">
+                  <input [(ngModel)]="smartParametrs.isAtelier" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="brty">
                   <span></span>
                   <span class="fp-label--tx">Студия</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isOne" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="nd66">
+                  <input [(ngModel)]="smartParametrs.isOne" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="nd66">
                   <span></span>
                   <span class="fp-label--tx">1 комната</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isOneEuro" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="rty54">
+                  <input [(ngModel)]="smartParametrs.isOneEuro" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="rty54">
                   <span></span>
                   <span class="fp-label--tx">Еврооднушка</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isTwo" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="rn4">
+                  <input [(ngModel)]="smartParametrs.isTwo" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="rn4">
                   <span></span>
                   <span class="fp-label--tx">2 комнаты</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isTwoEuro" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="rn44">
+                  <input [(ngModel)]="smartParametrs.isTwoEuro" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="rn44">
                   <span></span>
                   <span class="fp-label--tx">Евродвушка</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isThree" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="5nd">
+                  <input [(ngModel)]="smartParametrs.isThree" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="5nd">
                   <span></span>
                   <span class="fp-label--tx">3 комнаты</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isThreeEuro" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="fn5">
+                  <input [(ngModel)]="smartParametrs.isThreeEuro" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="fn5">
                   <span></span>
                   <span class="fp-label--tx">Евротрешка</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isFour" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="rn4y">
+                  <input [(ngModel)]="smartParametrs.isFour" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="rn4y">
                   <span></span>
                   <span class="fp-label--tx">4 комнаты</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isFivePlus" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="57457f">
+                  <input [(ngModel)]="smartParametrs.isFivePlus" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="57457f">
                   <span></span>
                   <span class="fp-label--tx">5 комнат и более</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isFreeLayout" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="n44">
+                  <input [(ngModel)]="smartParametrs.isFreeLayout" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="n44">
                   <span></span>
                   <span class="fp-label--tx">Свободная планировка</span>
                 </label>
@@ -296,49 +325,58 @@
               <div class="fp-about-apart__view">
                 <h4 class="title--h4">Вид из окна</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="456y">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.viewFromWindowsWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="456y">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.viewFromWindowsWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isViewYard" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="rytr">
+                  <input [(ngModel)]="smartParametrs.isViewYard" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="rytr">
                   <span></span>
                   <span class="fp-label--tx">Во двор</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isViewStreet" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="h56">
+                  <input [(ngModel)]="smartParametrs.isViewStreet" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="h56">
                   <span></span>
                   <span class="fp-label--tx">На улицу</span>
                 </label>
                 <label class="fp-label">
-                  <input  [(ngModel)]="smartParametrs.isViewSunnySide" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="hfty54">
+                  <input [(ngModel)]="smartParametrs.isViewSunnySide" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="hfty54">
                   <span></span>
                   <span class="fp-label--tx">На солнечную сторону</span>
                 </label>
                 <label class="fp-label">
-                  <input  [(ngModel)]="smartParametrs.isViewBothSide" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="r5ty4">
+                  <input [(ngModel)]="smartParametrs.isViewBothSide" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="r5ty4">
                   <span></span>
                   <span class="fp-label--tx">На две стороны</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isViewWestSide" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="rt3y">
+                  <input [(ngModel)]="smartParametrs.isViewWestSide" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="rt3y">
                   <span></span>
                   <span class="fp-label--tx">Западная сторона</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isViewNorthSide" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="8y9789">
+                  <input [(ngModel)]="smartParametrs.isViewNorthSide" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="8y9789">
                   <span></span>
                   <span class="fp-label--tx">Северная сторона</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isSouthBothSide" [ngModelOptions]="{standalone: true}"  class="fp-label--check"  type="checkbox" name="" id="5567f">
+                  <input [(ngModel)]="smartParametrs.isSouthBothSide" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="5567f">
                   <span></span>
                   <span class="fp-label--tx">Южная сторона</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isViewEastSide" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="asdar">
+                  <input [(ngModel)]="smartParametrs.isViewEastSide" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="asdar">
                   <span></span>
                   <span class="fp-label--tx">Восточная сторона</span>
                 </label>
@@ -347,24 +385,28 @@
               <div class="fp-about-apart__balcony-type">
                 <h4 class="title--h4">Балкон</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="ad73">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.balconyWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="ad73">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.balconyWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isBalcony" [ngModelOptions]="{standalone: true}"  class="fp-label--check"  type="checkbox" name="" id="sdr45">
+                  <input [(ngModel)]="smartParametrs.isBalcony" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="sdr45">
                   <span></span>
                   <span class="fp-label--tx">Балкон</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isLoggia" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="ad3">
+                  <input [(ngModel)]="smartParametrs.isLoggia" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="ad3">
                   <span></span>
                   <span class="fp-label--tx">Лоджия</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isInsulatedBalcony" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="xc33">
+                  <input [(ngModel)]="smartParametrs.isInsulatedBalcony" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="xc33">
                   <span></span>
                   <span class="fp-label--tx">Утепленый балкон</span>
                 </label>
@@ -375,24 +417,28 @@
               <div class="fp-about-apart__bathroom">
                 <h4 class="title--h4">Санузел</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="zr63">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.bathroomWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="zr63">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.bathroomWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isCombined" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="zcd3e">
+                  <input [(ngModel)]="smartParametrs.isCombined" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="zcd3e">
                   <span></span>
                   <span class="fp-label--tx">Совмещенный</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isSeparate" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="zasw3">
+                  <input [(ngModel)]="smartParametrs.isSeparate" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="zasw3">
                   <span></span>
                   <span class="fp-label--tx">Разделенный</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isTwoBath" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="axc334">
+                  <input [(ngModel)]="smartParametrs.isTwoBath" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="axc334">
                   <span></span>
                   <span class="fp-label--tx">2 и более</span>
                 </label>
@@ -400,19 +446,22 @@
               <div class="fp-about-apart__stove">
                 <h4 class="title--h4">Плита на кухне</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="zxsa33">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.stoveWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="zxsa33">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.stoveWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isGasStove" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="zasd43">
+                  <input [(ngModel)]="smartParametrs.isGasStove" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="zasd43">
                   <span></span>
                   <span class="fp-label--tx">Газовая</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isElectricStove" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="szxza3">
+                  <input [(ngModel)]="smartParametrs.isElectricStove" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="szxza3">
                   <span></span>
                   <span class="fp-label--tx">Электрическая</span>
                 </label>
@@ -435,39 +484,46 @@
               <div class="fp-finishing__main">
                 <h4 class="title--h4">Отделка</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="xcvwe">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.decorationWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="xcvwe">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.decorationWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isPreFinishing" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="dsd4">
+                  <input [(ngModel)]="smartParametrs.isPreFinishing" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="dsd4">
                   <span></span>
                   <span class="fp-label--tx">Предчистовая</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isFinishing" [ngModelOptions]="{standalone: true}"  class="fp-label--check"  type="checkbox" name="" id="sdf44">
+                  <input [(ngModel)]="smartParametrs.isFinishing" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="sdf44">
                   <span></span>
                   <span class="fp-label--tx">Чистовая</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isEconomyClass" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="gdg">
+                  <input [(ngModel)]="smartParametrs.isEconomyClass" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="gdg">
                   <span></span>
                   <span class="fp-label--tx">Эконом-класс</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isComfortClass" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="sf4">
+                  <input [(ngModel)]="smartParametrs.isComfortClass" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="sf4">
                   <span></span>
                   <span class="fp-label--tx">Комфорт-класс</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isBusinessClass" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="sse43">
+                  <input [(ngModel)]="smartParametrs.isBusinessClass" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="sse43">
                   <span></span>
                   <span class="fp-label--tx">Бизнес-класс</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isWithoutFinishing" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="cvf4">
+                  <input [(ngModel)]="smartParametrs.isWithoutFinishing" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="cvf4">
                   <span></span>
                   <span class="fp-label--tx">Без отделки</span>
                 </label>
@@ -476,44 +532,52 @@
               <div class="fp-finishing__wall">
                 <h4 class="title--h4">Отделка стен</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="bvdcg">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.decorationWallWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="bvdcg">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.decorationWallWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isWallpaper" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="bxfff">
+                  <input [(ngModel)]="smartParametrs.isWallpaper" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="bxfff">
                   <span></span>
                   <span class="fp-label--tx">Обои</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isPaint" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="bdfdr">
+                  <input [(ngModel)]="smartParametrs.isPaint" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="bdfdr">
                   <span></span>
                   <span class="fp-label--tx">Краска</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isPanel" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="bdfg">
+                  <input [(ngModel)]="smartParametrs.isPanel" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="bdfg">
                   <span></span>
                   <span class="fp-label--tx">Панели</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isLincrusta" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="drr7896">
+                  <input [(ngModel)]="smartParametrs.isLincrusta" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="drr7896">
                   <span></span>
                   <span class="fp-label--tx">Линкруст</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isPlaster" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="hh46">
+                  <input [(ngModel)]="smartParametrs.isPlaster" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="hh46">
                   <span></span>
                   <span class="fp-label--tx">Декоративная штукатурка</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isBrick" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="fg55">
+                  <input [(ngModel)]="smartParametrs.isBrick" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="fg55">
                   <span></span>
                   <span class="fp-label--tx">Декоративный кирпич</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isWithoutWall" [ngModelOptions]="{standalone: true}" class="fp-label--check"  type="checkbox" name="" id="dfg5">
+                  <input [(ngModel)]="smartParametrs.isWithoutWall" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="dfg5">
                   <span></span>
                   <span class="fp-label--tx">Без покрытия</span>
                 </label>
@@ -522,39 +586,46 @@
               <div class="fp-finishing__ceiling">
                 <h4 class="title--h4">Отделка потолка</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="cdf">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.decorationCeilingWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="cdf">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.decorationCeilingWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isWhiteCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="cdfg">
+                  <input [(ngModel)]="smartParametrs.isWhiteCeiling" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="cdfg">
                   <span></span>
                   <span class="fp-label--tx">Побелка</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isColorCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="4ty">
+                  <input [(ngModel)]="smartParametrs.isColorCeiling" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="4ty">
                   <span></span>
                   <span class="fp-label--tx">Покраска</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isTilesCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="b34">
+                  <input [(ngModel)]="smartParametrs.isTilesCeiling" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="b34">
                   <span></span>
                   <span class="fp-label--tx">Потолочная плитка</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isFalseCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="93d">
+                  <input [(ngModel)]="smartParametrs.isFalseCeiling" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="93d">
                   <span></span>
                   <span class="fp-label--tx">Подвесной потолок</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isStretchCeiling" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="l076">
+                  <input [(ngModel)]="smartParametrs.isStretchCeiling" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="l076">
                   <span></span>
                   <span class="fp-label--tx">Натяжной потолок</span>
                 </label>
                 <label class="fp-label">
-                  <input [(ngModel)]="smartParametrs.isWithoutCeiling" [ngModelOptions]="{standalone: true}"class="fp-label--check" type="checkbox" name="" id="dscfasf">
+                  <input [(ngModel)]="smartParametrs.isWithoutCeiling" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="dscfasf">
                   <span></span>
                   <span class="fp-label--tx">Без покрытия</span>
                 </label>
@@ -563,69 +634,78 @@
               <div class="fp-finishing__floor">
                 <h4 class="title--h4">Покрытие пола</h4>
                 <div class="slider slider--temp">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="cdfz">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.floorCoveringWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="cdfz">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.floorCoveringWeight"
+                           [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="cwfc">
+                  <input [(ngModel)]="smartParametrs.isLinoleum" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="cwfc">
                   <span></span>
                   <span class="fp-label--tx">Линолеум</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="cdd">
+                  <input [(ngModel)]="smartParametrs.isLaminate" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="cdd">
                   <span></span>
                   <span class="fp-label--tx">Ламинат</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="cdwqz">
+                  <input [(ngModel)]="smartParametrs.isParquet" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="cdwqz">
                   <span></span>
                   <span class="fp-label--tx">Паркет</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="zxcs">
+                  <input [(ngModel)]="smartParametrs.isStoneware" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="zxcs">
                   <span></span>
                   <span class="fp-label--tx">Керамогранит</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="zbvfrrt">
+                  <input [(ngModel)]="smartParametrs.isQuartzvinyl" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="zbvfrrt">
                   <span></span>
                   <span class="fp-label--tx">Кварцвинил</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="zert">
+                  <input [(ngModel)]="smartParametrs.isWithoutFloor" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="zert">
                   <span></span>
                   <span class="fp-label--tx">Без покрытия</span>
                 </label>
               </div>
+
               <div class="fp-finishing__type">
                 <h4 class="title--h4">Ремонт</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="ti5">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="ti5">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.repairTypeWeight"  [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="tuer4">
+                  <input [(ngModel)]="smartParametrs.isCosmeticRep" [ngModelOptions]="{standalone: true}"
+                         class="fp-label--check" type="checkbox" name="" id="tuer4">
                   <span></span>
                   <span class="fp-label--tx">Косметический</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="ret45">
+                  <input [(ngModel)]="smartParametrs.isEuroRep" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="ret45">
                   <span></span>
                   <span class="fp-label--tx">Евро</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="gre5">
+                  <input [(ngModel)]="smartParametrs.isDisignRep" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="gre5">
                   <span></span>
                   <span class="fp-label--tx">Дизайнерский</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="gety43">
+                  <input [(ngModel)]="smartParametrs.isWithoutRep" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="gety43">
                   <span></span>
                   <span class="fp-label--tx">Без ремонта</span>
                 </label>
@@ -634,14 +714,14 @@
               <div class="fp-finishing__glazing">
                 <h4 class="title--h4">Остекление балкона/лоджии</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="fggr">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="fggr">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="gfe">
+                  <input class="fp-label--check" type="checkbox" name="" id="gfe">
                   <span></span>
                   <span class="fp-label--tx">ПВХ</span>
                 </label>
@@ -651,7 +731,7 @@
                   <span class="fp-label--tx">Алюминий</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="grrt">
+                  <input class="fp-label--check" type="checkbox" name="" id="grrt">
                   <span></span>
                   <span class="fp-label--tx">Витражное остекление</span>
                 </label>
@@ -665,8 +745,8 @@
               <div class="fp-finishing__bath">
                 <h4 class="title--h4">Отделка санузла</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="g5re">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="g5re">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
@@ -677,7 +757,7 @@
                   <span class="fp-label--tx">Без отделки</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="ethdx">
+                  <input class="fp-label--check" type="checkbox" name="" id="ethdx">
                   <span></span>
                   <span class="fp-label--tx">С отделкой</span>
                 </label>
@@ -686,14 +766,14 @@
               <div class="fp-finishing__radiator">
                 <h4 class="title--h4">Радиоторы</h4>
                 <div class="slider slider--temp">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="custnge2">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="custnge2">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="27">
+                  <input class="fp-label--check" type="checkbox" name="" id="27">
                   <span></span>
                   <span class="fp-label--tx">Биметал</span>
                 </label>
@@ -727,8 +807,8 @@
               <div class="fp-about-build__type">
                 <h4 class="title--h4">Тип дома</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="67">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="67">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
@@ -740,7 +820,7 @@
                   <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="n456">
+                  <input class="fp-label--check" type="checkbox" name="" id="n456">
                   <span></span>
                   <span class="fp-label--tx">Монолитный</span>
                 </label>
@@ -750,7 +830,7 @@
                   <span class="fp-label--tx">Панельный</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="65756yg">
+                  <input class="fp-label--check" type="checkbox" name="" id="65756yg">
                   <span></span>
                   <span class="fp-label--tx">Кирпично-монолитный</span>
                 </label>
@@ -771,8 +851,8 @@
                 <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
 
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="e7">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="e7">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
@@ -789,17 +869,17 @@
                   <span class="fp-label--tx">B</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="rth479">
+                  <input class="fp-label--check" type="checkbox" name="" id="rth479">
                   <span></span>
                   <span class="fp-label--tx">C</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="4567grt">
+                  <input class="fp-label--check" type="checkbox" name="" id="4567grt">
                   <span></span>
                   <span class="fp-label--tx">D</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="4568rrf">
+                  <input class="fp-label--check" type="checkbox" name="" id="4568rrf">
                   <span></span>
                   <span class="fp-label--tx">E</span>
                 </label>
@@ -807,8 +887,8 @@
               <div class="fp-about-build__seismic">
                 <h4 class="title--h4">Сейсмоустойчивость</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="6jyy7">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="6jyy7">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
@@ -824,7 +904,7 @@
                   <span class="fp-label--tx">до 6 баллов</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="fgff">
+                  <input class="fp-label--check" type="checkbox" name="" id="fgff">
                   <span></span>
                   <span class="fp-label--tx">7 и выше</span>
                 </label>
@@ -832,8 +912,8 @@
               <div class="fp-about-build__date">
                 <h4 class="title--h4">Срок сдачи</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="6j7">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="6j7">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
@@ -855,7 +935,7 @@
                   <span class="fp-label--tx">Год</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="rtart">
+                  <input class="fp-label--check" type="checkbox" name="" id="rtart">
                   <span></span>
                   <span class="fp-label--tx">Дом сдан</span>
                 </label>
@@ -863,8 +943,8 @@
               <div class="fp-about-build__height-floor">
                 <h4 class="title--h4">Высота потолков</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="6jhj7">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="6jhj7">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
@@ -880,7 +960,7 @@
                   <span class="fp-label--tx">до 2.7м</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="3">
+                  <input class="fp-label--check" type="checkbox" name="" id="3">
                   <span></span>
                   <span class="fp-label--tx">от 3м</span>
                 </label>
@@ -893,14 +973,14 @@
               <div class="fp-about-build__count-elevator">
                 <h4 class="title--h4">Количество лифтов</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="6hj7">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="6hj7">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="sj4">
+                  <input class="fp-label--check" type="checkbox" name="" id="sj4">
                   <span></span>
                   <span class="fp-label--tx">1</span>
                 </label>
@@ -918,8 +998,8 @@
               <div class="fp-about-build__smart-home">
                 <h4 class="title--h4">Умный дом</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="hj7">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="hj7">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
@@ -938,8 +1018,8 @@
               <div class="fp-about-build__count-apart">
                 <h4 class="title--h4">Количество квартир на этаже</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="6uj7">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="6uj7">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
@@ -955,14 +1035,14 @@
               <div class="fp-about-build__elevator">
                 <h4 class="title--h4">Лифт</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="6nhj7">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="6nhj7">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="swj4">
+                  <input class="fp-label--check" type="checkbox" name="" id="swj4">
                   <span></span>
                   <span class="fp-label--tx">Пассажирский</span>
                 </label>
@@ -975,14 +1055,14 @@
               <div class="fp-about-build__boiler">
                 <h4 class="title--h4">Своя котельная</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="6nш">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="6nш">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="sмwj4">
+                  <input class="fp-label--check" type="checkbox" name="" id="sмwj4">
                   <span></span>
                   <span class="fp-label--tx">Да</span>
                 </label>
@@ -1010,20 +1090,20 @@
               <div class="fp-comfort__nearby">
                 <h4 class="title--h4">Рядом</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="867">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="867">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="bdfgh">
+                  <input class="fp-label--check" type="checkbox" name="" id="bdfgh">
                   <span></span>
                   <span class="fp-label--tx">ТЦ</span>
                   <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="gdbbb">
+                  <input class="fp-label--check" type="checkbox" name="" id="gdbbb">
                   <span></span>
                   <span class="fp-label--tx">Фитнес</span>
                 </label>
@@ -1062,8 +1142,8 @@
                 <h4 class="title--h4 d-inline-block">Парковка</h4>
                 <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="et7">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="et7">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
@@ -1085,7 +1165,7 @@
                   <span class="fp-label--tx">Открытая во дворе</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="wetr">
+                  <input class="fp-label--check" type="checkbox" name="" id="wetr">
                   <span></span>
                   <span class="fp-label--tx d-inline">Закрытая территория двора</span>
                 </label>
@@ -1093,14 +1173,14 @@
               <div class="fp-comfort__courtyard">
                 <h4 class="title--h4">Закрытый двор</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="yt67">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="yt67">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
 
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="nyted">
+                  <input class="fp-label--check" type="checkbox" name="" id="nyted">
                   <span></span>
                   <span class="fp-label--tx">Да</span>
 
@@ -1114,14 +1194,14 @@
               <div class="fp-comfort__furniture">
                 <h4 class="title--h4">Меблировка</h4>
                 <div class="slider">
-<!--                  <input type="range" class="form-range" min="0" max="5" id="yи67">-->
-                  <mat-slider min="0" max="10" step="1"  discrete [displayWith]="formatLabel">
+                  <!--                  <input type="range" class="form-range" min="0" max="5" id="yи67">-->
+                  <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
 
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="кеуа">
+                  <input class="fp-label--check" type="checkbox" name="" id="кеуа">
                   <span></span>
                   <span class="fp-label--tx">Без мебели</span>
 
@@ -1155,7 +1235,7 @@
               <div class="fp-deal__sale-type">
                 <h4 class="title--h4">Способ продажи</h4>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="ddu" id="ddu">
+                  <input class="fp-label--check" type="checkbox" name="ddu" id="ddu">
                   <span></span>
                   <span class="fp-label--tx">ДДУ</span>
                   <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
@@ -1193,7 +1273,7 @@
                 <h4 class="title--h4">Онлайн-бронирование</h4>
 
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="nyfted">
+                  <input class="fp-label--check" type="checkbox" name="" id="nyfted">
                   <span></span>
                   <span class="fp-label--tx">Да</span>
                 </label>
@@ -1206,7 +1286,7 @@
               <div class="fp-deal__el-registration">
                 <h4 class="title--h4">Электронная регистрация сделки</h4>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="кiеуа">
+                  <input class="fp-label--check" type="checkbox" name="" id="кiеуа">
                   <span></span>
                   <span class="fp-label--tx">Да</span>
                 </label>
@@ -1219,7 +1299,7 @@
               <div class="fp-deal__promo">
                 <h4 class="title--h4">АКЦИИ</h4>
                 <label class="fp-label">
-                  <input class="fp-label--check"  type="checkbox" name="" id="кjiеуа">
+                  <input class="fp-label--check" type="checkbox" name="" id="кjiеуа">
                   <span></span>
                   <span class="fp-label--tx">Да</span>
                 </label>
