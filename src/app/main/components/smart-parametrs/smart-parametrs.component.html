@@ -716,32 +716,32 @@
                 <div class="slider">
                   <!--                  <input type="range" class="form-range" min="0" max="5" id="fggr">-->
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
-                    <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
+                    <input matSliderThumb [(ngModel)]="smartParametrs.glazingWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
                   <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                 </div>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="gfe">
+                  <input [(ngModel)]="smartParametrs.isPVH" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="gfe">
                   <span></span>
                   <span class="fp-label--tx">ПВХ</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="gfr">
+                  <input [(ngModel)]="smartParametrs.isAluminum" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="gfr">
                   <span></span>
                   <span class="fp-label--tx">Алюминий</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="grrt">
+                  <input [(ngModel)]="smartParametrs.isVitrazh" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="grrt">
                   <span></span>
                   <span class="fp-label--tx">Витражное остекление</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="gffe">
+                  <input [(ngModel)]="smartParametrs.isWithoutGlazing" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="gffe">
                   <span></span>
                   <span class="fp-label--tx">Без остекления</span>
                 </label>
-
               </div>
+
               <div class="fp-finishing__bath">
                 <h4 class="title--h4">Отделка санузла</h4>
                 <div class="slider">

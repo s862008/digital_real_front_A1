@@ -76,6 +76,10 @@ interface Parametrs {
   isEuroRep: boolean;
   isDisignRep: boolean;
   isWithoutRep: boolean;
+  isPVH: boolean;
+  isVitrazh: boolean;
+  isWithoutGlazing: boolean;
+  isAluminum: boolean;
 }
 
 export interface iSmartParametrs extends Parametrs {
@@ -96,6 +100,7 @@ export interface iSmartParametrs extends Parametrs {
   decorationCeilingWeight: number;
   floorCoveringWeight: number;
   repairTypeWeight: number;
+  glazingWeight: number;
 }
 
 @Injectable({providedIn: 'root'})
@@ -193,6 +198,11 @@ export class SmartParametrs implements iSmartParametrs {
   isEuroRep: boolean= false;
   isDisignRep: boolean= false;
   isWithoutRep: boolean= false;
+  glazingWeight: number = 0;
+  isPVH: boolean= false;
+  isVitrazh: boolean= false;
+  isWithoutGlazing: boolean= false;
+  isAluminum: boolean= false;
 
 
 }
