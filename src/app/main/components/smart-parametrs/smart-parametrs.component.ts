@@ -13,6 +13,7 @@ import {SmartParametrs} from "../../../core/models/parametrs";
 
 export class SmartParametrsComponent implements OnInit {
   smartForm: FormGroup;
+  yourModel: string="qqq";
 
 
   constructor(private fb: FormBuilder, public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {

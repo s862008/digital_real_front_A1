@@ -80,6 +80,11 @@ interface Parametrs {
   isVitrazh: boolean;
   isWithoutGlazing: boolean;
   isAluminum: boolean;
+  isWithoutDecBathroom: boolean;
+  isWithDecBathroom: boolean;
+  isBemetalRadtr: boolean;
+  isSteelRadtr: boolean;
+  isAluminumRadtr: boolean;
 }
 
 export interface iSmartParametrs extends Parametrs {
@@ -101,6 +106,8 @@ export interface iSmartParametrs extends Parametrs {
   floorCoveringWeight: number;
   repairTypeWeight: number;
   glazingWeight: number;
+  decorationBathroomWeight: number;
+  radiatorsWeight: number;
 }
 
 @Injectable({providedIn: 'root'})
@@ -203,6 +210,14 @@ export class SmartParametrs implements iSmartParametrs {
   isVitrazh: boolean= false;
   isWithoutGlazing: boolean= false;
   isAluminum: boolean= false;
+  decorationBathroomWeight: number = 0;
+  isWithoutDecBathroom: boolean = false;
+  isWithDecBathroom: boolean = false;
+  radiatorsWeight: number = 0;
+  isBemetalRadtr: boolean = false;
+  isSteelRadtr: boolean = false;
+  isAluminumRadtr: boolean = false;
+
 
 
 }
