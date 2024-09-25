@@ -55,10 +55,10 @@ interface Parametrs {
   isWithoutFinishing: boolean;
   isWallpaper: boolean;
   isPaint: boolean;
-  isPanel: boolean;
+  isPanelWall: boolean;
   isLincrusta: boolean;
   isPlaster: boolean;
-  isBrick: boolean;
+  isBrickWall: boolean;
   isWithoutWall: boolean;
   isWhiteCeiling: boolean;
   isColorCeiling: boolean;
@@ -82,9 +82,35 @@ interface Parametrs {
   isAluminum: boolean;
   isWithoutDecBathroom: boolean;
   isWithDecBathroom: boolean;
-  isBemetalRadtr: boolean;
+  isBimetalRadtr: boolean;
   isSteelRadtr: boolean;
   isAluminumRadtr: boolean;
+  isPanelBuild: boolean;
+  isBrickBuild: boolean;
+  isMonolithicBuild: boolean;
+  isMnlBrckBuild: boolean;
+  isBlockBuild: boolean;
+  isAnotherBuild: boolean;
+  isClassA: boolean;
+  isClassB: boolean;
+  isClassC: boolean;
+  isClassD: boolean;
+  isClassE: boolean;
+  isAsesmic5: boolean
+  isAsesmic6: boolean;
+  isAsesmic7: boolean;
+  isDueYearMin: number;
+  isDueYearMax: number;
+  isDueQuart: boolean;
+  isDueYear: boolean;
+  isDone: boolean;
+  isCeilHeightFrom2_7: boolean;
+  isCeilHeightTo2_7: boolean;
+  isCeilHeightFrom3: boolean;
+  isCeilHeightTFrom3_5: boolean;
+  isSmart: boolean;
+  isNotSmart: boolean;
+
 }
 
 export interface iSmartParametrs extends Parametrs {
@@ -108,6 +134,16 @@ export interface iSmartParametrs extends Parametrs {
   glazingWeight: number;
   decorationBathroomWeight: number;
   radiatorsWeight: number;
+  buildWeight: number;
+  classWeight: number;
+  asesmicWeight: number;
+  dueWeight: number;
+  ceilingHeightWeight: number;
+  elevatorsWeight: number;
+  isElevator1: boolean;
+  isElevator2: boolean;
+  isElevator3: boolean;
+  smartHomeWeight: number;
 }
 
 @Injectable({providedIn: 'root'})
@@ -181,10 +217,10 @@ export class SmartParametrs implements iSmartParametrs {
   decorationWallWeight: number = 0;
   isWallpaper: boolean = false;
   isPaint: boolean = false;
-  isPanel: boolean = false;
+  isPanelWall: boolean = false;
   isLincrusta: boolean = false;
   isPlaster: boolean = false;
-  isBrick: boolean = false;
+  isBrickWall: boolean = false;
   isWithoutWall: boolean = false;
   decorationCeilingWeight: number = 0;
   isWhiteCeiling: boolean = false;
@@ -201,23 +237,56 @@ export class SmartParametrs implements iSmartParametrs {
   isWithoutFloor: boolean = false;
   isStoneware: boolean = false;
   repairTypeWeight: number = 0;
-  isCosmeticRep: boolean= false;
-  isEuroRep: boolean= false;
-  isDisignRep: boolean= false;
-  isWithoutRep: boolean= false;
+  isCosmeticRep: boolean = false;
+  isEuroRep: boolean = false;
+  isDisignRep: boolean = false;
+  isWithoutRep: boolean = false;
   glazingWeight: number = 0;
-  isPVH: boolean= false;
-  isVitrazh: boolean= false;
-  isWithoutGlazing: boolean= false;
-  isAluminum: boolean= false;
+  isPVH: boolean = false;
+  isVitrazh: boolean = false;
+  isWithoutGlazing: boolean = false;
+  isAluminum: boolean = false;
   decorationBathroomWeight: number = 0;
   isWithoutDecBathroom: boolean = false;
   isWithDecBathroom: boolean = false;
   radiatorsWeight: number = 0;
-  isBemetalRadtr: boolean = false;
+  isBimetalRadtr: boolean = false;
   isSteelRadtr: boolean = false;
   isAluminumRadtr: boolean = false;
+  buildWeight: number = 0;
 
-
-
+  isPanelBuild: boolean = false;
+  isBrickBuild: boolean = false;
+  isMonolithicBuild: boolean = false;
+  isMnlBrckBuild: boolean = false;
+  isBlockBuild: boolean = false;
+  isAnotherBuild: boolean = false;
+  classWeight: number = 0;
+  isClassA: boolean = false;
+  isClassB: boolean = false;
+  isClassC: boolean = false;
+  isClassD: boolean = false;
+  isClassE: boolean = false;
+  asesmicWeight: number = 0;
+  isAsesmic5: boolean = false;
+  isAsesmic6: boolean = false;
+  isAsesmic7: boolean = false;
+  dueWeight: number = 0;
+  isDueYearMin: number = 2024;
+  isDueYearMax: number = 2025;
+  isDueQuart: boolean = false;
+  isDueYear: boolean = false;
+  isDone: boolean = false;
+  ceilingHeightWeight: number = 0;
+  isCeilHeightFrom2_7: boolean = false;
+  isCeilHeightTo2_7: boolean = false;
+  isCeilHeightFrom3: boolean = false;
+  isCeilHeightTFrom3_5: boolean = false;
+  elevatorsWeight: number = 0;
+  isElevator1: boolean = false;
+  isElevator2: boolean = false;
+  isElevator3: boolean = false;
+  smartHomeWeight: number = 0;
+  public isSmart: boolean = false;
+  public isNotSmart: boolean = false;
 }
