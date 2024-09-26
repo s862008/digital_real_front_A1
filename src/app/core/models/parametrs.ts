@@ -110,6 +110,27 @@ interface Parametrs {
   isCeilHeightTFrom3_5: boolean;
   isSmart: boolean;
   isNotSmart: boolean;
+  numberOfApartmentsMin: number;
+  numberOfApartmentsMax: number;
+  isPassenger: boolean;
+  isCargo: boolean;
+  isSelfBoiler: boolean;
+  isNoSelfBoiler: boolean;
+  isNearbyShop: boolean;
+  isNearbyFitness: boolean;
+  isNearbyPark: boolean;
+  isNearbySchool: boolean;
+  isNearbyKindergarten: boolean;
+  isNearbyPolyclinic: boolean;
+  isNearbyBusStation: boolean;
+  isNearbyCarService: boolean;
+  isUnderground: boolean;
+  isSurface: boolean;
+  isOpenParking: boolean;
+  isClosedParking: boolean;
+  isNoFurniture: boolean;
+  isFurniture: boolean;
+  isFurnitureKitch: boolean;
 
 }
 
@@ -144,6 +165,13 @@ export interface iSmartParametrs extends Parametrs {
   isElevator2: boolean;
   isElevator3: boolean;
   smartHomeWeight: number;
+  numberOfApartmentsWeight: number;
+  elevatorTypeWeight: number;
+  selfBoilerWeight: number;
+  nearbyWeight: number;
+  parkingWeight: number;
+  furnitureWeight: number;
+
 }
 
 @Injectable({providedIn: 'root'})
@@ -273,7 +301,7 @@ export class SmartParametrs implements iSmartParametrs {
   isAsesmic7: boolean = false;
   dueWeight: number = 0;
   isDueYearMin: number = 2024;
-  isDueYearMax: number = 2025;
+  isDueYearMax: number = 2027;
   isDueQuart: boolean = false;
   isDueYear: boolean = false;
   isDone: boolean = false;
@@ -289,4 +317,36 @@ export class SmartParametrs implements iSmartParametrs {
   smartHomeWeight: number = 0;
   public isSmart: boolean = false;
   public isNotSmart: boolean = false;
+  numberOfApartmentsWeight: number = 0;
+  numberOfApartmentsMin: number = 2;
+  numberOfApartmentsMax: number = 3;
+  isPassenger: boolean = false;
+  isCargo: boolean = false;
+  elevatorTypeWeight: number=0;
+  selfBoilerWeight: number=0;
+  isSelfBoiler: boolean = false;
+  isNoSelfBoiler: boolean = false;
+  nearbyWeight: number = 0;
+  isNearbyShop: boolean = false;
+  isNearbyFitness: boolean = false;
+  isNearbyPark: boolean = false;
+  isNearbySchool: boolean = false;
+  isNearbyKindergarten: boolean = false;
+  isNearbyPolyclinic: boolean = false;
+  isNearbyBusStation: boolean = false;
+  isNearbyCarService: boolean = false;
+  parkingWeight: number = 0;
+  isUnderground: boolean = false;
+  isSurface: boolean = false;
+  isOpenParking: boolean = false;
+  isClosedParking: boolean = false;
+  closedYardWeight: number = 0;
+  isClosedYard: boolean = false;
+  isNoClosedYard: boolean = false;
+  isNoFurniture: boolean = false;
+  furnitureWeight: number = 0;
+  isFurniture: boolean = false;
+  isFurnitureKitch: boolean = false;
+
+
 }
