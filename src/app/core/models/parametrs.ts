@@ -347,6 +347,8 @@ export class SmartParametrs implements iSmartParametrs {
   furnitureWeight: number = 0;
   isFurniture: boolean = false;
   isFurnitureKitch: boolean = false;
+  company:   number=0;
+  companyExcp:  number=0;
 
 
 }

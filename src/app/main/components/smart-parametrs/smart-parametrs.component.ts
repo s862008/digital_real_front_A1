@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {SmartParametrs} from "../../../core/models/parametrs";
+import {Company} from "../../../core/models/company";
 
 
 @Component({
@@ -13,7 +14,8 @@ import {SmartParametrs} from "../../../core/models/parametrs";
 
 export class SmartParametrsComponent implements OnInit {
   smartForm: FormGroup;
-  yourModel: string="qqq";
+  companies: Company[]=[];
+
 
 
   constructor(private fb: FormBuilder, public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
@@ -22,6 +24,10 @@ export class SmartParametrsComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     });
+
+    this.companies.push(new Company(1, 'Company A', '123-456-7890'));
+    this.companies.push(new Company(2, 'Company B', '987-654-3210'));
+    this.companies.push(new Company(3, 'Company C', '555-555-5555'));
   }
 
   listChecked() {

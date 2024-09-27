@@ -140,18 +140,14 @@
                          placeholder="до" [(ngModel)]="smartParametrs.countFloorMax"
                          [ngModelOptions]="{standalone: true}">
                 </div>
-                <select class="form-select fp-select" required aria-label="select example">
-                  <option value="">Выбрать застройщика</option>
-                  <option value="1">Один</option>
-                  <option value="2">Два</option>
-                  <option value="3">Три</option>
+                <select  [(ngModel)]="smartParametrs.company" [ngModelOptions]="{standalone: true}" class="form-select fp-select"   required aria-label="select company">
+                  <option value="0">Выбрать застройщика</option>
+                  <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
                 </select>
 
-                <select class="form-select fp-select" required aria-label="select example">
-                  <option value="">Исключить застройщика</option>
-                  <option value="1">Один</option>
-                  <option value="2">Два</option>
-                  <option value="3">Три</option>
+                <select [(ngModel)]="smartParametrs.companyExcp" [ngModelOptions]="{standalone: true}" class="form-select fp-select"  required aria-label="select company excepted">
+                  <option value="0">Исключить застройщика</option>
+                  <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
                 </select>
 
               </div>
