@@ -1,7 +1,7 @@
 .form-param {
   position: relative;
   /*border-radius: 25px 25px 0 0;*/
-  border: 1px solid darkgray;
+  /*border: 1px solid darkgray;*/
   /*box-shadow: inset 3px 4px 4px 0 rgba(0, 0, 0, 0.25), 0 0 4px 0 rgba(0, 0, 0, 0.25);*/
   /*background: #fff;*/
   /*max-width: 1760px;*/
@@ -9,7 +9,7 @@
   /*min-height: 215rem;*/
   scroll-behavior: auto;
   padding: 4rem 8rem 4rem 5rem;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 .form-param__choosed {
@@ -103,6 +103,7 @@
 }
 
 .slider__help{
+  cursor: pointer;
   margin: 0 10px;
   flex-basis: 20px;
 }
@@ -344,4 +345,14 @@ mat-slider {
     grid-template-columns: repeat(1, 1fr);
   }
 
+
+}
+
+:host >>> .tooltip-inner {
+  background: none;
+  color: #2a2828;
+}
+:host >>> .tooltip.top .tooltip-arrow:before,
+:host >>> .tooltip.top .tooltip-arrow {
+  border-top-color: #e5e5e5;
 }

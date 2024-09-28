@@ -9,7 +9,7 @@ import {FormControl} from "@angular/forms";
 import {DataService} from "../../../core/services/data.service";
 import {FilterService} from "../../../core/services/filter.service";
 import {RComplex, RComplexPopular} from "../../../core/models/rcomplex";
-
+import  $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -66,6 +66,8 @@ export class HomeComponent implements OnInit {
     this.loadSuggest()
 
   }
+
+
 
 
   ngOnInit(): void {

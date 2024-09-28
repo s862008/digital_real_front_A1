@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, AfterViewInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -12,7 +12,7 @@ import {Company} from "../../../core/models/company";
   styleUrl: './smart-parametrs.component.css'
 })
 
-export class SmartParametrsComponent implements OnInit {
+export class SmartParametrsComponent implements OnInit, AfterViewInit {
   smartForm: FormGroup;
   companies: Company[]=[];
 
@@ -25,9 +25,9 @@ export class SmartParametrsComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]]
     });
 
-    this.companies.push(new Company(1, 'Company A', '123-456-7890'));
-    this.companies.push(new Company(2, 'Company B', '987-654-3210'));
-    this.companies.push(new Company(3, 'Company C', '555-555-5555'));
+    this.companies.push(new Company(1, 'АО СЗ ФК "АКСИОМА"', '123-456-7890'));
+    this.companies.push(new Company(2, 'ООО Предприятие «ИП К.И.Т.»', '987-654-3210'));
+    this.companies.push(new Company(3, 'ООО "СТЭЛ инвест"', '555-555-5555'));
   }
 
   listChecked() {
@@ -105,14 +105,10 @@ export class SmartParametrsComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  ngAfterViewInit(): void {
+
+  console.log( $('.fp-label--check'));
+  }
 
 }
 
-// interface SmartParametr {
-//   isFlat: boolean;
-//   planWeight: number;
-//   isApartments: boolean;
-//   isBlandPlan: boolean;
-//   isIsolatePlan: boolean;
-//   apartmentTypeWeight: number;
-// }

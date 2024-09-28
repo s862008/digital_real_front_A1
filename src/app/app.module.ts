@@ -31,6 +31,7 @@ import {MatSliderModule} from "@angular/material/slider";
 import {SearchComponent} from "./main/pages/smart-search/search.component";
 import {FormsModule} from '@angular/forms';
 import {PricePipe} from "./main/pipes/price.pipe";
+import {TooltipModule} from "ngx-bootstrap/tooltip";
 
 
 
@@ -69,6 +70,7 @@ import {PricePipe} from "./main/pipes/price.pipe";
     MatCheckboxModule,
     MatSliderModule,
     MatToolbarModule,
+    TooltipModule.forRoot(),
     HttpClientModule
   ],
   providers:[DataService],

@@ -227,6 +227,15 @@ ul, li {
   font-size: 15px;
 }
 
+.custom-tooltip {
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  padding: 2px;
+  margin: 5px;
+  font-size: 14px;
+  position: absolute;
+}
+
 
 /*.mdc-dialog--open .mat-mdc-dialog-surface, .mdc-dialog--closing .mat-mdc-dialog-surface {*/
 /*  transform: none;*/

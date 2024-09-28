@@ -40,7 +40,8 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.apartmentTypeWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip"  tooltip="Это подсказка!" tooltipPlacement="top">
+
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isFlat" [ngModelOptions]="{standalone: true}"
@@ -66,7 +67,7 @@
                   <mat-slider min="0" max="10" step="1" discrete>
                     <input matSliderThumb [(ngModel)]="smartParametrs.planWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isBlandPlan" [ngModelOptions]="{standalone: true}"
@@ -92,7 +93,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.floorWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <div class="d-flex flex-row justify-content-start gap-3 my-2">
                   <input type="text" id="area-input" class="d-block fp-input fp-input--sm"
@@ -130,7 +131,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.countFloorWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <div class="d-flex flex-row justify-content-between  my-2">
                   <input type="text" id="gt5" class="d-block fp-input fp-input--long"
@@ -167,7 +168,7 @@
                 <mat-slider min="0" max="10" step="1" discrete>
                   <input matSliderThumb [(ngModel)]="smartParametrs.areaWeight" [ngModelOptions]="{standalone: true}">
                 </mat-slider>
-                <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
               </div>
               <p class="fp-label--tx">Общая</p>
               <div class="d-flex flex-row justify-content-between  my-2">
@@ -205,7 +206,7 @@
                 <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                   <input matSliderThumb [(ngModel)]="smartParametrs.priceWeight" [ngModelOptions]="{standalone: true}">
                 </mat-slider>
-                <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
               </div>
               <div class="d-flex flex-row justify-content-between">
                 <input type="text" id="tern" class="d-block fp-input fp-input--base "
@@ -222,7 +223,7 @@
                   <input matSliderThumb [(ngModel)]="smartParametrs.areaPriceWeight"
                          [ngModelOptions]="{standalone: true}">
                 </mat-slider>
-                <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
               </div>
 
               <div class="d-flex flex-row justify-content-between">
@@ -254,7 +255,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.numberOfRoomsWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isAtelier" [ngModelOptions]="{standalone: true}"
@@ -326,7 +327,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.viewFromWindowsWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isViewYard" [ngModelOptions]="{standalone: true}"
@@ -386,7 +387,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.balconyWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isBalcony" [ngModelOptions]="{standalone: true}"
@@ -418,7 +419,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.bathroomWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isCombined" [ngModelOptions]="{standalone: true}"
@@ -447,7 +448,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.stoveWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isGasStove" [ngModelOptions]="{standalone: true}"
@@ -485,7 +486,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.decorationWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isPreFinishing" [ngModelOptions]="{standalone: true}"
@@ -533,7 +534,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.decorationWallWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isWallpaper" [ngModelOptions]="{standalone: true}"
@@ -587,7 +588,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.decorationCeilingWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isWhiteCeiling" [ngModelOptions]="{standalone: true}"
@@ -635,7 +636,7 @@
                     <input matSliderThumb [(ngModel)]="smartParametrs.floorCoveringWeight"
                            [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isLinoleum" [ngModelOptions]="{standalone: true}"
@@ -682,7 +683,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.repairTypeWeight"  [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isCosmeticRep" [ngModelOptions]="{standalone: true}"
@@ -714,7 +715,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.glazingWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isPVH" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="gfe">
@@ -745,7 +746,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.decorationBathroomWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isWithoutDecBathroom" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="je3">
@@ -766,7 +767,7 @@
                   <mat-slider min="0" max="10" step="1" discrete >
                     <input matSliderThumb [(ngModel)]="smartParametrs.radiatorsWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isBimetalRadtr" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="27">
@@ -807,13 +808,13 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.buildWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isBrickBuild" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="tyn4">
                   <span></span>
                   <span class="fp-label--tx">Кирпичный</span>
-                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </label>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isMonolithicBuild" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="n456">
@@ -839,25 +840,25 @@
                   <input [(ngModel)]="smartParametrs.isAnotherBuild" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="9933">
                   <span></span>
                   <span class="fp-label--tx">Другой</span>
-                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </label>
               </div>
               <div class="fp-about-build__class">
                 <h4 class="title--h4 d-inline-block">Класс цифровизации дома</h4>
-                <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
 
                 <div class="slider">
                   <!--                  <input type="range" class="form-range" min="0" max="5" id="e7">-->
                   <mat-slider min="0" max="10" step="1" discrete >
                     <input matSliderThumb [(ngModel)]="smartParametrs.classWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isClassA" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="vew44">
                   <span></span>
                   <span class="fp-label--tx">A</span>
-                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </label>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isClassB" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="fgh56">
@@ -888,7 +889,7 @@
                   <mat-slider min="0" max="10" step="1" discrete >
                     <input matSliderThumb [(ngModel)]="smartParametrs.asesmicWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isAsesmic5" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="ms4">
@@ -914,7 +915,7 @@
                   <mat-slider min="0" max="10" step="1" discrete >
                     <input matSliderThumb [(ngModel)]="smartParametrs.dueWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <div class="d-flex flex-row justify-content-between  my-2">
                   <input [(ngModel)]="smartParametrs.isDueYearMin" [ngModelOptions]="{standalone: true}" type="text" id="g8" class="d-block fp-input fp-input--long"
@@ -946,7 +947,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.ceilingHeightWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isCeilHeightFrom2_7" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="msj4">
@@ -977,7 +978,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.elevatorsWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isElevator1" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="sj4">
@@ -1003,7 +1004,7 @@
                   <mat-slider min="0" max="10" step="1" discrete >
                     <input matSliderThumb [(ngModel)]="smartParametrs.smartHomeWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isSmart" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="j4">
@@ -1024,7 +1025,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.numberOfApartmentsWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <div class="d-flex flex-row justify-content-between  my-2">
                   <input [(ngModel)]="smartParametrs.numberOfApartmentsMin" [ngModelOptions]="{standalone: true}" type="text" id="75" class="d-block fp-input fp-input--long"
@@ -1041,7 +1042,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.elevatorTypeWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isPassenger" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="swj4">
@@ -1062,7 +1063,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.selfBoilerWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isSelfBoiler" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="sмwj4">
@@ -1098,13 +1099,13 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.nearbyWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isNearbyShop" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="bdfgh">
                   <span></span>
                   <span class="fp-label--tx">ТЦ</span>
-                  <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </label>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isNearbyFitness" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="gdbbb">
@@ -1145,13 +1146,13 @@
 
               <div class="fp-comfort__parking">
                 <h4 class="title--h4 d-inline-block">Парковка</h4>
-                <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 <div class="slider">
                   <!--                  <input type="range" class="form-range" min="0" max="5" id="et7">-->
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.parkingWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isUnderground" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="veyw44">
@@ -1243,7 +1244,7 @@
                   <input class="fp-label--check" type="checkbox" name="ddu" id="ddu">
                   <span></span>
                   <span class="fp-label--tx">ДДУ</span>
-                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="">
+                  <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </label>
                 <label class="fp-label">
                   <input class="fp-label--check" type="checkbox" name="" id="dogovor">
