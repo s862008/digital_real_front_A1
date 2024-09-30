@@ -23,11 +23,13 @@
 
         <div class="fp-filter__item fp-common">
           <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
-              data-bs-target="#collapseCommon" aria-expanded="true" aria-controls="collapseCommon">
+              data-bs-target="#collapseCommon" aria-expanded="true" aria-controls="collapseCommon" (click)="toggleCollapse()">
             Общие
-            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
+            <svg *ngIf="!isCollapsed" width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
+            </svg>
+            <svg *ngIf="isCollapsed" width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 11L5.25 6.5L9.5 2L13.75 6.5L18 11" stroke="black" stroke-width="2.5"/>
             </svg>
           </h3>
           <div class="collapse collapse-horizontal show" id="collapseCommon">

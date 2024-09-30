@@ -16,6 +16,8 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   smartForm: FormGroup;
   companies: Company[]=[];
 
+  isCollapsed: boolean = true;
+
 
 
   constructor(private fb: FormBuilder, public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
@@ -108,6 +110,10 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
 
   console.log( $('.fp-label--check'));
+  }
+
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
   }
 
 }

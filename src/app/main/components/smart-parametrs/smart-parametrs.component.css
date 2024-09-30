@@ -345,14 +345,14 @@ mat-slider {
     grid-template-columns: repeat(1, 1fr);
   }
 
-
 }
 
-:host >>> .tooltip-inner {
+:host ::ng-deep  .tooltip-inner {
   background: none;
   color: #2a2828;
 }
-:host >>> .tooltip.top .tooltip-arrow:before,
-:host >>> .tooltip.top .tooltip-arrow {
+
+:host ::ng-deep .tooltip.top .tooltip-arrow:before,
+:host ::ng-deep .tooltip.top .tooltip-arrow {
   border-top-color: #e5e5e5;
 }
