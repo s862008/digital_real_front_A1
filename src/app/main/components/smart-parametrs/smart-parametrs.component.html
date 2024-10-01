@@ -11,10 +11,14 @@
     <div class="form-param__choosed">
       <div class="d-flex flex-wrap gap-3 justify-content-start align-content-start fp-choosed fp-choosed--temp"
            id="choosed-block">
-        <div class="fp-choosed__item"><span> parametrs choosed </span><span>X</span></div>
-
+<!--        <div class="fp-choosed__item"><span> parametrs choosed </span><span>X</span></div>-->
       </div>
-      <div class="d-flex justify-content-end"><a class="link--base" (click)="clearFilter()"> Очистить </a></div>
+      <div class="d-flex justify-content-end" *ngIf="choosedItems.length > 0">
+        <a class="link--base" (click)="clearFilter()"> Очистить </a>
+      </div>
+      <div class="d-flex justify-content-end" >
+        <a class="link--base" (click)="clearFilter()"> Очистить </a>
+      </div>
     </div>
     <hr>
     <div class="form-param__filter fp-filter">
@@ -23,14 +27,8 @@
 
         <div class="fp-filter__item fp-common">
           <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
-              data-bs-target="#collapseCommon" aria-expanded="true" aria-controls="collapseCommon" (click)="toggleCollapse()">
+              data-bs-target="#collapseCommon" aria-expanded="true" aria-controls="collapseCommon">
             Общие
-            <svg *ngIf="!isCollapsed" width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-            </svg>
-            <svg *ngIf="isCollapsed" width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 11L5.25 6.5L9.5 2L13.75 6.5L18 11" stroke="black" stroke-width="2.5"/>
-            </svg>
           </h3>
           <div class="collapse collapse-horizontal show" id="collapseCommon">
             <div class="fp-filter-item__inner">
@@ -47,7 +45,7 @@
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isFlat" [ngModelOptions]="{standalone: true}"
-                         class="fp-label--check" type="checkbox" name="" id="ccvbfg">
+                         class="fp-label--check" type="checkbox" name="" id="ccvbfg" >
                   <span></span>
                   <span class="fp-label--tx">Квартира</span>
                 </label>
@@ -242,10 +240,7 @@
               data-bs-target="#collapseAboutApart" aria-expanded="true"
               aria-controls="collapseAboutApart">
             О квартире
-            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-            </svg>
+
           </h3>
           <div class="collapse collapse-horizontal show" id="collapseAboutApart">
             <div class="fp-filter-item__inner">
@@ -473,10 +468,6 @@
           <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
               data-bs-target="#collapseFinishing" aria-expanded="true" aria-controls="collapseFinishing">
             Отделка и ремонт
-            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-            </svg>
           </h3>
           <div class="collapse collapse-horizontal show" id="collapseFinishing">
             <div class="fp-filter-item__inner">
@@ -796,10 +787,6 @@
               data-bs-target="#collapseAboutBuild" aria-expanded="true"
               aria-controls="collapseAboutBuild">
             О доме
-            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-            </svg>
           </h3>
           <div class="collapse collapse-horizontal show" id="collapseAboutBuild">
             <div class="fp-filter-item__inner">
@@ -1087,10 +1074,7 @@
               data-bs-target="#collapseComfort" aria-expanded="true"
               aria-controls="collapseComfort">
             Комфорт жизни
-            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-            </svg>
+
           </h3>
           <div class="collapse collapse-horizontal show" id="collapseComfort">
             <div class="fp-filter-item__inner">
@@ -1233,10 +1217,7 @@
               data-bs-target="#collapseDeal" aria-expanded="true"
               aria-controls="collapseDeal">
             Сделка
-            <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/>
-            </svg>
+
           </h3>
           <div class="collapse collapse-horizontal show" id="collapseDeal">
             <div class="fp-filter-item__inner">

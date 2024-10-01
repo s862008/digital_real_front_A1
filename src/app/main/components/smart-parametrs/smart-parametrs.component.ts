@@ -15,9 +15,7 @@ import {Company} from "../../../core/models/company";
 export class SmartParametrsComponent implements OnInit, AfterViewInit {
   smartForm: FormGroup;
   companies: Company[]=[];
-
-  isCollapsed: boolean = true;
-
+  choosedItems: any[] = [];
 
 
   constructor(private fb: FormBuilder, public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
@@ -64,7 +62,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-
+    console.log("ini")
     this.listChecked();
 
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -72,6 +70,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
       checkbox.addEventListener('change', (event) => {
         if (checkbox.getAttribute('checked') == null) {
           checkbox.setAttribute('checked', 'checked')
+          this.choosedItems.push(checkbox.id)
         } else {
           checkbox.removeAttribute('checked');
         }
@@ -82,6 +81,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   }
 
   clearFilter() {
+    console.log("clear")
     const checkboxes = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
 
     checkboxes.forEach(checkbox => {
@@ -90,7 +90,9 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
 
     this.listChecked();
     this.cdRef.detectChanges();
-
+    console.log(this.choosedItems);
+    this.choosedItems = [];
+    this.smartParametrs.isFlat=false;
   }
 
 
@@ -108,13 +110,11 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
-  console.log( $('.fp-label--check'));
+    this.clearFilter()
+ // console.log( $('.fp-label--check'));
   }
 
-  toggleCollapse() {
-    this.isCollapsed = !this.isCollapsed;
-  }
+
 
 }
 

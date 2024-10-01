@@ -8,12 +8,12 @@
   margin: 0 auto;
   /*min-height: 215rem;*/
   scroll-behavior: auto;
-  padding: 4rem 8rem 4rem 5rem;
+  padding: 4rem 1rem 4rem 1rem;
   /*overflow-x: hidden;*/
 }
 
 .form-param__choosed {
-  min-height: 250px;
+  min-height: 50px;
 }
 
 
@@ -25,8 +25,8 @@
 }
 
 .fp-choosed {
-  padding-top: 5.2rem;
-  padding-bottom: 3rem;
+  /*padding-top: 5.2rem;*/
+  /*padding-bottom: 3rem;*/
 }
 
 .fp-choosed--temp {
@@ -149,8 +149,8 @@ mat-slider {
 
 .fp-common-gray {
   position: relative;
-  left: -90px;
-  min-width: 1550px;
+  left: -100px;
+  min-width: 1500px;
   min-height: 682px;
   background: rgba(16, 102, 129, 0.05);
   padding: 83px 80px 50px 56px;
@@ -345,6 +345,24 @@ mat-slider {
     grid-template-columns: repeat(1, 1fr);
   }
 
+}
+
+.fp-filter-item__title::after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 19px;
+  height: 12px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5.25 5.5L9.5 10L13.75 5.5L18 1" stroke="black" stroke-width="2.5"/></svg>');
+  transition: transform 0.3s;
+}
+h3[aria-expanded="false"]{
+  padding: 33px 0 0;
+}
+
+h3[aria-expanded="false"]::after {
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml;utf8, <svg  width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L5.25 6.5L9.5 2L13.75 6.5L18 11" stroke="black" stroke-width="2.5"/></svg>');
 }
 
 :host ::ng-deep  .tooltip-inner {
