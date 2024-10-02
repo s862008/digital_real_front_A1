@@ -6,31 +6,32 @@
         <div class="col-md-4 col-sm-12 filter-side">
           <h2 class="title-section text-wrap">НОВОСТРОЙКИ<br>В ВОРОНЕЖЕ</h2>
           <p> Выберите квартиру <br>в новостройках Воронежa</p>
+          <form [formGroup]="formFilter">
           <div class="blocks-filter">
             <div class="block-filter">
               <label for="cnt-room-input"> Количество комнат</label>
               <div class="btn-group my-btn-lg" id="cnt-room-input" role="group"
                    aria-label="Группа кнопок по умолчанию">
 
-                <input [formControl]="isAtelier" type="checkbox" class="btn-check" name="btnradio" id="btnradio1"
+                <input formControlName="isAtelier" type="checkbox" class="btn-check" name="btnradio" id="btnradio1"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio1">Cтудия</label>
 
-                <input [formControl]="isOne" type="checkbox" class="btn-check" name="btnradio" id="btnradio2"
+                <input formControlName="isOne" type="checkbox" class="btn-check" name="btnradio" id="btnradio2"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio2">1</label>
 
-                <input [(ngModel)]="isTwo" [formControl]="formControl" type="checkbox" class="btn-check" name="btnradio" id="btnradio3"
+                <input formControlName="isTwo" type="checkbox" class="btn-check" name="btnradio" id="btnradio3"
                        autocomplete="off" checked>
                 <label class="btn btn-outline-dark" for="btnradio3">2</label>
 
-                <input [(ngModel)]="isThree" [formControl]="formControl" type="checkbox" class="btn-check" name="btnradio" id="btnradio4"
+                <input formControlName="isThree"  type="checkbox" class="btn-check" name="btnradio" id="btnradio4"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio4">3</label>
-                <input [(ngModel)]="isFour" [formControl]="formControl" type="checkbox" class="btn-check" name="btnradio" id="btnradio5"
+                <input formControlName="isFour"  type="checkbox" class="btn-check" name="btnradio" id="btnradio5"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio5">4</label>
-                <input [(ngModel)]="isFivePlus" [formControl]="formControl" type="checkbox" class="btn-check" name="btnradio" id="btnradio6"
+                <input formControlName="isFivePlus"  type="checkbox" class="btn-check" name="btnradio" id="btnradio6"
                        autocomplete="off">
                 <label class="btn btn-outline-dark" for="btnradio6">5+</label>
 
@@ -40,8 +41,8 @@
             <div class="block-filter" >
               <label for="cost-input"> Цена, руб. </label>
               <div class="cost block-inputs">
-                <input [(ngModel)]="priceMin" [formControl]="formControl" type="text"  class="my-input-lg" id="cost-input" placeholder="от">
-                <input [(ngModel)]="priceMax" [formControl]="formControl" type="text" class="my-input-lg" placeholder="до">
+                <input formControlName="priceMin"  type="text"  class="my-input-lg" id="cost-input" placeholder="от">
+                <input formControlName="priceMax"  type="text" class="my-input-lg" placeholder="до">
                 <div class="w-50"></div>
 
               </div>
@@ -49,8 +50,8 @@
             <div class="block-filter" >
               <label for="area-input"> Площадь, м<sup>2</sup> </label>
               <div class="area block-inputs">
-                <input [(ngModel)]="areaTotalMin" [formControl]="formControl" type="text" id="area-input" class="my-input-lg" placeholder="от">
-                <input [(ngModel)]="areaTotalMax" [formControl]="formControl" type="text" class="my-input-lg" placeholder="до">
+                <input formControlName="areaTotalMin"  type="text" id="area-input" class="my-input-lg" placeholder="от">
+                <input formControlName="areaTotalMax"  type="text" class="my-input-lg" placeholder="до">
                 <div class="w-75"></div>
               </div>
             </div>
@@ -59,11 +60,11 @@
               <div class="square block-inputs">
                 <div class="form-group">
 
-                  <select class="form-control my-select my-select--smpl" id="squareSelect">
+                  <select formControlName="due" class="form-control my-select my-select--smpl" id="squareSelect">
                     <option>Сдан</option>
                     <p>2024</p>
-                    <option>до 3 квартала</option>
-                    <option>до 4 квартала</option>
+                    <option value="24_3">до 3 квартала</option>
+                    <option value="24_4">до 4 квартала</option>
                   </select>
                   <svg fill="none" height="12" viewBox="0 0 23 14" width="20"
                        xmlns="http://www.w3.org/2000/svg">
@@ -74,6 +75,7 @@
               </div>
             </div>
           </div>
+          </form>
           <div class="extended-filter">
             <a [routerLink]="['/filter-search']"><span> <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -214,8 +216,11 @@
 <!--            </div>-->
 
           </div>
-          <div class="card__show-button">
+          <div class="card__show-button" *ngIf="!isLoadingVariants">
             <button class="show-button" (click)="filterSearch()" > Показать: {{apartmentCount}} вариантов в {{rcomplexCount}} ЖК </button>
+          </div>
+          <div class="card__show-button" *ngIf="isLoadingVariants">
+            <button class="show-button" (click)="filterSearch()" >[     Загрузка ...   ]</button>
           </div>
         </div>
       </div>

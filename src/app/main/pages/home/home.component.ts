@@ -5,7 +5,7 @@ import {ApartmentFilterSearch} from "../../../core/models/apartment";
 import {absoluteFrom} from "@angular/compiler-cli";
 import {Router} from "@angular/router";
 import {FilterSearch} from "../../../core/models/filterSearch";
-import {FormControl} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {DataService} from "../../../core/services/data.service";
 import {FilterService} from "../../../core/services/filter.service";
 import {RComplex, RComplexPopular} from "../../../core/models/rcomplex";
@@ -18,19 +18,7 @@ import  $ from 'jquery';
 })
 export class HomeComponent implements OnInit {
   public toSearch?: ApartmentFilterSearch;
-
-  public priceMin!: string;
-  public priceMax!: string;
-  public areaTotalMin!: string;
-  public areaTotalMax!: string;
-
-  public isAtelier: boolean;
-  public isOne: boolean;
-  public isTwo: boolean;
-  public isThree: boolean;
-  public isFour: boolean;
-  public isFivePlus: boolean;
-
+isLoadingVariants = false;
   category: string = "Категория";
   type: string = "ТИП";
   cost: number = 10500;
@@ -38,26 +26,30 @@ export class HomeComponent implements OnInit {
   rcomplexCount: string = "14";
   dt: string = "10.10.24";
   public rcomplexPopulars: RComplexPopular[] = [];
-  formControl = new FormControl(false);
+  formFilter: FormGroup;
 
+  constructor(private dialog: MatDialog, private router: Router,private fb: FormBuilder, private filterservice: FilterService, private readonly dataservice: DataService) {
 
-  constructor(private dialog: MatDialog, private router: Router, private filterservice: FilterService, private readonly dataservice: DataService) {
-    this.priceMin = '';
-    this.priceMax = '';
-    this.areaTotalMin = '';
-    this.areaTotalMax = '';
-    this.isAtelier = false;
-    this.isOne = false;
-    this.isTwo = false;
-    this.isThree = false;
-    this.isFour = false;
-    this.isFivePlus = false;
+    this.formFilter = this.fb.group({
+      isTwo: [false],
+      isThree: [false],
+      isFour: [false],
+      isAtelier:[false],
+      isOne:[false],
+      isFivePlus: [false],
+      priceMin: '',
+      priceMax : '',
+      areaTotalMin : '',
+      areaTotalMax : '',
+      due:[]
+    });
+
 
   }
 
   ngAfterViewInit() {
 
-    this.formControl.valueChanges.subscribe(value => {
+    this.formFilter.valueChanges.subscribe(value => {
       setTimeout(() => {
         this.loadPrepearInfo();
       });
@@ -72,44 +64,35 @@ export class HomeComponent implements OnInit {
   }
 
   loadPrepearInfo() {
-
+this.isLoadingVariants=true;
     this.dataservice.loadPrepearInfo(this.toSearch = {
-      numberOfRooms: this.numberOfRooms(),
-      priceMin: this.priceMin,
-      priceMax: this.priceMax,
-      areaTotalMin: this.areaTotalMin,
-      areaTotalMax: this.areaTotalMax
+       numberOfRooms: this.numberOfRooms(),
+       priceMin: this.formFilter.controls['priceMin'].value,
+       priceMax: this.formFilter.controls['priceMax'].value,
+       areaTotalMin: this.formFilter.controls['areaTotalMin'].value,
+       areaTotalMax: this.formFilter.controls['areaTotalMax'].value
     }).subscribe({
       next: (data: any): void => {
-        console.log(data);
+        this.isLoadingVariants= false;
         this.apartmentCount = data[0];
         this.rcomplexCount = data[1];
       }
-    })
-
+     })
   }
 
   public filterSearch(): void {
 
-    // this.toSearch = {
-    //   numberOfRooms: this.numberOfRooms(),
-    //   priceMin: this.priceMin,
-    //   priceMax: this.priceMax,
-    //   areaTotalMin: this.areaTotalMin,
-    //   areaTotalMax: this.areaTotalMax
-    // }
     let filter: FilterSearch = {
-      priceMin: this.priceMin,
-      priceMax: this.priceMax,
-      areaTotalMin: this.areaTotalMin,
-      areaTotalMax: this.areaTotalMax,
-      isAtelier: this.isAtelier,
-      isOne: this.isOne,
-      isTwo: this.isTwo,
-      isThree: this.isThree,
-      isFour: this.isFour,
-      isFivePlus: this.isFivePlus
-
+      priceMin: this.formFilter.controls['priceMin'].value,
+      priceMax: this.formFilter.controls['priceMax'].value,
+      areaTotalMin: this.formFilter.controls['areaTotalMin'].value,
+      areaTotalMax: this.formFilter.controls['areaTotalMax'].value,
+      isAtelier: this.formFilter.controls['isAtelier'].value,
+      isOne: this.formFilter.controls['isOne'].value,
+      isTwo: this.formFilter.controls['isTwo'].value,
+      isThree: this.formFilter.controls['isThree'].value,
+      isFour: this.formFilter.controls['isFour'].value,
+      isFivePlus: this.formFilter.controls['isFivePlus'].value
     }
 
     this.filterservice.setFilterData(filter);
@@ -119,27 +102,27 @@ export class HomeComponent implements OnInit {
 
   private numberOfRooms(): string [] | null {
     let numberOfRooms: string [] = []
-    if (this.isAtelier) {
+    if (this.formFilter.controls['isAtelier'].value) {
       numberOfRooms.push('Студия');
       numberOfRooms.push('0.5');
     }
-    if (this.isOne) {
+    if (this.formFilter.controls['isOne'].value) {
       numberOfRooms.push('1 комната');
       numberOfRooms.push('1');
     }
-    if (this.isTwo) {
+    if (this.formFilter.controls['isTwo'].value) {
       numberOfRooms.push('2 комнаты');
       numberOfRooms.push('2');
     }
-    if (this.isThree) {
+    if (this.formFilter.controls['isThree'].value) {
       numberOfRooms.push('3 комнаты');
       numberOfRooms.push('3');
     }
-    if (this.isFour) {
+    if (this.formFilter.controls['isFour'].value) {
       numberOfRooms.push('4 комнаты');
       numberOfRooms.push('4');
     }
-    if (this.isFivePlus) {
+    if (this.formFilter.controls['isFivePlus'].value) {
       numberOfRooms.push('5 комнат и более');
       numberOfRooms.push('5');
     }
@@ -169,7 +152,7 @@ export class HomeComponent implements OnInit {
       limit: 0
     }).subscribe({
       next: (data: any): void => {
-        console.log(data);
+
         let iterationCount = 0;
         const maxIterations = 2;
         for (const dataKey in data) {

@@ -159,6 +159,7 @@ ul, li {
   background-color: #18454a;
   height: 60px;
   max-width: 600px;
+  min-width: 450px;
   border-radius: 15px;
   color: #ffffff;
   font-size: 28px;
