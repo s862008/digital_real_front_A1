@@ -14,7 +14,7 @@ import {Company} from "../../../core/models/company";
 
 export class SmartParametrsComponent implements OnInit, AfterViewInit {
   smartForm: FormGroup;
-  companies: Company[]=[];
+  companies: Company[] = [];
   choosedItems: any[] = [];
 
 
@@ -62,9 +62,8 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log("ini")
-    this.listChecked();
-
+    //   this.listChecked();
+    this.clearFilter()
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', (event) => {
@@ -81,20 +80,15 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   }
 
   clearFilter() {
-    console.log("clear")
     const checkboxes = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
-
     checkboxes.forEach(checkbox => {
       checkbox.checked = false; // Устанавливаем значение checked в false
     });
-
     this.listChecked();
     this.cdRef.detectChanges();
-    console.log(this.choosedItems);
     this.choosedItems = [];
-    this.smartParametrs.isFlat=false;
+    this.smartParametrs = new SmartParametrs();
   }
-
 
   onSubmit() {
     console.log("SUBMIT");
@@ -110,10 +104,8 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.clearFilter()
- // console.log( $('.fp-label--check'));
+    // console.log( $('.fp-label--check'));
   }
-
 
 
 }
