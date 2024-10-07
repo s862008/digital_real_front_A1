@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit, AfterViewInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -17,6 +17,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   companies: Company[] = [];
   choosedItems: any[] = [];
 
+  @ViewChild('formParam') formParam!: ElementRef;
 
   constructor(private fb: FormBuilder, public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
 
@@ -72,6 +73,10 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
           this.choosedItems.push(checkbox.id)
         } else {
           checkbox.removeAttribute('checked');
+          let indexToRemove = this.choosedItems.indexOf(checkbox.id);
+          if (indexToRemove !== -1) {
+            this.choosedItems.splice(indexToRemove, 1);
+          }
         }
         this.listChecked();
       });
@@ -108,5 +113,10 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   }
 
 
+  scroll() {
+    if (this.formParam) {
+      this.formParam.nativeElement.scrollIntoView({behavior: 'smooth'});
+    }
+  }
 }
 

@@ -1,4 +1,4 @@
-<form class="form-param" [formGroup]="smartForm" (ngSubmit)="onSubmit()">
+<form class="form-param" [formGroup]="smartForm" (ngSubmit)="onSubmit()" #formParam>
   <div class="container">
     <div class="form-param__title">
       <div class="row row-cols-2">
@@ -1305,7 +1305,7 @@
         <input type="reset" class="fp-reset" value="Сброс">
       </div>
     </div>
-    <div class="fp-scroll-top">
+    <div class="fp-scroll-top" (click)="scroll()">
       <svg width="96" height="100" viewBox="0 0 96 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M95.202 49.6186C95.202 76.7633 73.9853 98.7372 47.851 98.7372C21.7167 98.7372 0.5 76.7633 0.5 49.6186C0.5 22.4739 21.7167 0.5 47.851 0.5C73.9853 0.5 95.202 22.4739 95.202 49.6186Z"
