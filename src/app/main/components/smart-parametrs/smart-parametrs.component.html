@@ -1,4 +1,4 @@
-<form class="form-param" [formGroup]="smartForm" (ngSubmit)="onSubmit()" #formParam>
+<form class="form-param" #formParam>
   <div class="container">
     <div class="form-param__title">
       <div class="row row-cols-2">
@@ -757,7 +757,7 @@
                   <mat-slider min="0" max="10" step="1" discrete >
                     <input matSliderThumb [(ngModel)]="smartParametrs.radiatorsWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isBimetalRadtr" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="27">
@@ -794,13 +794,13 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.buildWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isBrickBuild" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="tyn4">
                   <span></span>
                   <span class="fp-label--tx">Кирпичный</span>
-                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </label>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isMonolithicBuild" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="n456">
@@ -826,7 +826,7 @@
                   <input [(ngModel)]="smartParametrs.isAnotherBuild" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="9933">
                   <span></span>
                   <span class="fp-label--tx">Другой</span>
-                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </label>
               </div>
               <div class="fp-about-build__class">
@@ -844,7 +844,7 @@
                   <input [(ngModel)]="smartParametrs.isClassA" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="vew44">
                   <span></span>
                   <span class="fp-label--tx">A</span>
-                  <img class="label__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </label>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isClassB" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="fgh56">
@@ -933,7 +933,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.ceilingHeightWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isCeilHeightFrom2_7" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="msj4">
@@ -964,7 +964,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.elevatorsWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isElevator1" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="sj4">
@@ -990,7 +990,7 @@
                   <mat-slider min="0" max="10" step="1" discrete >
                     <input matSliderThumb [(ngModel)]="smartParametrs.smartHomeWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isSmart" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="j4">
@@ -1028,7 +1028,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.elevatorTypeWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isPassenger" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="swj4">
@@ -1049,7 +1049,7 @@
                   <mat-slider min="0" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.selfBoilerWeight" [ngModelOptions]="{standalone: true}">
                   </mat-slider>
-                  <img class="slider__help" src="img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+                  <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help" containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <label class="fp-label">
                   <input [(ngModel)]="smartParametrs.isSelfBoiler" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="sмwj4">

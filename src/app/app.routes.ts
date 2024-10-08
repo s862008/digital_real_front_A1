@@ -1,4 +1,4 @@
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule,NavigationExtras, Routes} from '@angular/router';
 import {HomeComponent} from "./main/pages/home/home.component";
 import {ApartmentComponent} from "./main/pages/apartment/apartment.component";
 import {FilterSearchComponent} from "./main/pages/filter-search/filter-search.component";

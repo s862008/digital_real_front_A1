@@ -4,6 +4,7 @@
       <section class="search-section">
         <div class="search-section__header">
           <h1 class="title--h1">ПОДБОРКА КВАРТИР</h1>
+
         </div>
         <div class="search-section__inner">
           <div class="row">
@@ -24,7 +25,7 @@
                       <div class="slider">
 
                         <input type="range" class="form-range" min="0" max="5" id="ntye">
-                        <img class="slider__help" src="img/ant-design_info-circle-outlined.svg"
+                        <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg"
                              alt="">
                       </div>
 
@@ -55,7 +56,7 @@
                         <div class="slider slider--temp">
                           <input type="range" class="form-range" min="0" max="5" id="rt">
                           <img class="slider__help"
-                               src="img/ant-design_info-circle-outlined.svg" alt="">
+                               src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                         </div>
                         <label class="fp-label">
                           <input class="fp-label--check" checked type="checkbox" name=""
@@ -75,7 +76,7 @@
                         <div class="slider slider--temp">
                           <input type="range" class="form-range" min="0" max="5" id="cvf">
                           <img class="slider__help"
-                               src="img/ant-design_info-circle-outlined.svg" alt="">
+                               src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                         </div>
                         <label class="fp-label">
                           <input class="fp-label--check" checked type="checkbox" name=""
@@ -94,7 +95,7 @@
                         <div class="slider slider--temp">
                           <input type="range" class="form-range" min="0" max="5" id="ert">
                           <img class="slider__help"
-                               src="img/ant-design_info-circle-outlined.svg" alt="">
+                               src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                         </div>
                         <div class="d-flex flex-row justify-content-start gap-3 my-2">
                           <input type="text" id="area-input"
@@ -126,7 +127,7 @@
                         <div class="slider slider--temp">
                           <input type="range" class="form-range" min="0" max="5" id="856jh">
                           <img class="slider__help"
-                               src="img/ant-design_info-circle-outlined.svg" alt="">
+                               src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
                         </div>
                         <div class="d-flex flex-row justify-content-between  my-2">
                           <input type="text" id="gt5" class="d-block fp-input fp-input--long"
@@ -160,14 +161,18 @@
               </div>
 
               <div class="row justify-content-center mx-auto my-5 show-all">
-                <a href="param_search.html">   <button class="my-btn-long"> Показать все фильтры </button> </a>
+                <a href="param_search.html">
+                  <button class="my-btn-long"> Показать все фильтры</button>
+                </a>
               </div>
             </div>
 
             <div class="col-xxl-9 search-section__card-side cards-block">
+              <pre>{{ currentState$ | async | json }}</pre>
               <div class="d-flex flex-column overflow-y-scroll">
 
-                <div class="cards-block__item" *ngFor="let item of apartments; let i=index" [routerLink]="['/apartment', item.id]">
+                <div class="cards-block__item" *ngFor="let item of apartments; let i=index"
+                     [routerLink]="['/apartment', item.id]">
                   <div class="img-block">
                     <img alt="img" routerlink="/apartment.html" style="cursor: pointer;"
                          src="https://stelinvest.ru/upload/iblock/f51/050bwd03si669vthe835po4tresfzgsw/1et_8_1pod_4_kv.jpg ">
@@ -199,8 +204,9 @@
                       <h2 class="percent-h2">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
-                          <path d="M22.25 5C19.6688 5 17.4088 6.11 16 7.98625C14.5912 6.11 12.3313 5 9.75 5C7.69528 5.00232 5.72539 5.81958 4.27248 7.27248C2.81958 8.72539 2.00232 10.6953 2 12.75C2 21.5 14.9738 28.5825 15.5262 28.875C15.6719 28.9533 15.8346 28.9943 16 28.9943C16.1654 28.9943 16.3281 28.9533 16.4737 28.875C17.0262 28.5825 30 21.5 30 12.75C29.9977 10.6953 29.1804 8.72539 27.7275 7.27248C26.2746 5.81958 24.3047 5.00232 22.25 5ZM16 26.85C13.7175 25.52 4 19.4613 4 12.75C4.00198 11.2256 4.60842 9.76423 5.68633 8.68633C6.76423 7.60842 8.22561 7.00198 9.75 7C12.1812 7 14.2225 8.295 15.075 10.375C15.1503 10.5584 15.2785 10.7153 15.4432 10.8257C15.6079 10.9361 15.8017 10.995 16 10.995C16.1983 10.995 16.3921 10.9361 16.5568 10.8257C16.7215 10.7153 16.8497 10.5584 16.925 10.375C17.7775 8.29125 19.8188 7 22.25 7C23.7744 7.00198 25.2358 7.60842 26.3137 8.68633C27.3916 9.76423 27.998 11.2256 28 12.75C28 19.4513 18.28 25.5188 16 26.85Z"
-                                fill="#106681"/>
+                          <path
+                            d="M22.25 5C19.6688 5 17.4088 6.11 16 7.98625C14.5912 6.11 12.3313 5 9.75 5C7.69528 5.00232 5.72539 5.81958 4.27248 7.27248C2.81958 8.72539 2.00232 10.6953 2 12.75C2 21.5 14.9738 28.5825 15.5262 28.875C15.6719 28.9533 15.8346 28.9943 16 28.9943C16.1654 28.9943 16.3281 28.9533 16.4737 28.875C17.0262 28.5825 30 21.5 30 12.75C29.9977 10.6953 29.1804 8.72539 27.7275 7.27248C26.2746 5.81958 24.3047 5.00232 22.25 5ZM16 26.85C13.7175 25.52 4 19.4613 4 12.75C4.00198 11.2256 4.60842 9.76423 5.68633 8.68633C6.76423 7.60842 8.22561 7.00198 9.75 7C12.1812 7 14.2225 8.295 15.075 10.375C15.1503 10.5584 15.2785 10.7153 15.4432 10.8257C15.6079 10.9361 15.8017 10.995 16 10.995C16.1983 10.995 16.3921 10.9361 16.5568 10.8257C16.7215 10.7153 16.8497 10.5584 16.925 10.375C17.7775 8.29125 19.8188 7 22.25 7C23.7744 7.00198 25.2358 7.60842 26.3137 8.68633C27.3916 9.76423 27.998 11.2256 28 12.75C28 19.4513 18.28 25.5188 16 26.85Z"
+                            fill="#106681"/>
                         </svg>
                         98%
                       </h2>

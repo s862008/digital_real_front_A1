@@ -55,3 +55,16 @@
   background: rgba(217, 217, 217, 0);
   cursor: pointer;
 }
+.slider {
+  height: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 90%;
+  justify-content: space-between;
+}
+.slider__help {
+  cursor: pointer;
+  margin: 0 5px;
+  flex-basis: 20px;
+}

@@ -49,7 +49,7 @@ export class FilterSearchComponent {
   }
 
   public filterSearch(): void {
-    this.loading=true;
+    this.loading = true;
     if (this.filter != null) {
       this.toSearch = {
         numberOfRooms: this.filterservice.numberOfRooms(this.filter),
@@ -66,7 +66,7 @@ export class FilterSearchComponent {
         this.apartments = data?.body.content
         this.totalPages = data?.body.totalPages
         this.totalElements = data?.body.totalElements
-        this.isApartmen =false;
+        this.isApartmen = false;
         window.scroll({
           top: 900,
           left: 0,
@@ -78,7 +78,7 @@ export class FilterSearchComponent {
           this.isApartmen = true
         }
 
-        this.loading=false;
+        this.loading = false;
       }
     })
 

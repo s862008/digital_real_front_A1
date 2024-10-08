@@ -13,18 +13,15 @@ import {Company} from "../../../core/models/company";
 })
 
 export class SmartParametrsComponent implements OnInit, AfterViewInit {
-  smartForm: FormGroup;
+
   companies: Company[] = [];
   choosedItems: any[] = [];
 
   @ViewChild('formParam') formParam!: ElementRef;
 
-  constructor(private fb: FormBuilder, public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
+  constructor(public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
 
-    this.smartForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
-    });
+
 
     this.companies.push(new Company(1, 'АО СЗ ФК "АКСИОМА"', '123-456-7890'));
     this.companies.push(new Company(2, 'ООО Предприятие «ИП К.И.Т.»', '987-654-3210'));
@@ -97,11 +94,12 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
 
   onSubmit() {
     console.log("SUBMIT");
-    if ("this.smartForm.value") {
-      console.log(this.smartForm.value);
-      this.dialogRef.close(this.smartForm.value);
-    }
-    this.router.navigate(['/smart-search']);
+
+    this.dialogRef.close();
+
+    this.router.navigate(['/smart-search'],
+      { state: { smartParam: this.smartParametrs } });
+
   }
 
   onCancel() {

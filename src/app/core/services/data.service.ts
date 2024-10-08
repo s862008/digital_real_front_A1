@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {ApartmentFilterSearch} from "../models/apartment";
 import {Gallery} from "../models/gallery";
+import {SmartParametrs} from "../models/parametrs";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class DataService {
 
   public search(toSearch: ApartmentFilterSearch, size: number, page: number): Observable<Object> {
     return this.http.post(`/api/v1/apartments/all?size=${size}&page=${page}`, toSearch);
+  }
+
+  public smartSearch(smartParametrs: SmartParametrs, size: any, page: any): Observable<Object>  {
+    return this.http.post(`/api/v1/apartments/smart-search?size=${size}&page=${page}`, smartParametrs);
   }
 
   public loadPrepearInfo(toSearch: ApartmentFilterSearch): Observable<Object> {
@@ -56,5 +61,6 @@ export class DataService {
   }
 
   //---------------------------------------------------
+
 
 }

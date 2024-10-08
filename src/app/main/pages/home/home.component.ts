@@ -9,7 +9,7 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {DataService} from "../../../core/services/data.service";
 import {FilterService} from "../../../core/services/filter.service";
 import {RComplex, RComplexPopular} from "../../../core/models/rcomplex";
-import  $ from 'jquery';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ import  $ from 'jquery';
 })
 export class HomeComponent implements OnInit {
   public toSearch?: ApartmentFilterSearch;
-isLoadingVariants = false;
+  isLoadingVariants = false;
   category: string = "Категория";
   type: string = "ТИП";
   cost: number = 10500;
@@ -28,20 +28,20 @@ isLoadingVariants = false;
   public rcomplexPopulars: RComplexPopular[] = [];
   formFilter: FormGroup;
 
-  constructor(private dialog: MatDialog, private router: Router,private fb: FormBuilder, private filterservice: FilterService, private readonly dataservice: DataService) {
+  constructor(private dialog: MatDialog, private router: Router, private fb: FormBuilder, private filterservice: FilterService, private readonly dataservice: DataService) {
 
     this.formFilter = this.fb.group({
       isTwo: [false],
       isThree: [false],
       isFour: [false],
-      isAtelier:[false],
-      isOne:[false],
+      isAtelier: [false],
+      isOne: [false],
       isFivePlus: [false],
       priceMin: '',
-      priceMax : '',
-      areaTotalMin : '',
-      areaTotalMax : '',
-      due:[]
+      priceMax: '',
+      areaTotalMin: '',
+      areaTotalMax: '',
+      due: []
     });
 
 
@@ -64,20 +64,20 @@ isLoadingVariants = false;
   }
 
   loadPrepearInfo() {
-this.isLoadingVariants=true;
+    this.isLoadingVariants = true;
     this.dataservice.loadPrepearInfo(this.toSearch = {
-       numberOfRooms: this.numberOfRooms(),
-       priceMin: this.formFilter.controls['priceMin'].value,
-       priceMax: this.formFilter.controls['priceMax'].value,
-       areaTotalMin: this.formFilter.controls['areaTotalMin'].value,
-       areaTotalMax: this.formFilter.controls['areaTotalMax'].value
+      numberOfRooms: this.numberOfRooms(),
+      priceMin: this.formFilter.controls['priceMin'].value,
+      priceMax: this.formFilter.controls['priceMax'].value,
+      areaTotalMin: this.formFilter.controls['areaTotalMin'].value,
+      areaTotalMax: this.formFilter.controls['areaTotalMax'].value
     }).subscribe({
       next: (data: any): void => {
-        this.isLoadingVariants= false;
+        this.isLoadingVariants = false;
         this.apartmentCount = data[0];
         this.rcomplexCount = data[1];
       }
-     })
+    })
   }
 
   public filterSearch(): void {
@@ -168,7 +168,7 @@ this.isLoadingVariants=true;
             name: dataValue.name,
             orderByRooms: dataValue.orderByRooms,
             phone: dataValue.phone,
-            countApartments:dataValue.countApartments,
+            countApartments: dataValue.countApartments,
             priceMax: 0,
             priceMin: 0,
           }
@@ -180,6 +180,7 @@ this.isLoadingVariants=true;
     })
 
   }
+
 }
 
 
