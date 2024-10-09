@@ -288,6 +288,12 @@ mat-slider {
   font-size: 24px;
   color: #fff;
 }
+
+.fp-submit:disabled {
+  background-color: dimgrey;
+  color: linen;
+  opacity: 10%;
+}
 .fp-reset{
   border: 0;
   border-radius: 10px;
@@ -296,7 +302,8 @@ mat-slider {
   font-weight: 400;
   font-size: 24px;
   color: #fff;
-  background: #c4c4c4;
+  /*background: #c4c4c4;*/
+  background: #a8afb0;
 }
 
 .fp-scroll-top{

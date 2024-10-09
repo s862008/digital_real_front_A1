@@ -68,7 +68,8 @@ export class SearchComponent implements OnInit {
       map(() => window.history.state.smartParam)
     );
 
- this.searching();
+    this.searching();
+
   }
 
   showPhone() {
@@ -82,8 +83,7 @@ export class SearchComponent implements OnInit {
       this.dataservice.smartSearch(this.smartParametrs, 10, 1).subscribe({
         next: (data: any): void => {
           console.log(data);
-          this.apartments = data?.body.content
-
+          this.apartments = data?.content
           this.loading = false;
         }
       })

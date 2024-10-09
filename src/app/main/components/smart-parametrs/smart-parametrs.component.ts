@@ -116,5 +116,9 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
       this.formParam.nativeElement.scrollIntoView({behavior: 'smooth'});
     }
   }
+
+  isChoosedItemsEmpty() {
+    return  this.choosedItems.length == 0
+  }
 }
 
