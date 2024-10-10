@@ -1,21 +1,21 @@
 .form-param {
   position: relative;
   /*border-radius: 25px 25px 0 0;*/
-  /*border: 1px solid darkgray;*/
-  /*box-shadow: inset 3px 4px 4px 0 rgba(0, 0, 0, 0.25), 0 0 4px 0 rgba(0, 0, 0, 0.25);*/
-  /*background: #fff;*/
+  border: 1px solid darkgray;
+  box-shadow: inset 3px 4px 4px 0 rgba(0, 0, 0, 0.25), 0 0 4px 0 rgba(0, 0, 0, 0.25);
+  background: #fff;
   /*max-width: 1760px;*/
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   /*min-height: 215rem;*/
+  overflow: scroll;
   scroll-behavior: auto;
   padding: 4rem 1rem 4rem 1rem;
-  /*overflow-x: hidden;*/
+  overflow-x: hidden;
 }
 
 .form-param__choosed {
   min-height: 50px;
 }
-
 
 .form__close {
   position: relative;
@@ -55,6 +55,7 @@
   display: flex;
   flex-flow: column nowrap;
   margin-top: 30px;
+  /*overflow-y: scroll;*/
 }
 
 .fp-filter__title {

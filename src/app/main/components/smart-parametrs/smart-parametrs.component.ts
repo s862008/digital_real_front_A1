@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -16,12 +16,13 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
 
   companies: Company[] = [];
   choosedItems: any[] = [];
+  showElement = false;
+  scrolling: number = 100;
 
   @ViewChild('formParam') formParam!: ElementRef;
 
-  constructor(public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
 
-
+  constructor(private el: ElementRef, public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
 
     this.companies.push(new Company(1, 'АО СЗ ФК "АКСИОМА"', '123-456-7890'));
     this.companies.push(new Company(2, 'ООО Предприятие «ИП К.И.Т.»', '987-654-3210'));
@@ -79,6 +80,17 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
       });
     });
 
+    this.formParam.nativeElement.addEventListener('scroll', () => {
+      const rect = this.formParam.nativeElement.getBoundingClientRect();
+      const scrollTop = this.formParam.nativeElement.scrollTop;
+      console.log(rect.top +" - "+scrollTop)
+      if (rect.top < -600 || scrollTop > 300) {
+        this.showElement = true;
+      } else {
+        this.showElement = false;
+      }
+    });
+
   }
 
   clearFilter() {
@@ -98,7 +110,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
     this.dialogRef.close();
 
     this.router.navigate(['/smart-search'],
-      { state: { smartParam: this.smartParametrs } });
+      {state: {smartParam: this.smartParametrs}});
 
   }
 
@@ -108,17 +120,25 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     // console.log( $('.fp-label--check'));
+
   }
 
 
   scroll() {
+
     if (this.formParam) {
-      this.formParam.nativeElement.scrollIntoView({behavior: 'smooth'});
+      this.formParam.nativeElement.scrollTo({
+        top: 0,
+        behavior: 'smooth' // плавная прокрутка
+      });
+
+      this.showElement = false;
     }
   }
 
   isChoosedItemsEmpty() {
-    return  this.choosedItems.length == 0
+    return this.choosedItems.length == 0
   }
+
 }
 

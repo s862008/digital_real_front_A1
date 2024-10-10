@@ -11,8 +11,8 @@ import {MatDialog} from "@angular/material/dialog";
 export class BannerComponent {
   constructor(private dialog: MatDialog) {
   }
-  openDialog() {
 
+  openDialog() {
 
     const dialogRef = this.dialog.open(SmartParametrsComponent, {height: '100%', width: '95%'});
 

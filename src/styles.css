@@ -427,7 +427,6 @@ main {
   min-height: 500px;
 }
 
-
 .-back-gray {
   background-color: gray;
 }
@@ -440,7 +439,6 @@ main {
 .logo_img {
   position: relative;
 }
-
 
 .bageLogo {
   position: absolute;

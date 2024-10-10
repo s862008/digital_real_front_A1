@@ -1,4 +1,5 @@
-<form class="form-param" #formParam>
+
+<form class="form-param"  #formParam>
   <div class="container">
     <div class="form-param__title">
       <div class="row row-cols-2">
@@ -18,7 +19,7 @@
       </div>
     </div>
     <hr>
-    <div class="form-param__filter fp-filter">
+    <div class="form-param__filter fp-filter" >
       <h2 class="fp-filter__title title--h2">ВСЕ ФИЛЬТРЫ</h2>
       <div class="fp-filter__items">
 
@@ -1304,15 +1305,16 @@
         <span class="flex-lg-grow-0 mx-2"></span>
         <input type="reset" class="fp-reset" value="Сброс">
       </div>
-    </div>
-    <div class="fp-scroll-top" (click)="scroll()">
-      <svg width="96" height="100" viewBox="0 0 96 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M95.202 49.6186C95.202 76.7633 73.9853 98.7372 47.851 98.7372C21.7167 98.7372 0.5 76.7633 0.5 49.6186C0.5 22.4739 21.7167 0.5 47.851 0.5C73.9853 0.5 95.202 22.4739 95.202 49.6186Z"
-          stroke="#174449"/>
-        <path d="M36.0843 54.9908L49.5451 43.5796L60.5402 55.303" stroke="#174449" stroke-width="4"/>
-      </svg>
+      <div class="fp-scroll-top" *ngIf="showElement" (click)="scroll()">
+        <svg width="96" height="100" viewBox="0 0 96 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M95.202 49.6186C95.202 76.7633 73.9853 98.7372 47.851 98.7372C21.7167 98.7372 0.5 76.7633 0.5 49.6186C0.5 22.4739 21.7167 0.5 47.851 0.5C73.9853 0.5 95.202 22.4739 95.202 49.6186Z"
+            stroke="#174449"/>
+          <path d="M36.0843 54.9908L49.5451 43.5796L60.5402 55.303" stroke="#174449" stroke-width="4"/>
+        </svg>
+      </div>
     </div>
   </div>
 </form>
+
 
