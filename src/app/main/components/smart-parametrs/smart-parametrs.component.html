@@ -1305,7 +1305,13 @@
         <span class="flex-lg-grow-0 mx-2"></span>
         <input type="reset" class="fp-reset" value="Сброс">
       </div>
-      <div class="fp-scroll-top" *ngIf="showElement" (click)="scroll()">
+      <div class="fp-scroll fp-scroll--bottom"  (click)="scrollToBottom()">
+        <svg width="96" height="100" viewBox="0 0 96 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M95.202 49.6186C95.202 76.7633 73.9853 98.7372 47.851 98.7372C21.7167 98.7372 0.5 76.7633 0.5 49.6186C0.5 22.4739 21.7167 0.5 47.851 0.5C73.9853 0.5 95.202 22.4739 95.202 49.6186Z" stroke="#174449"/>
+          <path d="M59.9177 45.0077L46.4568 56.4189L35.4618 44.6955" stroke="#174449" stroke-width="4"/>
+        </svg>
+      </div>
+      <div class="fp-scroll fp-scroll--top" *ngIf="showElement" (click)="scrollToTop()">
         <svg width="96" height="100" viewBox="0 0 96 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M95.202 49.6186C95.202 76.7633 73.9853 98.7372 47.851 98.7372C21.7167 98.7372 0.5 76.7633 0.5 49.6186C0.5 22.4739 21.7167 0.5 47.851 0.5C73.9853 0.5 95.202 22.4739 95.202 49.6186Z"

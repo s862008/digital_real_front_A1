@@ -307,11 +307,10 @@ mat-slider {
   background: #a8afb0;
 }
 
-.fp-scroll-top{
+.fp-scroll{
   display: flex;
   position: fixed;
   bottom: calc(env(safe-area-inset-bottom) + 90px);
-  right: 12%;
   width: 64px;
   height: 64px;
   border: 0;
@@ -327,6 +326,12 @@ mat-slider {
   cursor: pointer;
 }
 
+.fp-scroll--top{
+  right: 16%;
+}
+.fp-scroll--bottom{
+  right: 12%;
+}
 
 @media (max-width: 1800px) {
   .fp-common-gray {

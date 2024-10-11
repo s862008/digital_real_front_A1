@@ -124,7 +124,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   }
 
 
-  scroll() {
+  scrollToTop() {
 
     if (this.formParam) {
       this.formParam.nativeElement.scrollTo({
@@ -133,6 +133,14 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
       });
 
       this.showElement = false;
+    }
+  }
+  scrollToBottom() {
+    if (this.formParam) {
+      this.formParam.nativeElement.scrollTo({
+        top: this.formParam.nativeElement.scrollHeight,
+        behavior: 'smooth' // плавная прокрутка
+      });
     }
   }
 
