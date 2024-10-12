@@ -83,7 +83,6 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
     this.formParam.nativeElement.addEventListener('scroll', () => {
       const rect = this.formParam.nativeElement.getBoundingClientRect();
       const scrollTop = this.formParam.nativeElement.scrollTop;
-      console.log(rect.top +" - "+scrollTop)
       if (rect.top < -600 || scrollTop > 300) {
         this.showElement = true;
       } else {

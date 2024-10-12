@@ -134,7 +134,7 @@ interface Parametrs {
 
 }
 
-export interface iSmartParametrs extends Parametrs {
+export interface implSmartParametrs extends Parametrs {
   planWeight: number;
   apartmentTypeWeight: number;
   floorWeight: number;
@@ -175,7 +175,7 @@ export interface iSmartParametrs extends Parametrs {
 }
 
 @Injectable({providedIn: 'root'})
-export class SmartParametrs implements iSmartParametrs {
+export class SmartParametrs implements implSmartParametrs {
   apartmentTypeWeight: number = 2;
   isApartments: boolean = false;
   isBlandPlan: boolean = false;

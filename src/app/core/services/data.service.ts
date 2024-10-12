@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
-import {ApartmentFilterSearch} from "../models/apartment";
-import {Gallery} from "../models/gallery";
-import {SmartParametrs} from "../models/parametrs";
+import {ApartmentFilterSearch, SmartSearch} from "../models/search";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +19,7 @@ export class DataService {
     return this.http.post(`/api/v1/apartments/all?size=${size}&page=${page}`, toSearch);
   }
 
-  public smartSearch(smartParametrs: SmartParametrs, size: number, page: number): Observable<Object>  {
+  public smartSearch(toSearch: SmartSearch, size: number, page: number): Observable<Object>  {
     return this.http.post(`/api/v1/apartments/smart-search?size=${size}&page=${page}`, smartParametrs);
   }
 

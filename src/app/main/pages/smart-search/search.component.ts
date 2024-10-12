@@ -4,6 +4,7 @@ import {SmartParametrs} from "../../../core/models/parametrs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {map, Observable} from "rxjs";
 import {DataService} from "../../../core/services/data.service";
+import {SmartSearch} from "../../../core/models/search";
 
 @Component({
   selector: 'app-search',
@@ -80,7 +81,65 @@ export class SearchComponent implements OnInit {
 
     this.loading = true;
     if (this.smartParametrs != null) {
-      this.dataservice.smartSearch(this.smartParametrs, 10, 0).subscribe({
+
+     const toSearch : SmartSearch = {
+        quantityRooms: this.getQuantityRooms(),
+
+        price: this.getPrice(),
+        priceWeight: this.getWeight(this.priceWeight),
+
+        countOfApartmentsFerFloor: this.getCountOfApartmentsFerFloor(),
+        countOfApartmentsFerWeight: this.getWeight(this.countOfApartmentsFerFloorWeight),
+
+        squarePrice: this.getSquarePrice(),
+        squarePriceWeight: this.getWeight(this.squarePriceWeight),
+
+        square: this.getSquare(),
+        squareWeight: this.getWeight(this.squareWeight),
+
+        residentialSquare: this.getResidentialSquare(),
+        residentialSquareWeight: this.getWeight(this.residentialSquareWeight),
+
+        squareKitchen: this.getSquareKitchen(),
+        squareKitchenWeight: this.getWeight(this.squareKitchenWeight),
+
+        floor: this.getFloor(),
+        floorWeight: this.getWeight(this.floorWeight),
+        isLastFloor: this.isLastFloor,
+        isNotFirstFloor: this.isNotFirstFloor,
+        isNotLastFloor: this.isNotLastFloor,
+
+        countFloor: this.getCountFloor(),
+        countFloorWeight: this.getWeight(this.countFloorWeight),
+
+        apartmentType: this.getApartmentType(),
+        apartmentTypeWeight: this.getWeight(this.apartmentTypeWeight),
+
+        saleType: this.getSaleType(),
+        saleTypeWeight: this.getWeight(this.saleTypeWeight),
+
+        repair: this.getRepair(),
+        repairWeight: this.getWeight(this.repairWeight),
+
+        isBalcony: this.isBalcony,
+        isLoggia: this.isLoggia,
+        isInsulatedBalcony: this.isInsulatedBalcony,
+        balconyWeight: this.getWeight(this.balconyWeight),
+
+        ceilingHeight: this.getCeilingHeight(),
+        ceilingHeightWeight: this.getWeight(this.ceilingHeightWeight),
+
+        houseType: this.getHouseType(),
+        houseTypeWeight: this.getWeight(this.houseTypeWeight),
+
+        isSmartHome: this.getIsSmartHome(),
+        isSmartHomeWeight: this.getWeight(this.isSmartHomeWeight)
+
+      }
+
+
+
+      this.dataservice.smartSearch(toSearch, 10, 0).subscribe({
         next: (data: any): void => {
           // console.log(data);
           this.apartments = data?.content

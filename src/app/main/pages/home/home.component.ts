@@ -1,10 +1,9 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {SmartParametrsComponent} from "../../components/smart-parametrs/smart-parametrs.component";
-import {ApartmentFilterSearch} from "../../../core/models/apartment";
 import {absoluteFrom} from "@angular/compiler-cli";
 import {Router} from "@angular/router";
-import {FilterSearch} from "../../../core/models/filterSearch";
+import {ApartmentFilterSearch, FilterSearch} from "../../../core/models/search";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {DataService} from "../../../core/services/data.service";
 import {FilterService} from "../../../core/services/filter.service";
@@ -27,8 +26,6 @@ export class HomeComponent implements OnInit {
   dt: string = "10.10.24";
   public rcomplexPopulars: RComplexPopular[] = [];
   formFilter: FormGroup;
-
-  @ViewChild('ParamItems') paramItems!: ElementRef;
 
   constructor(private dialog: MatDialog, private router: Router, private fb: FormBuilder, private filterservice: FilterService, private readonly dataservice: DataService) {
 
@@ -132,12 +129,6 @@ export class HomeComponent implements OnInit {
     return numberOfRooms.length > 0 ? numberOfRooms : null;
   }
 
-  @HostListener('scroll', ['$event'])
-  onScroll2(event: Event) {
-    const scrollTop = this.paramItems.nativeElement.scrollTop;
-    console.log(scrollTop);
-
-  }
 
   openDialog() {
     const dialogRef = this.dialog.open(SmartParametrsComponent, {height: '100%', width: '95%'});

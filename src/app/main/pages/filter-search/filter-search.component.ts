@@ -1,7 +1,7 @@
 import {Component, HostListener} from '@angular/core';
-import {ApartmentFilterSearch, ApartmentShortCard} from "../../../core/models/apartment";
+import {ApartmentShortCard} from "../../../core/models/apartment";
 import {DataService} from "../../../core/services/data.service";
-import {FilterSearch} from "../../../core/models/filterSearch";
+import {ApartmentFilterSearch, FilterSearch} from "../../../core/models/search";
 import {FilterService} from "../../../core/services/filter.service";
 import {FormControl} from "@angular/forms";
 

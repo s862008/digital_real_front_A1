@@ -83,10 +83,4 @@ export interface ApartmentWEB extends Apartment {
   webid: string;
 }
 
-export interface ApartmentFilterSearch {
-  priceMin: string;
-  priceMax: string;
-  areaTotalMin: string;
-  areaTotalMax: string;
-  numberOfRooms: string[] | null;
-}
+
