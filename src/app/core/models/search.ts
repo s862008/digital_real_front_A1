@@ -21,8 +21,8 @@ export interface ApartmentFilterSearch {
 }
 
 export interface SmartSearch{
-  quantityRooms: number[] | null;
-
+  numberOfRooms: number[] | null;
+  numberOfRoomsWeight: number;
 
   price: number[] | null;
   priceWeight: number;

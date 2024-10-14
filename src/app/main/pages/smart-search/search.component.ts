@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApartmentShortCard} from "../../../core/models/apartment";
-import {SmartParametrs} from "../../../core/models/parametrs";
+import {SmartParameters} from "../../../core/models/parametrs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {map, Observable} from "rxjs";
 import {DataService} from "../../../core/services/data.service";
@@ -14,15 +14,15 @@ import {SmartSearch} from "../../../core/models/search";
 export class SearchComponent implements OnInit {
   public company: string = "СТЭЛ"
   public apartments: ApartmentShortCard[] = [];
-  public smartParametrs!: SmartParametrs;
-  public currentState$!: Observable<SmartParametrs>;
+  public smartParameters!: SmartParameters;
+  public currentState$!: Observable<SmartParameters>;
   public loading: boolean = true;
 
   constructor(private dataservice: DataService, public route: ActivatedRoute, private router: Router) {
     // Получаем состояние
     if (this.router.getCurrentNavigation()) {
       const navigation = this.router.getCurrentNavigation();
-      this.smartParametrs = navigation && navigation.extras && navigation.extras.state ? navigation.extras.state['smartParam'] : undefined;
+      this.smartParameters = navigation && navigation.extras && navigation.extras.state ? navigation.extras.state['smartParam'] : undefined;
     }
 
   }
@@ -80,10 +80,14 @@ export class SearchComponent implements OnInit {
   public searching(): void {
 
     this.loading = true;
-    if (this.smartParametrs != null) {
+    if (this.smartParameters != null) {
 
      const toSearch : SmartSearch = {
-        quantityRooms: this.getQuantityRooms(),
+       apartmentType: this.getApartmentType(),
+       apartmentTypeWeight: this.getWeight(this.smartParameters.apartmentTypeWeight),
+
+        numberOfRooms: this.getQuantityRooms(),
+        numberOfRoomsWeight: this.getWeight(this.smartParameters.numberOfRoomsWeight),
 
         price: this.getPrice(),
         priceWeight: this.getWeight(this.priceWeight),
@@ -112,8 +116,6 @@ export class SearchComponent implements OnInit {
         countFloor: this.getCountFloor(),
         countFloorWeight: this.getWeight(this.countFloorWeight),
 
-        apartmentType: this.getApartmentType(),
-        apartmentTypeWeight: this.getWeight(this.apartmentTypeWeight),
 
         saleType: this.getSaleType(),
         saleTypeWeight: this.getWeight(this.saleTypeWeight),
@@ -149,5 +151,47 @@ export class SearchComponent implements OnInit {
 
     }
 
+  }
+
+  private getWeight(weight: number): number {
+    if (weight == null || weight == 0)
+      return 1 / 10;
+    return weight / 10;
+  }
+
+  private getQuantityRooms(): number[] | null {
+    let quantityRooms: number[] = []
+    if (this.smartParameters.isAtelier)
+      quantityRooms.push(0.5);
+    if (this.smartParameters.isOne)
+      quantityRooms.push(1);
+    if (this.smartParameters.isTwo)
+      quantityRooms.push(2);
+    if (this.smartParameters.isThree)
+      quantityRooms.push(3);
+    if (this.smartParameters.isFour)
+      quantityRooms.push(4);
+    if (this.smartParameters.isFreeLayout)
+      quantityRooms.push(0);
+    if (this.smartParameters.isFivePlus)
+      quantityRooms.push(5);
+    if (this.smartParameters.isOneEuro)
+      quantityRooms.push(1.5);
+    if (this.smartParameters.isTwoEuro)
+      quantityRooms.push(2.5);
+    if (this.smartParameters.isThreeEuro)
+      quantityRooms.push(3.5);
+
+    return quantityRooms.length > 0 ? quantityRooms : null;
+  }
+
+  private getApartmentType(): string[] | null {
+    let apartmentType: string[] = [];
+    if (this.smartParameters.isFlat)
+      apartmentType.push('Квартира')
+    if (this.smartParameters.isApartments)
+      apartmentType.push('Апартаменты')
+
+    return apartmentType.length > 0 ? apartmentType : null;
   }
 }

@@ -2,7 +2,7 @@ import {ChangeDetectorRef, Component, OnInit, AfterViewInit, ViewChild, ElementR
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
-import {SmartParametrs} from "../../../core/models/parametrs";
+import {SmartParameters} from "../../../core/models/parametrs";
 import {Company} from "../../../core/models/company";
 
 
@@ -22,7 +22,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   @ViewChild('formParam') formParam!: ElementRef;
 
 
-  constructor(private el: ElementRef, public smartParametrs: SmartParametrs, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
+  constructor(private el: ElementRef, public smartParametrs: SmartParameters, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
 
     this.companies.push(new Company(1, 'АО СЗ ФК "АКСИОМА"', '123-456-7890'));
     this.companies.push(new Company(2, 'ООО Предприятие «ИП К.И.Т.»', '987-654-3210'));
@@ -100,7 +100,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
     this.listChecked();
     this.cdRef.detectChanges();
     this.choosedItems = [];
-    this.smartParametrs = new SmartParametrs();
+    this.smartParametrs = new SmartParameters();
   }
 
   onSubmit() {
