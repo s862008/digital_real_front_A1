@@ -24,23 +24,26 @@ export interface SmartSearch{
   numberOfRooms: number[] | null;
   numberOfRoomsWeight: number;
 
+  plan: number[] | null;
+  planWeight: number;
+
   price: number[] | null;
   priceWeight: number;
 
   countOfApartmentsFerFloor: number[] | null;
   countOfApartmentsFerWeight: number;
 
-  squarePrice: number[] | null;
-  squarePriceWeight: number;
+  areaPrice: number[] | null;
+  areaPriceWeight: number;
 
-  square: number[] | null;
-  squareWeight: number;
+  areaTotal: number[] | null;
+  areaWeight: number;
 
   residentialSquare: number[] | null;
   residentialSquareWeight: number;
 
-  squareKitchen: number[] | null;
-  squareKitchenWeight: number;
+  areaKitchen: number[] | null;
+  areaLiving: number[] | null;
 
   floor: number[] | null;
   floorWeight: number;
@@ -51,8 +54,10 @@ export interface SmartSearch{
   countFloor: number[] | null;
   countFloorWeight: number;
 
-  apartmentType: string[] | null;
+  apartmentType: number[] | null;
   apartmentTypeWeight: number;
+  viewFromWindows:number[] | null;
+  viewFromWindowsWeight: number;
 
   saleType: string[] | null;
   saleTypeWeight: number;

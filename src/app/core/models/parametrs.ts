@@ -27,18 +27,14 @@ interface Parametrs {
   areaLivingMax: any;
   areaKitchenMax: any;
   areaKitchenMin: any;
-  priceWeight: number;
+
   priceMin: number;
+  priceMax: number;
   areaPriceMin: number;
   areaPriceMax: number;
   isViewYard: boolean;
   isViewStreet: boolean;
-  isViewSunnySide: boolean;
   isViewBothSide: boolean;
-  isViewWestSide: boolean;
-  isViewNorthSide: boolean;
-  isSouthBothSide: boolean;
-  isViewEastSide: boolean;
   isBalcony: boolean;
   isLoggia: boolean;
   isGasStove: boolean;
@@ -138,9 +134,13 @@ export interface implSmartParametrs extends Parametrs {
   planWeight: number;
   apartmentTypeWeight: number;
   floorWeight: number;
+  floorPreference:number
   countFloorWeight: number;
+  countFloorPreference:number;
   areaWeight: number;
-  priceMax: number;
+  areaTotalPreference:number;
+  priceWeight: number;
+  pricePreference:number;
   areaPriceWeight: number;
   numberOfRoomsWeight: number;
   viewFromWindowsWeight: number;
@@ -171,6 +171,9 @@ export interface implSmartParametrs extends Parametrs {
   nearbyWeight: number;
   parkingWeight: number;
   furnitureWeight: number;
+  areaKitchenPreference: number;
+  areaLivingPreference: number;
+  areaPricePreference: number;
 
 }
 
@@ -178,8 +181,8 @@ export interface implSmartParametrs extends Parametrs {
 export class SmartParameters implements implSmartParametrs {
   apartmentTypeWeight: number = 2;
   isApartments: boolean = false;
-  isBlandPlan: boolean = false;
   isFlat: boolean = false;
+  isBlandPlan: boolean = false;
   isIsolatePlan: boolean = false;
   planWeight: number = 0;
   floorWeight: number = 0;
@@ -218,12 +221,13 @@ export class SmartParameters implements implSmartParametrs {
   viewFromWindowsWeight: number = 0;
   isViewYard: boolean = false;
   isViewStreet: boolean = false;
-  isViewSunnySide: boolean = false;
+  // isViewSunnySide: boolean = false;
   isViewBothSide: boolean = false;
-  isViewWestSide: boolean = false;
-  isViewNorthSide: boolean = false;
-  isSouthBothSide: boolean = false;
-  isViewEastSide: boolean = false;
+  // isViewWestSide: boolean = false;
+  // isViewNorthSide: boolean = false;
+  // isSouthBothSide: boolean = false;
+  // isViewEastSide: boolean = false;
+
   balconyWeight: number = 0;
   isBalcony: boolean = false;
   isLoggia: boolean = false;
@@ -349,6 +353,14 @@ export class SmartParameters implements implSmartParametrs {
   isFurnitureKitch: boolean = false;
   company:   number=0;
   companyExcp:  number=0;
+
+  areaTotalPreference: number=0;
+  countFloorPreference: number=0;
+  floorPreference: number=0;
+  pricePreference: number=0;
+  areaKitchenPreference: number =0;
+  areaLivingPreference!: number;
+  areaPricePreference!: number;
 
 
 }
