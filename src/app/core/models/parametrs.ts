@@ -227,11 +227,11 @@ export class SmartParameters implements implSmartParametrs {
   // isViewNorthSide: boolean = false;
   // isSouthBothSide: boolean = false;
   // isViewEastSide: boolean = false;
-
   balconyWeight: number = 0;
   isBalcony: boolean = false;
   isLoggia: boolean = false;
   isInsulatedBalcony: boolean = false;
+
   bathroomWeight: number = 0;
   isCombined: boolean = false;
   isSeparate: boolean = false;
@@ -273,6 +273,7 @@ export class SmartParameters implements implSmartParametrs {
   isEuroRep: boolean = false;
   isDisignRep: boolean = false;
   isWithoutRep: boolean = false;
+
   glazingWeight: number = 0;
   isPVH: boolean = false;
   isVitrazh: boolean = false;

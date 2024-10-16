@@ -112,11 +112,18 @@ export class SearchComponent implements OnInit {
         viewFromWindows: this.getViews(),
         viewFromWindowsWeight: this.getWeight(this.smartParameters.viewFromWindowsWeight),
 
-        isBalcony: this.isBalcony,
-        isLoggia: this.isLoggia,
-        isInsulatedBalcony: this.isInsulatedBalcony,
-        balconyWeight: this.getWeight(this.balconyWeight),
+        balcony:this.getBalcony(),
+        balconyWeight: this.getWeight(this.smartParameters.balconyWeight),
 
+        bathroom:this.getBathroom(),
+        bathroomWeight:this.getWeight(this.smartParameters.bathroomWeight),
+
+        isElectricStove:this.smartParameters.isElectricStove,
+        isGasStove:this.smartParameters.isGasStove,
+        stoveWeight:this.getWeight(this.smartParameters.stoveWeight),
+
+        decoration: this.getDecoration(),
+        decorationWeight: this.getWeight(this.smartParameters.decorationWeight),
 
         countOfApartmentsFerFloor: this.getCountOfApartmentsFerFloor(),
         countOfApartmentsFerWeight: this.getWeight(this.countOfApartmentsFerFloorWeight),
@@ -124,14 +131,17 @@ export class SearchComponent implements OnInit {
         areaPrice: this.getTriangle(this.smartParameters.areaPriceMin,this.smartParameters.areaPricePreference,this.smartParameters.areaPriceMax),
         areaPriceWeight: this.getWeight(this.smartParameters.areaPriceWeight),
 
+        decorationWall: this.getDecorationWall(),
+        decorationWallWeight: this.getWeight(this.smartParameters.decorationWallWeight),
 
+        decorationCeiling: this.getDecorationCeiling(),
+        decorationCeilingWeight: this.getWeight(this.smartParameters.decorationCeilingWeight),
 
-        residentialSquare: this.getResidentialSquare(),
-        residentialSquareWeight: this.getWeight(this.residentialSquareWeight),
+        floorCovering: this.getFloorCovering(),
+        floorCoveringWeight: this.getWeight(this.smartParameters.floorCoveringWeight),
 
-
-
-
+        repairType: this.getRepairType(),
+        repairTypeWeight: this.getWeight(this.smartParameters.repairTypeWeight),
 
         saleType: this.getSaleType(),
         saleTypeWeight: this.getWeight(this.saleTypeWeight),
@@ -249,6 +259,117 @@ export class SearchComponent implements OnInit {
       characteristics.push(1)
     if (this.smartParameters.isViewBothSide)
       characteristics.push(3)
+
+    return characteristics.length > 0 ? characteristics : null;
+  }
+
+  private getBalcony(): number[] | null  {
+    let characteristics: number[] = [];
+    if (this.smartParameters.isBalcony)
+      characteristics.push(1)
+    if (this.smartParameters.isLoggia)
+      characteristics.push(2)
+    if (this.smartParameters.isInsulatedBalcony)
+      characteristics.push(3)
+
+    return characteristics.length > 0 ? characteristics : null;
+  }
+  private getBathroom(): number[] | null  {
+    let characteristics: number[] = [];
+    if (this.smartParameters.isCombined)
+      characteristics.push(1)
+    if (this.smartParameters.isSeparate)
+      characteristics.push(2)
+    if (this.smartParameters.isTwoBath)
+      characteristics.push(3)
+
+    return characteristics.length > 0 ? characteristics : null;
+  }
+
+  private  getDecoration(): number[] | null  {
+    let characteristics: number[] = [];
+    if (this.smartParameters.isPreFinishing)
+      characteristics.push(1)
+    if (this.smartParameters.isFinishing)
+      characteristics.push(2)
+    if (this.smartParameters.isEconomyClass)
+      characteristics.push(3)
+    if (this.smartParameters.isComfortClass)
+      characteristics.push(4)
+    if (this.smartParameters.isBusinessClass)
+      characteristics.push(5)
+    if (this.smartParameters.isWithoutFinishing)
+      characteristics.push(6)
+
+    return characteristics.length > 0 ? characteristics : null;
+  }
+
+  private getDecorationWall() : number[] | null  {
+    let characteristics: number[] = [];
+    if (this.smartParameters.isWallpaper)
+      characteristics.push(1)
+    if (this.smartParameters.isPaint)
+      characteristics.push(2)
+    if (this.smartParameters.isPanelWall)
+      characteristics.push(3)
+    if (this.smartParameters.isLincrusta)
+      characteristics.push(4)
+    if (this.smartParameters.isPlaster)
+      characteristics.push(5)
+    if (this.smartParameters.isBrickWall)
+      characteristics.push(6)
+    if (this.smartParameters.isWithoutWall)
+      characteristics.push(7)
+
+    return characteristics.length > 0 ? characteristics : null;
+  }
+
+  private getDecorationCeiling(): number[] | null  {
+    let characteristics: number[] = [];
+    if (this.smartParameters.isWhiteCeiling)
+      characteristics.push(1)
+    if (this.smartParameters.isColorCeiling)
+      characteristics.push(2)
+    if (this.smartParameters.isTilesCeiling)
+      characteristics.push(3)
+    if (this.smartParameters.isFalseCeiling)
+      characteristics.push(4)
+    if (this.smartParameters.isStretchCeiling)
+      characteristics.push(5)
+    if (this.smartParameters.isWithoutCeiling)
+      characteristics.push(6)
+
+    return characteristics.length > 0 ? characteristics : null;
+  }
+
+  private getFloorCovering() : number[] | null  {
+    let characteristics: number[] = [];
+    if (this.smartParameters.isLinoleum)
+      characteristics.push(1)
+    if (this.smartParameters.isLaminate)
+      characteristics.push(2)
+    if (this.smartParameters.isParquet)
+      characteristics.push(3)
+    if (this.smartParameters.isStoneware)
+      characteristics.push(4)
+    if (this.smartParameters.isQuartzvinyl)
+      characteristics.push(5)
+    if (this.smartParameters.isWithoutFloor)
+      characteristics.push(6)
+
+    return characteristics.length > 0 ? characteristics : null;
+  }
+
+  private getRepairType(): number[] | null  {
+    let characteristics: number[] = [];
+    if (this.smartParameters.isCosmeticRep)
+      characteristics.push(1)
+    if (this.smartParameters.isEuroRep)
+      characteristics.push(2)
+    if (this.smartParameters.isDisignRep)
+      characteristics.push(3)
+    if (this.smartParameters.isWithoutRep)
+      characteristics.push(4)
 
     return characteristics.length > 0 ? characteristics : null;
   }

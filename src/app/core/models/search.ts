@@ -39,9 +39,6 @@ export interface SmartSearch{
   areaTotal: number[] | null;
   areaWeight: number;
 
-  residentialSquare: number[] | null;
-  residentialSquareWeight: number;
-
   areaKitchen: number[] | null;
   areaLiving: number[] | null;
 
@@ -65,11 +62,24 @@ export interface SmartSearch{
   repair: string[] | null;
   repairWeight: number;
 
-
-  isBalcony: boolean | null;
-  isInsulatedBalcony: boolean;
-  isLoggia: boolean;
+  balcony: number[] | null;
   balconyWeight: number;
+
+  bathroom: number[] | null;
+  bathroomWeight: number;
+
+  decoration: number[] | null;
+  decorationWeight: number;
+  decorationWall: number[] | null;
+  decorationWallWeight: number;
+  decorationCeiling: number[] | null;
+  decorationCeilingWeight: number;
+
+  floorCovering: number[] | null;
+  floorCoveringWeight: number
+
+  repairType: number[] | null;
+  repairTypeWeight: number;
 
   ceilingHeight: number[] | null;
   ceilingHeightWeight: number;
