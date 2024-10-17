@@ -185,8 +185,8 @@ export class SmartParameters implements implSmartParametrs {
   isIsolatePlan: boolean = false;
   planWeight: number = 0;
   floorWeight: number = 0;
-  floorMin: number = 0;
-  floorMax: number = 100;
+  floorMin: number = 1;
+  floorMax: number = 50;
   isNotFirstFloor: boolean = false;
   isNotLastFloor: boolean = false;
   isLastFloor: boolean = false;
@@ -198,14 +198,14 @@ export class SmartParameters implements implSmartParametrs {
   areaTotalMax: number = 300;
   areaLivingMin: number = 10;
   areaLivingMax: number = 300;
-  areaKitchenMax: number = 10;
-  areaKitchenMin: number = 300;
+  areaKitchenMin: number = 10;
+  areaKitchenMax: number = 100;
   priceWeight!: number;
-  priceMin !: number;
-  priceMax !: number;
+  priceMin : number=100000;
+  priceMax : number=100000000;
   areaPriceWeight: number = 0;
-  areaPriceMin!: number;
-  areaPriceMax!: number;
+  areaPriceMin: number=10000;
+  areaPriceMax: number=1000000;
   numberOfRoomsWeight: number = 0;
   public isAtelier: boolean = false;
   public isOne: boolean = false;
@@ -353,11 +353,11 @@ export class SmartParameters implements implSmartParametrs {
   company: number = 0;
   companyExcp: number = 0;
 
-  areaTotalPreference: number = 0;
+  areaTotalPreference!: number ;
   countFloorPreference: number = 0;
   floorPreference: number = 0;
   pricePreference: number = 0;
-  areaKitchenPreference: number = 0;
+  areaKitchenPreference!: number;
   areaLivingPreference!: number;
   areaPricePreference!: number;
   numberOfApartmentsPreference!: number;

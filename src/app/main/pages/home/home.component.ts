@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit {
 
   loadPrepearInfo() {
     this.isLoadingVariants = true;
+
     this.dataservice.loadPrepearInfo(this.toSearch = {
       numberOfRooms: this.numberOfRooms(),
       priceMin: this.formFilter.controls['priceMin'].value,
@@ -102,28 +103,37 @@ export class HomeComponent implements OnInit {
   private numberOfRooms(): string [] | null {
     let numberOfRooms: string [] = []
     if (this.formFilter.controls['isAtelier'].value) {
-      numberOfRooms.push('Студия');
+
       numberOfRooms.push('0.5');
     }
     if (this.formFilter.controls['isOne'].value) {
-      numberOfRooms.push('1 комната');
+
+      numberOfRooms.push('0.5');
       numberOfRooms.push('1');
+      numberOfRooms.push('1.5');
     }
     if (this.formFilter.controls['isTwo'].value) {
-      numberOfRooms.push('2 комнаты');
+
       numberOfRooms.push('2');
+      numberOfRooms.push('2.5');
     }
     if (this.formFilter.controls['isThree'].value) {
-      numberOfRooms.push('3 комнаты');
+
       numberOfRooms.push('3');
+      numberOfRooms.push('3.5');
     }
     if (this.formFilter.controls['isFour'].value) {
-      numberOfRooms.push('4 комнаты');
+
       numberOfRooms.push('4');
     }
     if (this.formFilter.controls['isFivePlus'].value) {
-      numberOfRooms.push('5 комнат и более');
+
       numberOfRooms.push('5');
+      numberOfRooms.push('6');
+      numberOfRooms.push('7');
+      numberOfRooms.push('8');
+      numberOfRooms.push('9');
+      numberOfRooms.push('10');
     }
 
     return numberOfRooms.length > 0 ? numberOfRooms : null;

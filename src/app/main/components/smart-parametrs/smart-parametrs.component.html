@@ -97,10 +97,24 @@
                        containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <div class="d-flex flex-row justify-content-start gap-3 my-2">
-                  <input type="text" id="area-input" class="d-block fp-input fp-input--sm"
+                  <input *ngIf="!smart" type="text" id="area-input" class="d-block fp-input fp-input--sm"
                          placeholder="от" [(ngModel)]="smartParametrs.floorMin" [ngModelOptions]="{standalone: true}">
-                  <input type="text" class="d-block fp-input fp-input--sm" placeholder="до"
+                  <input *ngIf="!smart"  type="text" class="d-block fp-input fp-input--sm" placeholder="до"
                          [(ngModel)]="smartParametrs.floorMax" [ngModelOptions]="{standalone: true}">
+
+                  <input *ngIf="smart" type="number" id="онb6" class="d-block fp-input fp-input--sm"
+                         [(ngModel)]="smartParametrs.floorPreference" [ngModelOptions]="{standalone: true}">
+
+                  <div *ngIf="smart" class="flex-column">
+                    <div class="flex-row justify-content-between">
+                      <span class="mx-2">{{smartParametrs.floorMin}} </span>
+                      -
+                      <span class="mx-2">{{smartParametrs.floorMax}} </span>
+                    </div>
+                    <input type="range" class="form-range my-form-range" #slider [max]="smartParametrs.floorMax"
+                           [min]="smartParametrs.floorMin" step="1" id="tne0m"
+                           [(ngModel)]="smartParametrs.floorPreference" [ngModelOptions]="{standalone: true}">
+                  </div>
                 </div>
                 <label class="fp-label">
                   <input class="fp-label--check" type="checkbox" name="" id="erff"
@@ -191,27 +205,51 @@
                     <span class="mx-2">{{smartParametrs.areaTotalMax}}м<sup>2</sup></span>
                   </div>
                   <input type="range" class="form-range my-form-range" #slider [max]="smartParametrs.areaTotalMax"
-                         [min]="smartParametrs.areaTotalMin" step="10" id="tnem54"
+                         [min]="smartParametrs.areaTotalMin" step="10" id="tn5em54"
                          [(ngModel)]="smartParametrs.areaTotalPreference" [ngModelOptions]="{standalone: true}">
                 </div>
               </div>
               <p class="fp-label--tx">Жилая</p>
               <div class="d-flex flex-row justify-content-between my-2">
-                <input type="text" id="гнур7" class="d-block fp-input fp-input--base "
+                <input *ngIf="!smart" type="text" id="гнур7" class="d-block fp-input fp-input--base "
                        placeholder="от" [(ngModel)]="smartParametrs.areaLivingMin"
                        [ngModelOptions]="{standalone: true}">
-                <input type="text" id="4ny" class="d-block fp-input fp-input--base "
+                <input *ngIf="!smart" type="text" id="4ny" class="d-block fp-input fp-input--base "
                        placeholder="до" [(ngModel)]="smartParametrs.areaLivingMax"
                        [ngModelOptions]="{standalone: true}">
+                <input *ngIf="smart" type="number" id="онb6h" class="d-block fp-input fp-input--sm"
+                       [(ngModel)]="smartParametrs.areaLivingPreference" [ngModelOptions]="{standalone: true}">
+                <div *ngIf="smart" class="flex-column flex-fill mx-5">
+                  <div class="flex-row justify-content-between">
+                    <span class="mx-2">{{smartParametrs.areaLivingMin}}м<sup>2</sup></span>
+                    -
+                    <span class="mx-2">{{smartParametrs.areaLivingMax}}м<sup>2</sup></span>
+                  </div>
+                  <input type="range" class="form-range my-form-range" #slider [max]="smartParametrs.areaLivingMax"
+                         [min]="smartParametrs.areaLivingMin" step="10" id="tn4em54"
+                         [(ngModel)]="smartParametrs.areaLivingPreference" [ngModelOptions]="{standalone: true}">
+                </div>
               </div>
               <p class="fp-label--tx">Кухня</p>
               <div class="d-flex flex-row justify-content-between  my-2">
-                <input type="text" id="е5но" class="d-block fp-input fp-input--base "
+                <input *ngIf="!smart" type="text" id="е5но" class="d-block fp-input fp-input--base "
                        placeholder="от" [(ngModel)]="smartParametrs.areaKitchenMin"
                        [ngModelOptions]="{standalone: true}">
-                <input type="text" id="е5" class="d-block fp-input fp-input--base "
+                <input *ngIf="!smart" type="text" id="е5" class="d-block fp-input fp-input--base "
                        placeholder="до" [(ngModel)]="smartParametrs.areaKitchenMax"
                        [ngModelOptions]="{standalone: true}">
+                <input *ngIf="smart" type="number" id="о67нb6h" class="d-block fp-input fp-input--sm"
+                       [(ngModel)]="smartParametrs.areaKitchenPreference" [ngModelOptions]="{standalone: true}">
+                <div *ngIf="smart" class="flex-column flex-fill mx-5">
+                  <div class="flex-row justify-content-between">
+                    <span class="mx-2">{{smartParametrs.areaKitchenMin}}м<sup>2</sup></span>
+                    -
+                    <span class="mx-2">{{smartParametrs.areaKitchenMax}}м<sup>2</sup></span>
+                  </div>
+                  <input type="range" class="form-range my-form-range" #slider [max]="smartParametrs.areaKitchenMax"
+                         [min]="smartParametrs.areaKitchenMin" step="10" id="tnem534"
+                         [(ngModel)]="smartParametrs.areaKitchenPreference" [ngModelOptions]="{standalone: true}">
+                </div>
               </div>
             </div>
 
@@ -229,10 +267,23 @@
                      containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
               </div>
               <div class="d-flex flex-row justify-content-between">
-                <input type="text" id="tern" class="d-block fp-input fp-input--base "
+                <input *ngIf="!smart" type="text" id="tern" class="d-block fp-input fp-input--base "
                        placeholder="от" [(ngModel)]="smartParametrs.priceMin" [ngModelOptions]="{standalone: true}">
-                <input type="text" id="ty48" class="d-block fp-input fp-input--base "
+                <input *ngIf="!smart" type="text" id="ty48" class="d-block fp-input fp-input--base "
                        placeholder="до" [(ngModel)]="smartParametrs.priceMax" [ngModelOptions]="{standalone: true}">
+                <div *ngIf="smart" class="flex-column flex-fill mx-5">
+                  <input type="number" id="о67нb6h" class="d-block fp-input fp-input--long"
+                         [(ngModel)]="smartParametrs.pricePreference" [ngModelOptions]="{standalone: true}">
+
+                  <div class="flex-row justify-content-between my-3">
+                    <span class="mx-2">{{smartParametrs.priceMin}} руб.</span>
+                    -
+                    <span class="mx-2">{{smartParametrs.priceMax}} руб.</span>
+                  </div>
+                  <input type="range" class="form-range my-form-range" #slider [max]="smartParametrs.priceMax"
+                         [min]="smartParametrs.priceMin" step="100000" id="tne7m534"
+                         [(ngModel)]="smartParametrs.pricePreference" [ngModelOptions]="{standalone: true}">
+                </div>
               </div>
             </div>
             <div class="fp-cmn-gray__price">
@@ -249,14 +300,31 @@
               </div>
 
               <div class="d-flex flex-row justify-content-between">
-                <input type="text" id="m6r7" class="d-block fp-input fp-input--base "
+                <input *ngIf="!smart" type="text" id="m6r7" class="d-block fp-input fp-input--base "
                        placeholder="от" [(ngModel)]="smartParametrs.areaPriceMin" [ngModelOptions]="{standalone: true}">
-                <input type="text" id="eyue47y" class="d-block fp-input fp-input--base "
+                <input *ngIf="!smart" type="text" id="eyue47y" class="d-block fp-input fp-input--base "
                        placeholder="до" [(ngModel)]="smartParametrs.areaPriceMax" [ngModelOptions]="{standalone: true}">
+
+                <div *ngIf="smart" class="flex-column flex-fill mx-5">
+                  <input type="number" id="о67b6h" class="d-block fp-input fp-input--long"
+                         [(ngModel)]="smartParametrs.areaPricePreference" [ngModelOptions]="{standalone: true}">
+
+                  <div class="flex-row justify-content-between my-3">
+                    <span class="mx-2">{{smartParametrs.areaPriceMin}} руб.</span>
+                    -
+                    <span class="mx-2">{{smartParametrs.areaPriceMax}} руб.</span>
+                  </div>
+                  <input type="range" class="form-range my-form-range" #slider [max]="smartParametrs.areaPriceMax"
+                         [min]="smartParametrs.areaPriceMin" step="1000" id="tn534"
+                         [(ngModel)]="smartParametrs.areaPricePreference" [ngModelOptions]="{standalone: true}">
+                </div>
+
               </div>
             </div>
           </div>
+
         </div>
+
         <div class="fp-filter__item fp-about-apart">
           <h3 class="fp-filter-item__title title--h3" data-bs-toggle="collapse"
               data-bs-target="#collapseAboutApart" aria-expanded="true"
