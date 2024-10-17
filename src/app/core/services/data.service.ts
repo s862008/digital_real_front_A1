@@ -20,7 +20,7 @@ export class DataService {
   }
 
   public smartSearch(toSearch: SmartSearch, size: number, page: number): Observable<Object>  {
-    return this.http.post(`/api/v1/apartments/smart-search?size=${size}&page=${page}`, smartParametrs);
+    return this.http.post(`/api/v1/apartments/smart-search?size=${size}&page=${page}`, toSearch);
   }
 
   public loadPrepearInfo(toSearch: ApartmentFilterSearch): Observable<Object> {

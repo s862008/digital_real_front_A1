@@ -30,8 +30,8 @@ export interface SmartSearch{
   price: number[] | null;
   priceWeight: number;
 
-  countOfApartmentsFerFloor: number[] | null;
-  countOfApartmentsFerWeight: number;
+  numberOfApartments: number[] | null;
+  numberOfApartmentsWeight: number;
 
   areaPrice: number[] | null;
   areaPriceWeight: number;
@@ -48,6 +48,10 @@ export interface SmartSearch{
   isNotFirstFloor: boolean;
   isNotLastFloor: boolean;
 
+  isElectricStove: boolean;
+  isGasStove: boolean;
+  stoveWeight:number;
+
   countFloor: number[] | null;
   countFloorWeight: number;
 
@@ -55,12 +59,6 @@ export interface SmartSearch{
   apartmentTypeWeight: number;
   viewFromWindows:number[] | null;
   viewFromWindowsWeight: number;
-
-  saleType: string[] | null;
-  saleTypeWeight: number;
-
-  repair: string[] | null;
-  repairWeight: number;
 
   balcony: number[] | null;
   balconyWeight: number;
@@ -75,18 +73,59 @@ export interface SmartSearch{
   decorationCeiling: number[] | null;
   decorationCeilingWeight: number;
 
+  isWithoutDecBathroom: boolean;
+  isWithDecBathroom: boolean;
+  decorationBathroomWeight: number;
+
   floorCovering: number[] | null;
   floorCoveringWeight: number
 
   repairType: number[] | null;
   repairTypeWeight: number;
 
+  glazing: number[] | null;
+  glazingWeight: number;
+
+  radiators: number[] | null;
+  radiatorsWeight: number;
+
+  houseType: number[] | null;
+  houseTypeWeight: number;
+
+  dClass: string[] | null;
+  dClassWeight: number;
+
   ceilingHeight: number[] | null;
   ceilingHeightWeight: number;
 
-  houseType: string[] | null;
-  houseTypeWeight: number;
+  asesmic: number[] | null;
+  asesmicWeight: number;
 
-  isSmartHome: boolean[] | null;
-  isSmartHomeWeight: number;
+  due: number[] | null;
+  dueWeight: number;
+
+  numberElevators: boolean[] | null;
+  numberElevatorsWeight: number;
+
+  smartHome: boolean[] | null;
+  smartHomeWeight: number;
+
+  elevatorType: number[] | null;
+  elevatorTypeWeight: number;
+
+  selfBoilerWeight: number;
+  selfBoiler: boolean[] | null;
+
+  nearby: number[] | null;
+  nearbyWeight: number;
+
+  parking: number[] | null;
+  parkingWeight: number;
+
+  closedYard: boolean[] | null;
+  closedYardWeight: number;
+
+  furniture: number[] | null;
+  furnitureWeight: number;
+
 }

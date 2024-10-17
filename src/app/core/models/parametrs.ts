@@ -95,10 +95,8 @@ interface Parametrs {
   isAsesmic5: boolean
   isAsesmic6: boolean;
   isAsesmic7: boolean;
-  isDueYearMin: number;
-  isDueYearMax: number;
-  isDueQuart: boolean;
-  isDueYear: boolean;
+  dueYearMin: number;
+  dueYearMax: number;
   isDone: boolean;
   isCeilHeightFrom2_7: boolean;
   isCeilHeightTo2_7: boolean;
@@ -110,6 +108,7 @@ interface Parametrs {
   numberOfApartmentsMax: number;
   isPassenger: boolean;
   isCargo: boolean;
+  isAllElevatorsType: boolean;
   isSelfBoiler: boolean;
   isNoSelfBoiler: boolean;
   isNearbyShop: boolean;
@@ -160,7 +159,7 @@ export interface implSmartParametrs extends Parametrs {
   asesmicWeight: number;
   dueWeight: number;
   ceilingHeightWeight: number;
-  elevatorsWeight: number;
+  numberElevatorsWeight: number;
   isElevator1: boolean;
   isElevator2: boolean;
   isElevator3: boolean;
@@ -231,7 +230,6 @@ export class SmartParameters implements implSmartParametrs {
   isBalcony: boolean = false;
   isLoggia: boolean = false;
   isInsulatedBalcony: boolean = false;
-
   bathroomWeight: number = 0;
   isCombined: boolean = false;
   isSeparate: boolean = false;
@@ -273,7 +271,6 @@ export class SmartParameters implements implSmartParametrs {
   isEuroRep: boolean = false;
   isDisignRep: boolean = false;
   isWithoutRep: boolean = false;
-
   glazingWeight: number = 0;
   isPVH: boolean = false;
   isVitrazh: boolean = false;
@@ -287,7 +284,6 @@ export class SmartParameters implements implSmartParametrs {
   isSteelRadtr: boolean = false;
   isAluminumRadtr: boolean = false;
   buildWeight: number = 0;
-
   isPanelBuild: boolean = false;
   isBrickBuild: boolean = false;
   isMonolithicBuild: boolean = false;
@@ -305,21 +301,19 @@ export class SmartParameters implements implSmartParametrs {
   isAsesmic6: boolean = false;
   isAsesmic7: boolean = false;
   dueWeight: number = 0;
-  isDueYearMin: number = 2024;
-  isDueYearMax: number = 2027;
-  isDueQuart: boolean = false;
-  isDueYear: boolean = false;
+  dueYearMin: number = 2024;
+  dueYearMax: number = 2027;
   isDone: boolean = false;
   ceilingHeightWeight: number = 0;
   isCeilHeightFrom2_7: boolean = false;
   isCeilHeightTo2_7: boolean = false;
   isCeilHeightFrom3: boolean = false;
   isCeilHeightTFrom3_5: boolean = false;
-  elevatorsWeight: number = 0;
+  numberElevatorsWeight: number = 0;
   isElevator1: boolean = false;
   isElevator2: boolean = false;
   isElevator3: boolean = false;
-  smartHomeWeight: number = 0;
+  public smartHomeWeight: number = 0;
   public isSmart: boolean = false;
   public isNotSmart: boolean = false;
   numberOfApartmentsWeight: number = 0;
@@ -327,6 +321,7 @@ export class SmartParameters implements implSmartParametrs {
   numberOfApartmentsMax: number = 3;
   isPassenger: boolean = false;
   isCargo: boolean = false;
+  isAllElevatorsType: boolean = false;
   elevatorTypeWeight: number=0;
   selfBoilerWeight: number=0;
   isSelfBoiler: boolean = false;
@@ -340,6 +335,7 @@ export class SmartParameters implements implSmartParametrs {
   isNearbyPolyclinic: boolean = false;
   isNearbyBusStation: boolean = false;
   isNearbyCarService: boolean = false;
+
   parkingWeight: number = 0;
   isUnderground: boolean = false;
   isSurface: boolean = false;
@@ -348,10 +344,12 @@ export class SmartParameters implements implSmartParametrs {
   closedYardWeight: number = 0;
   isClosedYard: boolean = false;
   isNoClosedYard: boolean = false;
-  isNoFurniture: boolean = false;
+
   furnitureWeight: number = 0;
+  isNoFurniture: boolean = false;
   isFurniture: boolean = false;
   isFurnitureKitch: boolean = false;
+
   company:   number=0;
   companyExcp:  number=0;
 
@@ -362,6 +360,6 @@ export class SmartParameters implements implSmartParametrs {
   areaKitchenPreference: number =0;
   areaLivingPreference!: number;
   areaPricePreference!: number;
-
+  numberOfApartmentsPreference!: number;
 
 }
