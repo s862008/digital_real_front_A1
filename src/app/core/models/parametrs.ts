@@ -133,13 +133,13 @@ export interface implSmartParametrs extends Parametrs {
   planWeight: number;
   apartmentTypeWeight: number;
   floorWeight: number;
-  floorPreference:number
+  floorPreference: number
   countFloorWeight: number;
-  countFloorPreference:number;
+  countFloorPreference: number;
   areaWeight: number;
-  areaTotalPreference:number;
+  areaTotalPreference: number;
   priceWeight: number;
-  pricePreference:number;
+  pricePreference: number;
   areaPriceWeight: number;
   numberOfRoomsWeight: number;
   viewFromWindowsWeight: number;
@@ -194,12 +194,12 @@ export class SmartParameters implements implSmartParametrs {
   countFloorMin!: number;
   countFloorMax!: number;
   areaWeight: number = 0;
-  areaTotalMin!: number;
-  areaTotalMax!: number;
-  areaLivingMin!: number;
-  areaLivingMax!: number;
-  areaKitchenMax!: number;
-  areaKitchenMin!: number;
+  areaTotalMin: number = 10;
+  areaTotalMax: number = 300;
+  areaLivingMin: number = 10;
+  areaLivingMax: number = 300;
+  areaKitchenMax: number = 10;
+  areaKitchenMin: number = 300;
   priceWeight!: number;
   priceMin !: number;
   priceMax !: number;
@@ -322,8 +322,8 @@ export class SmartParameters implements implSmartParametrs {
   isPassenger: boolean = false;
   isCargo: boolean = false;
   isAllElevatorsType: boolean = false;
-  elevatorTypeWeight: number=0;
-  selfBoilerWeight: number=0;
+  elevatorTypeWeight: number = 0;
+  selfBoilerWeight: number = 0;
   isSelfBoiler: boolean = false;
   isNoSelfBoiler: boolean = false;
   nearbyWeight: number = 0;
@@ -350,14 +350,14 @@ export class SmartParameters implements implSmartParametrs {
   isFurniture: boolean = false;
   isFurnitureKitch: boolean = false;
 
-  company:   number=0;
-  companyExcp:  number=0;
+  company: number = 0;
+  companyExcp: number = 0;
 
-  areaTotalPreference: number=0;
-  countFloorPreference: number=0;
-  floorPreference: number=0;
-  pricePreference: number=0;
-  areaKitchenPreference: number =0;
+  areaTotalPreference: number = 0;
+  countFloorPreference: number = 0;
+  floorPreference: number = 0;
+  pricePreference: number = 0;
+  areaKitchenPreference: number = 0;
   areaLivingPreference!: number;
   areaPricePreference!: number;
   numberOfApartmentsPreference!: number;

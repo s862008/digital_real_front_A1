@@ -18,6 +18,8 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   choosedItems: any[] = [];
   showElement = false;
   scrolling: number = 100;
+  smart = true;
+
 
   @ViewChild('formParam') formParam!: ElementRef;
 

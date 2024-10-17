@@ -18,6 +18,7 @@ export class SearchComponent implements OnInit {
   public currentState$!: Observable<SmartParameters>;
   public loading: boolean = true;
 
+
   constructor(private dataservice: DataService, public route: ActivatedRoute, private router: Router) {
     // Получаем состояние
     if (this.router.getCurrentNavigation()) {
@@ -228,7 +229,7 @@ export class SearchComponent implements OnInit {
   }
 
   private getFloor(): number[] | null {
-    if (this.smartParameters.floorMin == null && this.smartParameters.floorMax == null)
+    if (this.smartParameters.floorMin == null && this.smartParameters.floorPreference == null && this.smartParameters.floorMax == null)
       return null;
     return [Number((this.smartParameters.floorMin)), Number(this.smartParameters.floorPreference), Number(this.smartParameters.floorMax)];
   }
