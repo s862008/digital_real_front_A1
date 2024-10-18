@@ -150,12 +150,25 @@
                        containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <div class="d-flex flex-row justify-content-between  my-2">
-                  <input type="text" id="gt5" class="d-block fp-input fp-input--long"
+                  <input *ngIf="!smart" type="text" id="gt5" class="d-block fp-input fp-input--long"
                          placeholder="от" [(ngModel)]="smartParametrs.countFloorMin"
                          [ngModelOptions]="{standalone: true}">
-                  <input type="text" id="6yhtr" class="d-block fp-input fp-input--long"
+                  <input *ngIf="!smart"  type="text" id="6yhtr" class="d-block fp-input fp-input--long"
                          placeholder="до" [(ngModel)]="smartParametrs.countFloorMax"
                          [ngModelOptions]="{standalone: true}">
+                  <input *ngIf="smart" type="number" id="онb6" class="d-block fp-input fp-input--sm"
+                         [(ngModel)]="smartParametrs.countFloorPreference" [ngModelOptions]="{standalone: true}">
+
+                  <div *ngIf="smart" class="flex-column">
+                    <div class="flex-row justify-content-between">
+                      <span class="mx-2">{{smartParametrs.countFloorMin}} </span>
+                      -
+                      <span class="mx-2">{{smartParametrs.countFloorMax}} </span>
+                    </div>
+                    <input type="range" class="form-range my-form-range" #slider [max]="smartParametrs.countFloorMax"
+                           [min]="smartParametrs.countFloorMin" step="1" id="tne0m"
+                           [(ngModel)]="smartParametrs.countFloorPreference" [ngModelOptions]="{standalone: true}">
+                  </div>
                 </div>
                 <select [(ngModel)]="smartParametrs.company" [ngModelOptions]="{standalone: true}"
                         class="form-select fp-select" required aria-label="select company">
@@ -1132,7 +1145,6 @@
               <div class="fp-about-build__count-apart">
                 <h4 class="title--h4">Количество квартир на этаже</h4>
                 <div class="slider" *ngIf="smart">
-                  <!--                  <input type="range" class="form-range" min="0" max="5" id="6uj7">-->
                   <mat-slider min="1" max="10" step="1" discrete [displayWith]="formatLabel">
                     <input matSliderThumb [(ngModel)]="smartParametrs.numberOfApartmentsWeight"
                            [ngModelOptions]="{standalone: true}">
@@ -1141,12 +1153,25 @@
                        containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </div>
                 <div class="d-flex flex-row justify-content-between  my-2">
-                  <input [(ngModel)]="smartParametrs.numberOfApartmentsMin" [ngModelOptions]="{standalone: true}"
+                  <input *ngIf="!smart" [(ngModel)]="smartParametrs.numberOfApartmentsMin" [ngModelOptions]="{standalone: true}"
                          type="text" id="75" class="d-block fp-input fp-input--long"
                          placeholder="2">
-                  <input [(ngModel)]="smartParametrs.numberOfApartmentsMax" [ngModelOptions]="{standalone: true}"
+                  <input *ngIf="!smart" [(ngModel)]="smartParametrs.numberOfApartmentsMax" [ngModelOptions]="{standalone: true}"
                          type="text" id="ki8" class="d-block fp-input fp-input--long"
                          placeholder="5">
+                  <div *ngIf="smart" class="flex-column flex-fill mx-5">
+                    <input type="number" id="онb1" class="d-block fp-input fp-input--long"
+                           [(ngModel)]="smartParametrs.numberOfApartmentsPreference" [ngModelOptions]="{standalone: true}">
+
+                    <div class="flex-row justify-content-between my-3">
+                      <span class="mx-2">{{smartParametrs.numberOfApartmentsMin}} </span>
+                      -
+                      <span class="mx-2">{{smartParametrs.numberOfApartmentsMax}} </span>
+                    </div>
+                    <input type="range" class="form-range my-form-range" #slider [max]="smartParametrs.numberOfApartmentsMax"
+                           [min]="smartParametrs.numberOfApartmentsMin" step="100000" id="tne7m4"
+                           [(ngModel)]="smartParametrs.numberOfApartmentsPreference" [ngModelOptions]="{standalone: true}">
+                  </div>
                 </div>
 
               </div>

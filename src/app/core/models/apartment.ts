@@ -76,6 +76,7 @@ export interface ApartmentShortCard {
   type_build: string;
   address: string;
   company: string;
+  companyId: number;
 }
 
 

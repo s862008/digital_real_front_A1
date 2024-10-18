@@ -81,6 +81,9 @@ export class SearchComponent implements OnInit {
   public searching(): void {
 
     this.loading = true;
+
+
+
     if (this.smartParameters != null) {
 
       const toSearch: SmartSearch = {
@@ -93,16 +96,16 @@ export class SearchComponent implements OnInit {
         plan: this.getPlan(),
         planWeight: this.getWeight(this.smartParameters.planWeight),
 
-        price: this.getPrice(),
+        price: this.getTriangle(this.smartParameters.priceMin, this.smartParameters.pricePreference, this.smartParameters.priceMax),
         priceWeight: this.getWeight(this.smartParameters.priceWeight),
 
-        floor: this.getFloor(),
+        floor: this.getTriangle(this.smartParameters.floorMin,this.smartParameters.floorPreference, this.smartParameters.floorMax),
         floorWeight: this.getWeight(this.smartParameters.floorWeight),
         isLastFloor: this.smartParameters.isLastFloor,
         isNotFirstFloor: this.smartParameters.isNotFirstFloor,
         isNotLastFloor: this.smartParameters.isNotLastFloor,
 
-        countFloor: this.getCountFloor(),
+        countFloor: this.getTriangle(this.smartParameters.countFloorMin, this.smartParameters.countFloorPreference, this.smartParameters.countFloorMax),
         countFloorWeight: this.getWeight(this.smartParameters.countFloorWeight),
 
         areaTotal: this.getTriangle(this.smartParameters.areaTotalMin, this.smartParameters.areaTotalPreference, this.smartParameters.areaTotalMax),
@@ -169,7 +172,7 @@ export class SearchComponent implements OnInit {
         ceilingHeight: this.getCeilingHeight(),
         ceilingHeightWeight: this.getWeight(this.smartParameters.ceilingHeightWeight),
 
-        numberElevators: [this.smartParameters.isElevator1, this.smartParameters.isElevator2, this.smartParameters.isElevator3],
+        numberElevators: this.getNumberElevators(),
         numberElevatorsWeight: this.getWeight(this.smartParameters.numberElevatorsWeight),
 
         smartHome: this.getSwitch([this.smartParameters.isSmart, this.smartParameters.isNotSmart]),
@@ -193,15 +196,15 @@ export class SearchComponent implements OnInit {
         furniture: this.getSet([this.smartParameters.isNoFurniture, this.smartParameters.isFurnitureKitch,this.smartParameters.isFurniture]),
         furnitureWeight: this.getWeight(this.smartParameters.furnitureWeight),
 
-
-
       }
-
 
       this.dataservice.smartSearch(toSearch, 10, 0).subscribe({
         next: (data: any): void => {
-          // console.log(data);
-          this.apartments = data?.content
+          if(data != null) {
+            console.log(data);
+            this.apartments = data?.content
+
+          }
           this.loading = false;
         }
       })
@@ -217,27 +220,9 @@ export class SearchComponent implements OnInit {
   }
 
   private getTriangle(a: number, m: number, b: number): number[] | null {
-    if (a == null && m == null && b == null)
+    if (a == null || m == null || b == null)
       return null;
     return [Number(a), Number(m), Number(b)];
-  }
-
-  private getPrice(): number[] | null {
-    if (this.smartParameters.priceMin == null && this.smartParameters.pricePreference == null && this.smartParameters.priceMax == null)
-      return null;
-    return [Number(this.smartParameters.priceMin), Number(this.smartParameters.pricePreference), Number(this.smartParameters.priceMax)];
-  }
-
-  private getFloor(): number[] | null {
-    if (this.smartParameters.floorMin == null && this.smartParameters.floorPreference == null && this.smartParameters.floorMax == null)
-      return null;
-    return [Number((this.smartParameters.floorMin)), Number(this.smartParameters.floorPreference), Number(this.smartParameters.floorMax)];
-  }
-
-  private getCountFloor(): number[] | null {
-    if (this.smartParameters.countFloorMin == null && this.smartParameters.countFloorPreference == null && this.smartParameters.countFloorMax == null)
-      return null;
-    return [Number((this.smartParameters.countFloorMin)), Number(this.smartParameters.countFloorPreference), Number(this.smartParameters.countFloorMax)];
   }
 
   private getQuantityRooms(): number[] | null {
@@ -522,6 +507,13 @@ export class SearchComponent implements OnInit {
     return characteristics.length > 0 ? characteristics : null;
   }
 
+  private getNumberElevators() : boolean[] | null {
+    if (!this.smartParameters.isElevator1 && !this.smartParameters.isElevator2 && !this.smartParameters.isElevator3)
+      return null;
+
+    return [this.smartParameters.isElevator1, this.smartParameters.isElevator2, this.smartParameters.isElevator3];
+  }
+
   private getNearby(): number[] | null {
     const characteristics: number[] = [];
     const array: boolean[] = [this.smartParameters.isNearbyShop,
@@ -557,4 +549,11 @@ export class SearchComponent implements OnInit {
 
     return characteristics.length > 0 ? characteristics : null;
   }
+
+   public getCompany(id:number): string | undefined {
+    if(id == 1){
+      return "АО СЗ ФК \"АКСИОМА\""
+    }
+    return "";
+   }
 }

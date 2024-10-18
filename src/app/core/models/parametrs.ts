@@ -191,8 +191,8 @@ export class SmartParameters implements implSmartParametrs {
   isNotLastFloor: boolean = false;
   isLastFloor: boolean = false;
   countFloorWeight: number = 0;
-  countFloorMin!: number;
-  countFloorMax!: number;
+  countFloorMin: number= 1;
+  countFloorMax: number= 50;
   areaWeight: number = 0;
   areaTotalMin: number = 10;
   areaTotalMax: number = 300;
@@ -354,9 +354,9 @@ export class SmartParameters implements implSmartParametrs {
   companyExcp: number = 0;
 
   areaTotalPreference!: number ;
-  countFloorPreference: number = 0;
-  floorPreference: number = 0;
-  pricePreference: number = 0;
+  countFloorPreference!: number ;
+  floorPreference!: number ;
+  pricePreference!: number ;
   areaKitchenPreference!: number;
   areaLivingPreference!: number;
   areaPricePreference!: number;
