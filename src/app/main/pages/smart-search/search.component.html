@@ -24,16 +24,37 @@
                       <h4 class="title--h4">Стоимость, P</h4>
                       <div class="slider">
 
-                        <input type="range" class="form-range" min="0" max="5" id="ntye">
-                        <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg"
-                             alt="">
+                        <mat-slider *ngIf="smart" min="1" max="10" step="1" discrete [displayWith]="formatLabel">
+                          <input matSliderThumb [(ngModel)]="smartParameters.priceWeight"
+                                 [ngModelOptions]="{standalone: true}">
+                        </mat-slider>
+                        <img class="slider__help--marg" *ngIf="smart"
+                             src="./assets/img/ant-design_info-circle-outlined.svg"
+                             alt="help"
+                             containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+
                       </div>
 
                       <div class="d-flex flex-row justify-content-around gx-1">
-                        <input type="text" id="tern" class="d-block fp-input fp-input--main "
-                               placeholder="от">
-                        <input type="text" id="ty48" class="d-block fp-input fp-input--main "
-                               placeholder="до">
+                        <input *ngIf="!smart" type="text" id="tern" class="d-block fp-input fp-input--base "
+                               placeholder="от" [(ngModel)]="smartParameters.priceMin"
+                               [ngModelOptions]="{standalone: true}">
+                        <input *ngIf="!smart" type="text" id="ty48" class="d-block fp-input fp-input--base "
+                               placeholder="до" [(ngModel)]="smartParameters.priceMax"
+                               [ngModelOptions]="{standalone: true}">
+                        <div *ngIf="smart" class="flex-column flex-fill mx-5">
+                          <input type="number" id="о6b6h" class="d-block fp-input fp-input--long"
+                                 [(ngModel)]="smartParameters.pricePreference" [ngModelOptions]="{standalone: true}">
+
+                          <div class="flex-row justify-content-between my-3">
+                            <span class="mx-2">{{ smartParameters.priceMin }} руб.</span>
+                            -
+                            <span class="mx-2">{{ smartParameters.priceMax }} руб.</span>
+                          </div>
+                          <input type="range" class="form-range my-form-range" #slider [max]="smartParameters.priceMax"
+                                 [min]="smartParameters.priceMin" step="100000" id="tne7m534"
+                                 [(ngModel)]="smartParameters.pricePreference" [ngModelOptions]="{standalone: true}">
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -53,19 +74,25 @@
                     <div class="fp-filter-item__inner">
                       <div class="fp-common__type-build">
                         <h4 class="title--h4">Тип жилья</h4>
-                        <div class="slider slider--temp">
-                          <input type="range" class="form-range" min="0" max="5" id="rt">
-                          <img class="slider__help"
-                               src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                        <div class="slider slider--temp" *ngIf="smart">
+                          <mat-slider min="1" max="10" step="1" discrete>
+                            <input matSliderThumb [(ngModel)]="smartParameters.apartmentTypeWeight"
+                                   [ngModelOptions]="{standalone: true}">
+                          </mat-slider>
+                          <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help"
+                               containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
+
                         </div>
                         <label class="fp-label">
-                          <input class="fp-label--check" checked type="checkbox" name=""
+                          <input [(ngModel)]="smartParameters.isFlat" class="fp-label--check" checked type="checkbox"
+                                 name=""
                                  id="ccvbfg">
                           <span></span>
                           <span class="fp-label--tx">Квартира</span>
                         </label>
                         <label class="fp-label">
-                          <input class="fp-label--check" type="checkbox" name="" id="fgde">
+                          <input [(ngModel)]="smartParameters.isApartments" class="fp-label--check" type="checkbox"
+                                 name="" id="fgde">
                           <span></span>
                           <span class="fp-label--tx">Апартаменты</span>
                         </label>
@@ -73,90 +100,126 @@
                       </div>
                       <div class="fp-common__planner">
                         <h4 class="title--h4">Планировка</h4>
-                        <div class="slider slider--temp">
-                          <input type="range" class="form-range" min="0" max="5" id="cvf">
-                          <img class="slider__help"
-                               src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                        <div class="slider slider--temp" *ngIf="smart">
+                          <mat-slider min="1" max="10" step="1" discrete>
+                            <input matSliderThumb [(ngModel)]="smartParameters.planWeight"
+                                   [ngModelOptions]="{standalone: true}">
+                          </mat-slider>
+                          <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help"
+                               containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top"
+                               containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                         </div>
                         <label class="fp-label">
-                          <input class="fp-label--check" checked type="checkbox" name=""
+                          <input [(ngModel)]="smartParameters.isBlandPlan" class="fp-label--check" checked
+                                 type="checkbox" name=""
                                  id="uit">
                           <span></span>
                           <span class="fp-label--tx">Смежная</span>
                         </label>
                         <label class="fp-label">
-                          <input class="fp-label--check" type="checkbox" name="" id="gh">
+                          <input [(ngModel)]="smartParameters.isIsolatePlan" class="fp-label--check" type="checkbox"
+                                 name="" id="gh">
                           <span></span>
                           <span class="fp-label--tx">Изолированная</span>
                         </label>
                       </div>
                       <div class="fp-common__roof">
                         <h4 class="title--h4">Этаж</h4>
-                        <div class="slider slider--temp">
-                          <input type="range" class="form-range" min="0" max="5" id="ert">
-                          <img class="slider__help"
-                               src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                        <div class="slider slider--temp" *ngIf="smart">
+                          <mat-slider min="1" max="10" step="1" discrete>
+                            <input matSliderThumb [(ngModel)]="smartParameters.floorWeight"
+                                   [ngModelOptions]="{standalone: true}">
+                          </mat-slider>
+                          <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help"
+                               containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                         </div>
                         <div class="d-flex flex-row justify-content-start gap-3 my-2">
-                          <input type="text" id="area-input"
-                                 class="d-block fp-input fp-input--sm"
-                                 placeholder="от">
-                          <input type="text" class="d-block fp-input fp-input--sm"
-                                 placeholder="до">
+                          <input *ngIf="!smart" type="text" id="area-input" class="d-block fp-input fp-input--sm"
+                                 placeholder="от" [(ngModel)]="smartParameters.floorMin"
+                                 [ngModelOptions]="{standalone: true}">
+                          <input *ngIf="!smart" type="text" class="d-block fp-input fp-input--sm" placeholder="до"
+                                 [(ngModel)]="smartParameters.floorMax" [ngModelOptions]="{standalone: true}">
+
+                          <input *ngIf="smart" type="number" id="онb6" class="d-block fp-input fp-input--sm"
+                                 [(ngModel)]="smartParameters.floorPreference" [ngModelOptions]="{standalone: true}">
+
+                          <div *ngIf="smart" class="flex-column">
+                            <div class="flex-row justify-content-between">
+                              <span class="mx-2">{{ smartParameters.floorMin }} </span>
+                              -
+                              <span class="mx-2">{{ smartParameters.floorMax }} </span>
+                            </div>
+                            <input type="range" class="form-range my-form-range" #slider
+                                   [max]="smartParameters.floorMax"
+                                   [min]="smartParameters.floorMin" step="1" id="tn0m"
+                                   [(ngModel)]="smartParameters.floorPreference" [ngModelOptions]="{standalone: true}">
+                          </div>
                         </div>
                         <label class="fp-label">
-                          <input class="fp-label--check" checked type="checkbox" name=""
+                          <input [(ngModel)]="smartParameters.isNotFirstFloor" class="fp-label--check" checked
+                                 type="checkbox" name=""
                                  id="erff">
                           <span></span>
                           <span class="fp-label--tx">Не первый</span>
                         </label>
                         <label class="fp-label">
-                          <input class="fp-label--check" checked type="checkbox" name=""
+                          <input [(ngModel)]="smartParameters.isNotLastFloor" class="fp-label--check" type="checkbox"
+                                 name=""
                                  id="webm">
                           <span></span>
                           <span class="fp-label--tx">Не последний</span>
                         </label>
                         <label class="fp-label">
-                          <input class="fp-label--check" type="checkbox" name="" id="4rt">
+                          <input [(ngModel)]="smartParameters.isLastFloor" class="fp-label--check" type="checkbox"
+                                 name="" id="4rt">
                           <span></span>
                           <span class="fp-label--tx">Только последний</span>
                         </label>
                       </div>
                       <div class="fp-common__roof-in-build">
                         <h4 class="title--h4">Этажей в доме</h4>
-                        <div class="slider slider--temp">
-                          <input type="range" class="form-range" min="0" max="5" id="856jh">
-                          <img class="slider__help"
-                               src="./assets/img/ant-design_info-circle-outlined.svg" alt="">
+                        <div class="slider slider--temp" *ngIf="smart">
+                          <mat-slider min="1" max="10" step="1" discrete>
+                            <input matSliderThumb [(ngModel)]="smartParameters.countFloorWeight"
+                                   [ngModelOptions]="{standalone: true}">
+                          </mat-slider>
+                          <img class="slider__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help"
+                               containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                         </div>
                         <div class="d-flex flex-row justify-content-between  my-2">
-                          <input type="text" id="gt5" class="d-block fp-input fp-input--long"
-                                 placeholder="от">
-                          <input type="text" id="6yhtr"
-                                 class="d-block fp-input fp-input--long"
-                                 placeholder="до">
+                          <input *ngIf="!smart" type="text" id="gt5" class="d-block fp-input fp-input--long"
+                                 placeholder="от" [(ngModel)]="smartParameters.countFloorMin"
+                                 [ngModelOptions]="{standalone: true}">
+                          <input *ngIf="!smart" type="text" id="6yhtr" class="d-block fp-input fp-input--long"
+                                 placeholder="до" [(ngModel)]="smartParameters.countFloorMax"
+                                 [ngModelOptions]="{standalone: true}">
+                          <input *ngIf="smart" type="number" id="онb6" class="d-block fp-input fp-input--sm"
+                                 [(ngModel)]="smartParameters.countFloorPreference"
+                                 [ngModelOptions]="{standalone: true}">
+
+                          <div *ngIf="smart" class="flex-column">
+                            <div class="flex-row justify-content-between">
+                              <span class="mx-2">{{ smartParameters.countFloorMin }} </span>
+                              -
+                              <span class="mx-2">{{ smartParameters.countFloorMax }} </span>
+                            </div>
+                            <input type="range" class="form-range my-form-range" #slider
+                                   [max]="smartParameters.countFloorMax"
+                                   [min]="smartParameters.countFloorMin" step="1" id="tne0m"
+                                   [(ngModel)]="smartParameters.countFloorPreference"
+                                   [ngModelOptions]="{standalone: true}">
+                          </div>
                         </div>
-                        <select class="form-select fp-select" required
-                                aria-label="select example">
-                          <option value="">Выбрать застройщика</option>
-                          <option value="1">Один</option>
-                          <option value="2">Два</option>
-                          <option value="3">Три</option>
-                        </select>
-
-                        <select class="form-select fp-select" required
-                                aria-label="select example">
-                          <option value="">Исключить застройщика</option>
-                          <option value="1">Один</option>
-                          <option value="2">Два</option>
-                          <option value="3">Три</option>
-                        </select>
-
+                        <div class="d-flex flex-row">
+                          <div class="col-6">Выбранные застройщики:</div>
+                          <div class="col-6">{{ smartParameters.company }}</div>
+                          <div class="col-6">Исключенные застройшики:</div>
+                          <div class="col-6">{{ smartParameters.companyExcp }}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
 
               </div>
 
@@ -168,34 +231,35 @@
             </div>
 
             <div class="col-xxl-9 search-section__card-side cards-block">
-<!--              <pre>{{ currentState$ | async | json }}</pre>-->
+              <!--              <pre>{{ currentState$ | async | json }}</pre>-->
               <div class="d-flex flex-column overflow-y-scroll">
 
                 <div class="cards-block__item" *ngFor="let item of apartments; let i=index"
                      [routerLink]="['/apartment', item.id]">
                   <div class="img-block">
-                    <img alt="img"  style="cursor: pointer;"
+                    <img alt="img" style="cursor: pointer;"
                          src="https://stelinvest.ru/upload/iblock/f51/050bwd03si669vthe835po4tresfzgsw/1et_8_1pod_4_kv.jpg ">
                   </div>
 
                   <div class="col r-item-info d-flex flex-column justify-content-between ">
 
-                    <h2 class="r-item__title-info">{{getNumberOfRoomsString(item.numberOfRooms)}}, {{item.areaTotal}} м<sup>2</sup> </h2>
+                    <h2 class="r-item__title-info">{{ getNumberOfRoomsString(item.numberOfRooms) }}
+                      , {{ item.areaTotal }} м<sup>2</sup></h2>
 
                     <div class="d-flex flex-column">
-                      <div class="r-item__type-build">{{getHouseTypeName(item.houseType)}}</div>
-                      <div class="r-item__address">{{item.address}}</div>
+                      <div class="r-item__type-build">{{ getHouseTypeName(item.houseType) }}</div>
+                      <div class="r-item__address">{{ item.address }}</div>
                     </div>
                     <div class="r-item__categories">
                       <div>Кухня: . . . . . . . . . . . . .</div>
-                      <span>{{item.areaKitchen}}</span>
+                      <span>{{ item.areaKitchen }}</span>
                       <div>Этаж . . . . . . . . . . . . . .</div>
-                      <span>{{item.floor}}</span>
+                      <span>{{ item.floor }}</span>
                       <div>Срок сдачи . . . . . . . . .</div>
-                      <span>{{item.dueYear}}</span>
+                      <span>{{ item.dueYear }}</span>
                     </div>
                     <div class="r-item__company">
-                      {{getCompany(item.companyId)}}
+                      {{ getCompany(item.companyId) }}
                     </div>
                   </div>
 
@@ -208,13 +272,13 @@
                             d="M22.25 5C19.6688 5 17.4088 6.11 16 7.98625C14.5912 6.11 12.3313 5 9.75 5C7.69528 5.00232 5.72539 5.81958 4.27248 7.27248C2.81958 8.72539 2.00232 10.6953 2 12.75C2 21.5 14.9738 28.5825 15.5262 28.875C15.6719 28.9533 15.8346 28.9943 16 28.9943C16.1654 28.9943 16.3281 28.9533 16.4737 28.875C17.0262 28.5825 30 21.5 30 12.75C29.9977 10.6953 29.1804 8.72539 27.7275 7.27248C26.2746 5.81958 24.3047 5.00232 22.25 5ZM16 26.85C13.7175 25.52 4 19.4613 4 12.75C4.00198 11.2256 4.60842 9.76423 5.68633 8.68633C6.76423 7.60842 8.22561 7.00198 9.75 7C12.1812 7 14.2225 8.295 15.075 10.375C15.1503 10.5584 15.2785 10.7153 15.4432 10.8257C15.6079 10.9361 15.8017 10.995 16 10.995C16.1983 10.995 16.3921 10.9361 16.5568 10.8257C16.7215 10.7153 16.8497 10.5584 16.925 10.375C17.7775 8.29125 19.8188 7 22.25 7C23.7744 7.00198 25.2358 7.60842 26.3137 8.68633C27.3916 9.76423 27.998 11.2256 28 12.75C28 19.4513 18.28 25.5188 16 26.85Z"
                             fill="#106681"/>
                         </svg>
-                        {{item.percent}}%
+                        {{ item.percent }}%
                       </h2>
                     </div>
 
                     <div class="d-flex flex-column px-2">
-                      <div class="cards-block__price">{{item.priceAfterFormat}}</div>
-                      <div class="cards-block__price-sqr">{{item.priceSqmtAfterFormat}}</div>
+                      <div class="cards-block__price">{{ item.priceAfterFormat }}</div>
+                      <div class="cards-block__price-sqr">{{ item.priceSqmtAfterFormat }}</div>
                       <button mat-raised-button (click)="showPhone(item.phone)"
                               class="phone-btn">
                         Показать телефон

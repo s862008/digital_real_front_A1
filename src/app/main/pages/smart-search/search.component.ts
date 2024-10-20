@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   public currentState$!: Observable<SmartParameters>;
   public loading: boolean = true;
   public houseTypes!: string[];
+  public smart: boolean = true;
 
   constructor(private dataservice: DataService, public route: ActivatedRoute, private router: Router) {
     // Получаем состояние

@@ -63,8 +63,20 @@
   width: 90%;
   justify-content: space-between;
 }
+.slider h4{
+  margin-right: 5%;
+  flex-basis: max-content;
+  flex-shrink: 0;
+}
 .slider__help {
   cursor: pointer;
   margin: 0 5px;
   flex-basis: 20px;
+}
+.slider:hover {
+  opacity: 1;
+}
+
+mat-slider {
+  width: 80% !important;
 }

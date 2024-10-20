@@ -24,7 +24,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   @ViewChild('formParam') formParam!: ElementRef;
 
 
-  constructor(private el: ElementRef, public smartParametrs: SmartParameters, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
+  constructor(private el: ElementRef, public smartParameters: SmartParameters, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
 
     this.companies.push(new Company(1, 'АО СЗ ФК "АКСИОМА"', '123-456-7890'));
     this.companies.push(new Company(2, 'ООО Предприятие «ИП К.И.Т.»', '987-654-3210'));
@@ -102,7 +102,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
     this.listChecked();
     this.cdRef.detectChanges();
     this.choosedItems = [];
-    this.smartParametrs = new SmartParameters();
+    this.smartParameters = new SmartParameters();
   }
 
   onSubmit() {
@@ -111,7 +111,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
     this.dialogRef.close();
 
     this.router.navigate(['/smart-search'],
-      {state: {smartParam: this.smartParametrs}});
+      {state: {smartParam: this.smartParameters}});
 
   }
 
