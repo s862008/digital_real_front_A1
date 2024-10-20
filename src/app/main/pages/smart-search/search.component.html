@@ -174,24 +174,24 @@
                 <div class="cards-block__item" *ngFor="let item of apartments; let i=index"
                      [routerLink]="['/apartment', item.id]">
                   <div class="img-block">
-                    <img alt="img" routerlink="/apartment.html" style="cursor: pointer;"
+                    <img alt="img"  style="cursor: pointer;"
                          src="https://stelinvest.ru/upload/iblock/f51/050bwd03si669vthe835po4tresfzgsw/1et_8_1pod_4_kv.jpg ">
                   </div>
 
                   <div class="col r-item-info d-flex flex-column justify-content-between ">
 
-                    <h2 class="r-item__title-info">{{item.numberOfRooms}}-ком. {{item.areaTotal}} м<sup>2</sup> </h2>
+                    <h2 class="r-item__title-info">{{getNumberOfRoomsString(item.numberOfRooms)}}, {{item.areaTotal}} м<sup>2</sup> </h2>
 
                     <div class="d-flex flex-column">
-                      <div class="r-item__type-build">{{item.type_build}}</div>
+                      <div class="r-item__type-build">{{getHouseTypeName(item.houseType)}}</div>
                       <div class="r-item__address">{{item.address}}</div>
                     </div>
                     <div class="r-item__categories">
-                      <div>Кухня: . . . . . . . . . . . . . .</div>
+                      <div>Кухня: . . . . . . . . . . . . .</div>
                       <span>{{item.areaKitchen}}</span>
-                      <div>Этаж . . . . . . . . . . . . . . .</div>
+                      <div>Этаж . . . . . . . . . . . . . .</div>
                       <span>{{item.floor}}</span>
-                      <div>Срок сдачи . . . . . . . . . .</div>
+                      <div>Срок сдачи . . . . . . . . .</div>
                       <span>{{item.dueYear}}</span>
                     </div>
                     <div class="r-item__company">
@@ -213,9 +213,9 @@
                     </div>
 
                     <div class="d-flex flex-column px-2">
-                      <div class="cards-block__price">Не указана</div>
-                      <div class="cards-block__price-sqr">Не указана</div>
-                      <button mat-raised-button (click)="showPhone()"
+                      <div class="cards-block__price">{{item.priceAfterFormat}}</div>
+                      <div class="cards-block__price-sqr">{{item.priceSqmtAfterFormat}}</div>
+                      <button mat-raised-button (click)="showPhone(item.phone)"
                               class="phone-btn">
                         Показать телефон
                       </button>

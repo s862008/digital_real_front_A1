@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {map, Observable} from "rxjs";
 import {DataService} from "../../../core/services/data.service";
 import {SmartSearch} from "../../../core/models/search";
+import {Company} from "../../../core/models/company";
 
 @Component({
   selector: 'app-search',
@@ -12,59 +13,33 @@ import {SmartSearch} from "../../../core/models/search";
   styleUrl: './search.component.css'
 })
 export class SearchComponent implements OnInit {
-  public company: string = "СТЭЛ"
+  public companies!: Company;
   public apartments: ApartmentShortCard[] = [];
   public smartParameters!: SmartParameters;
   public currentState$!: Observable<SmartParameters>;
   public loading: boolean = true;
-
+  public houseTypes!: string[];
 
   constructor(private dataservice: DataService, public route: ActivatedRoute, private router: Router) {
     // Получаем состояние
     if (this.router.getCurrentNavigation()) {
       const navigation = this.router.getCurrentNavigation();
       this.smartParameters = navigation && navigation.extras && navigation.extras.state ? navigation.extras.state['smartParam'] : undefined;
-    }
 
+      this.smartParameters.parametrs =[{name:"isSmart",check: false}];
+
+    }
+    this.houseTypes = ["Кирпичный", "Монолитный","Панельный","Кирпично-монолитный","Блочный","Другой"];
+
+  }
+  toogleParameter(param: { check: boolean; }){
+    param.check = !param.check;
+  }
+  resetParameter(param: { check: boolean; }){
+    param.check = false;
   }
 
   ngOnInit(): void {
-    // let x: bigint = 0n;
-    // while (x < 3) {
-    //   this.apartments.push({
-    //     address: "",
-    //     company: "",
-    //     type_build: "",
-    //     id: 3332600n + x,
-    //     numberOfRooms: '1 комната',
-    //     areaTotal: 30,
-    //     areaKitchen: 6,
-    //     apartmentInfo: "",
-    //     apartmentNumber: 0,
-    //     apartmentType: "",
-    //     areaLiving: 0,
-    //     article: "",
-    //     countView: 0n,
-    //     dueQuart: 0,
-    //     entrance: 0,
-    //     floor: 0,
-    //     numberOfFloorsPerEnt: 0,
-    //     percent: 0,
-    //     phone: "",
-    //     photoMainPath: "",
-    //     price: 0n,
-    //     priceAfterFormat: "",
-    //     priceSqmt: 0n,
-    //     priceSqmtAfterFormat: "",
-    //     status: "",
-    //     statusInfo: "",
-    //     tags: "",
-    //     webHref: "",
-    //     dueYear: '2020-01-01'
-    //   });
-    //   x++;
-    // }
-
 
     this.currentState$ = this.route.paramMap.pipe(
       map(() => window.history.state.smartParam)
@@ -74,15 +49,13 @@ export class SearchComponent implements OnInit {
 
   }
 
-  showPhone() {
-    alert("8000-34-34-34")
+  showPhone(phone: string) {
+    alert("тел: "+phone);
   }
 
   public searching(): void {
 
     this.loading = true;
-
-
 
     if (this.smartParameters != null) {
 
@@ -99,7 +72,7 @@ export class SearchComponent implements OnInit {
         price: this.getTriangle(this.smartParameters.priceMin, this.smartParameters.pricePreference, this.smartParameters.priceMax),
         priceWeight: this.getWeight(this.smartParameters.priceWeight),
 
-        floor: this.getTriangle(this.smartParameters.floorMin,this.smartParameters.floorPreference, this.smartParameters.floorMax),
+        floor: this.getTriangle(this.smartParameters.floorMin, this.smartParameters.floorPreference, this.smartParameters.floorMax),
         floorWeight: this.getWeight(this.smartParameters.floorWeight),
         isLastFloor: this.smartParameters.isLastFloor,
         isNotFirstFloor: this.smartParameters.isNotFirstFloor,
@@ -193,16 +166,23 @@ export class SearchComponent implements OnInit {
         closedYard: this.getSwitch([this.smartParameters.isClosedYard, this.smartParameters.isNoClosedYard]),
         closedYardWeight: this.getWeight(this.smartParameters.closedYardWeight),
 
-        furniture: this.getSet([this.smartParameters.isNoFurniture, this.smartParameters.isFurnitureKitch,this.smartParameters.isFurniture]),
+        furniture: this.getSet([this.smartParameters.isNoFurniture, this.smartParameters.isFurnitureKitch, this.smartParameters.isFurniture]),
         furnitureWeight: this.getWeight(this.smartParameters.furnitureWeight),
 
+        saleType: this.getSet([this.smartParameters.isDDU, this.smartParameters.isGSK, this.smartParameters.isPereustpka, this.smartParameters.isDKP]),
+        warranty: this.getSwitch([this.smartParameters.isWarranty, this.smartParameters.isNoWarranty]),
+        onlineBooking: this.getSwitch([this.smartParameters.isWithOnlineBook, this.smartParameters.isWithOutOnlineBook]),
+        electronReg: this.getSwitch([this.smartParameters.isElectronReg, this.smartParameters.isNoElectronReg]),
+        stoke: this.getSwitch([this.smartParameters.isStoke, this.smartParameters.isNoStoke]),
+        dealWeight: this.getWeight(this.smartParameters.dealWeight),
       }
 
       this.dataservice.smartSearch(toSearch, 10, 0).subscribe({
         next: (data: any): void => {
-          if(data != null) {
+          if (data != null) {
             console.log(data);
             this.apartments = data?.content
+
 
           }
           this.loading = false;
@@ -489,7 +469,7 @@ export class SearchComponent implements OnInit {
 
     array.forEach((value, index) => {
       if (value) {
-        characteristics.push(index+1);
+        characteristics.push(index + 1);
       }
     });
 
@@ -507,7 +487,7 @@ export class SearchComponent implements OnInit {
     return characteristics.length > 0 ? characteristics : null;
   }
 
-  private getNumberElevators() : boolean[] | null {
+  private getNumberElevators(): boolean[] | null {
     if (!this.smartParameters.isElevator1 && !this.smartParameters.isElevator2 && !this.smartParameters.isElevator3)
       return null;
 
@@ -527,7 +507,7 @@ export class SearchComponent implements OnInit {
 
     array.forEach((value, index) => {
       if (value) {
-        characteristics.push(index+1);
+        characteristics.push(index + 1);
       }
     });
 
@@ -543,17 +523,42 @@ export class SearchComponent implements OnInit {
 
     array.forEach((value, index) => {
       if (value) {
-        characteristics.push(index+1);
+        characteristics.push(index + 1);
       }
     });
 
     return characteristics.length > 0 ? characteristics : null;
   }
 
-   public getCompany(id:number): string | undefined {
-    if(id == 1){
+  public getCompany(id: number): string | undefined {
+    if (id == 1) {
       return "АО СЗ ФК \"АКСИОМА\""
     }
     return "";
-   }
+  }
+
+  getHouseTypeName(houseType: number): string {
+    if (this.houseTypes != null && this.houseTypes.length < houseType) {
+      return this.houseTypes[houseType - 1];
+    }
+    return "";
+
+  }
+
+  getNumberOfRoomsString(numberOfRooms: number): string {
+
+    if (numberOfRooms == 0) return "Свободная планировка";
+    if (numberOfRooms == 0.5) return "Студия";
+    if (numberOfRooms == 1) return "1 комната";
+    if (numberOfRooms == 1.5) return "Еврооднушка";
+    if (numberOfRooms == 2 ||
+      numberOfRooms == 3 ||
+      numberOfRooms == 4
+    ) return numberOfRooms + " комнаты";
+
+    if (numberOfRooms == 2.5) return "Евродвушка";
+    if (numberOfRooms == 3.5) return "Евротрешка";
+
+    return String(numberOfRooms + " комнат");
+  }
 }

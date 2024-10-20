@@ -1407,24 +1407,24 @@
               <div class="fp-deal__sale-type">
                 <h4 class="title--h4">Способ продажи</h4>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="ddu" id="ddu">
+                  <input [(ngModel)]="smartParametrs.isDDU" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="ddu" id="ddu">
                   <span></span>
                   <span class="fp-label--tx">ДДУ</span>
                   <img class="label__help" src="./assets/img/ant-design_info-circle-outlined.svg" alt="help"
                        containerClass="custom-tooltip" tooltip="Это подсказка!" tooltipPlacement="top">
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="dogovor">
+                  <input [(ngModel)]="smartParametrs.isGSK" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="dogovor">
                   <span></span>
                   <span class="fp-label--tx">Договор ЖСК</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="te5gh">
+                  <input [(ngModel)]="smartParametrs.isPereustpka" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="te5gh">
                   <span></span>
                   <span class="fp-label--tx">Переуступка</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="dkp">
+                  <input [(ngModel)]="smartParametrs.isDKP" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="dkp">
                   <span></span>
                   <span class="fp-label--tx">ДКП</span>
                 </label>
@@ -1432,12 +1432,12 @@
               <div class="fp-deal__warranty">
                 <h4 class="title--h4 d-inline-block">Гарантия на квартиру</h4>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="gveyw44">
+                  <input [(ngModel)]="smartParametrs.isWarranty" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="gveyw44">
                   <span></span>
                   <span class="fp-label--tx">Да</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="u34kt">
+                  <input [(ngModel)]="smartParametrs.isNoWarranty" [ngModelOptions]="{standalone: true}"  class="fp-label--check" type="checkbox" name="" id="u34kt">
                   <span></span>
                   <span class="fp-label--tx">Нет</span>
                 </label>
@@ -1446,12 +1446,12 @@
                 <h4 class="title--h4">Онлайн-бронирование</h4>
 
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="nyfted">
+                  <input [(ngModel)]="smartParametrs.isWithOnlineBook" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="nyfted">
                   <span></span>
                   <span class="fp-label--tx">Да</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="faqo">
+                  <input [(ngModel)]="smartParametrs.isWithOutOnlineBook" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="faqo">
                   <span></span>
                   <span class="fp-label--tx">Нет</span>
                 </label>
@@ -1459,12 +1459,12 @@
               <div class="fp-deal__el-registration">
                 <h4 class="title--h4">Электронная регистрация сделки</h4>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="кiеуа">
+                  <input [(ngModel)]="smartParametrs.isElectronReg" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="кiеуа">
                   <span></span>
                   <span class="fp-label--tx">Да</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="мыаu">
+                  <input [(ngModel)]="smartParametrs.isNoElectronReg" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="мыаu">
                   <span></span>
                   <span class="fp-label--tx">Нет</span>
                 </label>
@@ -1472,12 +1472,12 @@
               <div class="fp-deal__promo">
                 <h4 class="title--h4">АКЦИИ</h4>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="кjiеуа">
+                  <input [(ngModel)]="smartParametrs.isStoke" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="кjiеуа">
                   <span></span>
                   <span class="fp-label--tx">Да</span>
                 </label>
                 <label class="fp-label">
-                  <input class="fp-label--check" type="checkbox" name="" id="мыаuj">
+                  <input [(ngModel)]="smartParametrs.isNoStoke" [ngModelOptions]="{standalone: true}" class="fp-label--check" type="checkbox" name="" id="мыаuj">
                   <span></span>
                   <span class="fp-label--tx">Нет</span>
                 </label>

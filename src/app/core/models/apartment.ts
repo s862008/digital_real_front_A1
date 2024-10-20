@@ -73,7 +73,7 @@ export interface ApartmentShortCard {
   apartmentType: string;
   dueYear: string;
   dueQuart: number;
-  type_build: string;
+  houseType:number;
   address: string;
   company: string;
   companyId: number;

@@ -1,17 +1,18 @@
 export interface FilterSearch {
 
-  priceMin : string |'';
-  priceMax: string |'';
-  areaTotalMin: string |'';
-  areaTotalMax : string |'';
+  priceMin: string | '';
+  priceMax: string | '';
+  areaTotalMin: string | '';
+  areaTotalMax: string | '';
 
   isAtelier: boolean | false;
-  isOne: boolean| false;
-  isTwo: boolean| false ;
-  isThree: boolean| false ;
-  isFour: boolean| false ;
-  isFivePlus: boolean| false ;
+  isOne: boolean | false;
+  isTwo: boolean | false;
+  isThree: boolean | false;
+  isFour: boolean | false;
+  isFivePlus: boolean | false;
 }
+
 export interface ApartmentFilterSearch {
   priceMin: string;
   priceMax: string;
@@ -20,7 +21,7 @@ export interface ApartmentFilterSearch {
   numberOfRooms: string[] | null;
 }
 
-export interface SmartSearch{
+export interface SmartSearch {
   numberOfRooms: number[] | null;
   numberOfRoomsWeight: number;
 
@@ -37,10 +38,9 @@ export interface SmartSearch{
   areaPriceWeight: number;
 
   areaTotal: number[] | null;
-  areaWeight: number;
-
   areaKitchen: number[] | null;
   areaLiving: number[] | null;
+  areaWeight: number;
 
   floor: number[] | null;
   floorWeight: number;
@@ -50,14 +50,15 @@ export interface SmartSearch{
 
   isElectricStove: boolean;
   isGasStove: boolean;
-  stoveWeight:number;
+  stoveWeight: number;
 
   countFloor: number[] | null;
   countFloorWeight: number;
 
   apartmentType: number[] | null;
   apartmentTypeWeight: number;
-  viewFromWindows:number[] | null;
+
+  viewFromWindows: number[] | null;
   viewFromWindowsWeight: number;
 
   balcony: number[] | null;
@@ -127,5 +128,12 @@ export interface SmartSearch{
 
   furniture: number[] | null;
   furnitureWeight: number;
+
+  saleType: number[] | null;
+  warranty: boolean[] | null;
+  onlineBooking: boolean[] | null;
+  electronReg: boolean[] | null;
+  stoke: boolean[] | null;
+  dealWeight: number;
 
 }

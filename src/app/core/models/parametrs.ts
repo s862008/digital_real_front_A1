@@ -127,6 +127,14 @@ interface Parametrs {
   isFurniture: boolean;
   isFurnitureKitch: boolean;
 
+  isWithOnlineBook: boolean;
+  isWithOutOnlineBook: boolean;
+  isElectronReg: boolean;
+  isNoElectronReg: boolean;
+
+  isStoke: boolean;
+  isNoStoke: boolean;
+
 }
 
 export interface implSmartParametrs extends Parametrs {
@@ -178,6 +186,8 @@ export interface implSmartParametrs extends Parametrs {
 
 @Injectable({providedIn: 'root'})
 export class SmartParameters implements implSmartParametrs {
+  parametrs:any = []
+
   apartmentTypeWeight: number = 2;
   isApartments: boolean = false;
   isFlat: boolean = false;
@@ -191,8 +201,8 @@ export class SmartParameters implements implSmartParametrs {
   isNotLastFloor: boolean = false;
   isLastFloor: boolean = false;
   countFloorWeight: number = 0;
-  countFloorMin: number= 1;
-  countFloorMax: number= 50;
+  countFloorMin: number = 1;
+  countFloorMax: number = 50;
   areaWeight: number = 0;
   areaTotalMin: number = 10;
   areaTotalMax: number = 300;
@@ -201,11 +211,11 @@ export class SmartParameters implements implSmartParametrs {
   areaKitchenMin: number = 10;
   areaKitchenMax: number = 100;
   priceWeight!: number;
-  priceMin : number=100000;
-  priceMax : number=100000000;
+  priceMin: number = 100000;
+  priceMax: number = 100000000;
   areaPriceWeight: number = 0;
-  areaPriceMin: number=10000;
-  areaPriceMax: number=1000000;
+  areaPriceMin: number = 10000;
+  areaPriceMax: number = 1000000;
   numberOfRoomsWeight: number = 0;
   public isAtelier: boolean = false;
   public isOne: boolean = false;
@@ -336,6 +346,14 @@ export class SmartParameters implements implSmartParametrs {
   isNearbyBusStation: boolean = false;
   isNearbyCarService: boolean = false;
 
+  isDDU: boolean = false;
+  isGSK: boolean = false;
+  isPereustpka: boolean = false;
+  isDKP: boolean = false;
+
+  isWarranty: boolean = false;
+  isNoWarranty: boolean = false;
+
   parkingWeight: number = 0;
   isUnderground: boolean = false;
   isSurface: boolean = false;
@@ -353,13 +371,23 @@ export class SmartParameters implements implSmartParametrs {
   company: number = 0;
   companyExcp: number = 0;
 
-  areaTotalPreference!: number ;
-  countFloorPreference!: number ;
-  floorPreference!: number ;
-  pricePreference!: number ;
+  areaTotalPreference!: number;
+  countFloorPreference!: number;
+  floorPreference!: number;
+  pricePreference!: number;
   areaKitchenPreference!: number;
   areaLivingPreference!: number;
   areaPricePreference!: number;
   numberOfApartmentsPreference!: number;
+
+  isWithOnlineBook: boolean = false;
+  isWithOutOnlineBook: boolean = false;
+  isElectronReg: boolean = false;
+  isNoElectronReg: boolean = false;
+
+  isStoke: boolean = false;
+  isNoStoke: boolean = false;
+
+  dealWeight: number = 0;
 
 }
