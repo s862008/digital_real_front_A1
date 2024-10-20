@@ -66,7 +66,7 @@ export interface ApartmentShortCard {
   status: string;
   statusInfo: string;
   article: string;
-  numberOfRooms: string;
+  numberOfRooms: number;
   price: bigint;
   priceSqmt: bigint;
   floor: number;
