@@ -80,3 +80,65 @@
 mat-slider {
   width: 80% !important;
 }
+
+.fp-select {
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 24px;
+  color: #000;
+  background-size: 24px 21px;
+  border-radius: 10px;
+
+}
+
+.fp-label {
+  display: flex;
+  justify-content: start;
+  padding: 8px 0px;
+  align-items: center;
+  line-height: 150%;
+}
+
+.fp-label--check {
+  display: none;
+}
+
+.fp-label--check + span {
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 10px;
+  width: 43px;
+  height: 45px;
+  margin: 0px 18px 0 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.fp-label--check:checked + span::after {
+  content: '';
+  display: block;
+  border: 0;
+  background-color: #106580;
+  position: relative;
+  top: 3px;
+  left: 3px;
+  border-radius: 8px;
+  width: 35px;
+  height: 37px;
+}
+
+.fp-input {
+  padding: 8px 10px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 24px;
+  color: #000;
+  opacity: 0.5;
+  width:16vw;
+
+}
+.fp-input--sm {
+  width:6vw;
+}

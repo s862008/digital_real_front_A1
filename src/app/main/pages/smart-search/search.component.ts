@@ -178,7 +178,7 @@ export class SearchComponent implements OnInit {
         dealWeight: this.getWeight(this.smartParameters.dealWeight),
       }
 
-      this.dataservice.smartSearch(toSearch, 10, 0).subscribe({
+      this.dataservice.smartSearch(toSearch, 20, 0).subscribe({
         next: (data: any): void => {
           if (data != null) {
             console.log(data);
