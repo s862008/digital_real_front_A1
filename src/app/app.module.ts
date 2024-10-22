@@ -21,7 +21,7 @@ import {ApartmentComponent} from "./main/pages/apartment/apartment.component";
 import {HttpClientModule} from "@angular/common/http";
 import {DataService} from "./core/services/data.service";
 import {RComplexComponent} from "./main/pages/residential-complex/r-complex.component";
-import {SmartParametrsComponent} from "./main/components/smart-parametrs/smart-parametrs.component";
+import {SmartParametrsComponent} from "./main/components/smart-parameters/smart-parametrs.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -32,6 +32,7 @@ import {SearchComponent} from "./main/pages/smart-search/search.component";
 import {FormsModule} from '@angular/forms';
 import {PricePipe} from "./main/pipes/price.pipe";
 import {TooltipModule} from "ngx-bootstrap/tooltip";
+import {ChosenParametersComponent} from "./main/components/choosed-parameters/chosen-parameters.component";
 
 
 
@@ -49,6 +50,7 @@ import {TooltipModule} from "ngx-bootstrap/tooltip";
         ApartmentComponent,
         RComplexComponent,
         SmartParametrsComponent,
+      ChosenParametersComponent,
         PricePipe
     ],
   imports: [

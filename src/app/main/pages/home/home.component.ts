@@ -1,6 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {SmartParametrsComponent} from "../../components/smart-parametrs/smart-parametrs.component";
+import {SmartParametrsComponent} from "../../components/smart-parameters/smart-parametrs.component";
 import {absoluteFrom} from "@angular/compiler-cli";
 import {Router} from "@angular/router";
 import {ApartmentFilterSearch, FilterSearch} from "../../../core/models/search";

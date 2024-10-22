@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ContainerComponent} from "../container/container.component";
-import {SmartParametrsComponent} from "../smart-parametrs/smart-parametrs.component";
+import {SmartParametrsComponent} from "../smart-parameters/smart-parametrs.component";
 import {MatDialog} from "@angular/material/dialog";
 
 @Component({

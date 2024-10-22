@@ -1,4 +1,4 @@
-import {SmartParametrsComponent} from "../../main/components/smart-parametrs/smart-parametrs.component";
+import {SmartParametrsComponent} from "../../main/components/smart-parameters/smart-parametrs.component";
 import {inject, Injectable} from "@angular/core";
 
 interface Parametrs {
