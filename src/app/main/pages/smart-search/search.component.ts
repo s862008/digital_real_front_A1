@@ -20,6 +20,8 @@ export class SearchComponent implements OnInit {
   public loading: boolean = true;
   public houseTypes!: string[];
   public smart: boolean = true;
+  limit = 10;
+  offset = 0;
 
   constructor(private dataservice: DataService, public route: ActivatedRoute, private router: Router) {
     // Получаем состояние
@@ -178,12 +180,12 @@ export class SearchComponent implements OnInit {
         dealWeight: this.getWeight(this.smartParameters.dealWeight),
       }
 
-      this.dataservice.smartSearch(toSearch, 20, 0).subscribe({
+      this.dataservice.smartSearch(toSearch, this.limit, this.offset).subscribe({
         next: (data: any): void => {
           if (data != null) {
             console.log(data);
-            this.apartments = data?.content
-
+            this.apartments =  [...this.apartments, ...data?.content];
+            this.offset += this.limit;
 
           }
           this.loading = false;
@@ -561,5 +563,9 @@ export class SearchComponent implements OnInit {
     if (numberOfRooms == 3.5) return "Евротрешка";
 
     return String(numberOfRooms + " комнат");
+  }
+
+  loadMore():void {
+    this.searching();
   }
 }
