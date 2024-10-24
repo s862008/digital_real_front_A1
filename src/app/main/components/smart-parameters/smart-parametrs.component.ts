@@ -1,6 +1,15 @@
-import {ChangeDetectorRef, Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener} from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  HostListener,
+  Inject
+} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {SmartParameters} from "../../../core/models/parametrs";
 import {Company} from "../../../core/models/company";
@@ -24,11 +33,13 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
   @ViewChild('formParam') formParam!: ElementRef;
 
 
-  constructor(private el: ElementRef, public smartParameters: SmartParameters, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef) {
+  constructor(private el: ElementRef, public smartParameters: SmartParameters, private router: Router, private dialogRef: MatDialogRef<any>, private cdRef: ChangeDetectorRef, @Inject(MAT_DIALOG_DATA) public data: SmartParameters) {
 
     this.companies.push(new Company(1, 'АО СЗ ФК "АКСИОМА"', '123-456-7890'));
     this.companies.push(new Company(2, 'ООО Предприятие «ИП К.И.Т.»', '987-654-3210'));
     this.companies.push(new Company(3, 'ООО "СТЭЛ инвест"', '555-555-5555'));
+
+
   }
 
   listChecked() {
@@ -64,34 +75,44 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     //   this.listChecked();
-    this.clearFilter()
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', (event) => {
-        if (checkbox.getAttribute('checked') == null) {
-          checkbox.setAttribute('checked', 'checked')
-          this.choosedItems.push(checkbox.id)
+    if (this.data != null) {
+      this.smartParameters = this.data;
+    } else {
+      this.clearFilter()
+    }
+    const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="range"], input[type="number"]');
+
+    checkboxes.forEach(input => {
+      input.addEventListener('change', (event) => {
+
+
+        if (input.getAttribute('checked') == null) {
+          input.setAttribute('checked', 'checked')
+          this.choosedItems.push(input.id)
         } else {
-          checkbox.removeAttribute('checked');
-          let indexToRemove = this.choosedItems.indexOf(checkbox.id);
+          input.removeAttribute('checked');
+          let indexToRemove = this.choosedItems.indexOf(input.id);
           if (indexToRemove !== -1) {
             this.choosedItems.splice(indexToRemove, 1);
           }
         }
+
         this.listChecked();
       });
     });
 
-    this.formParam.nativeElement.addEventListener('scroll', () => {
-      const rect = this.formParam.nativeElement.getBoundingClientRect();
-      const scrollTop = this.formParam.nativeElement.scrollTop;
-      if (rect.top < -600 || scrollTop > 300) {
-        this.showElement = true;
-      } else {
-        this.showElement = false;
-      }
-    });
 
+    if (this.formParam != undefined) {
+      this.formParam.nativeElement.addEventListener('scroll', () => {
+        const rect = this.formParam.nativeElement.getBoundingClientRect();
+        const scrollTop = this.formParam.nativeElement.scrollTop;
+        if (rect.top < -600 || scrollTop > 300) {
+          this.showElement = true;
+        } else {
+          this.showElement = false;
+        }
+      });
+    }
   }
 
   clearFilter() {
@@ -136,6 +157,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
       this.showElement = false;
     }
   }
+
   scrollToBottom() {
     if (this.formParam) {
       this.formParam.nativeElement.scrollTo({

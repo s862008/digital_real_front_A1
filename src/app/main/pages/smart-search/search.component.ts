@@ -6,6 +6,8 @@ import {map, Observable} from "rxjs";
 import {DataService} from "../../../core/services/data.service";
 import {SmartSearch} from "../../../core/models/search";
 import {Company} from "../../../core/models/company";
+import {SmartParametrsComponent} from "../../components/smart-parameters/smart-parametrs.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-search',
@@ -23,7 +25,7 @@ export class SearchComponent implements OnInit {
   limit = 10;
   offset = 0;
 
-  constructor(private dataservice: DataService, public route: ActivatedRoute, private router: Router) {
+  constructor(private dataservice: DataService, public route: ActivatedRoute, private router: Router,private dialog: MatDialog) {
     // Получаем состояние
     if (this.router.getCurrentNavigation()) {
       const navigation = this.router.getCurrentNavigation();
@@ -567,5 +569,23 @@ export class SearchComponent implements OnInit {
 
   loadMore():void {
     this.searching();
+  }
+
+
+  openDialog() {
+
+    const dialogRef = this.dialog.open(SmartParametrsComponent,
+      {height: '100%', width: '95%',data: this.smartParameters}
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Данные из формы:', result);
+      }
+      this.apartments =[];
+      this.limit = 10;
+      this.offset = 0;
+      this.searching();
+    });
   }
 }
