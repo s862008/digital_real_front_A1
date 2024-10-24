@@ -22,25 +22,28 @@ export class SearchComponent implements OnInit {
   public loading: boolean = true;
   public houseTypes!: string[];
   public smart: boolean = true;
-  limit = 10;
-  offset = 0;
+  public choosedItems: any[] = [];
+  public limit = 10;
+  public offset = 0;
 
-  constructor(private dataservice: DataService, public route: ActivatedRoute, private router: Router,private dialog: MatDialog) {
+  constructor(private dataservice: DataService, public route: ActivatedRoute, private router: Router, private dialog: MatDialog) {
     // Получаем состояние
     if (this.router.getCurrentNavigation()) {
       const navigation = this.router.getCurrentNavigation();
       this.smartParameters = navigation && navigation.extras && navigation.extras.state ? navigation.extras.state['smartParam'] : undefined;
 
-      this.smartParameters.parametrs =[{name:"isSmart",check: false}];
+      this.smartParameters.parametrs = [{name: "isSmart", check: false}];
 
     }
-    this.houseTypes = ["Кирпичный", "Монолитный","Панельный","Кирпично-монолитный","Блочный","Другой"];
+    this.houseTypes = ["Кирпичный", "Монолитный", "Панельный", "Кирпично-монолитный", "Блочный", "Другой"];
 
   }
-  toogleParameter(param: { check: boolean; }){
+
+  toogleParameter(param: { check: boolean; }) {
     param.check = !param.check;
   }
-  resetParameter(param: { check: boolean; }){
+
+  resetParameter(param: { check: boolean; }) {
     param.check = false;
   }
 
@@ -51,11 +54,30 @@ export class SearchComponent implements OnInit {
     );
 
     this.searching();
+    const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="range"], input[type="number"]');
+
+    checkboxes.forEach(input => {
+      input.addEventListener('change', (event) => {
+
+
+        if (input.getAttribute('checked') == null) {
+          input.setAttribute('checked', 'checked')
+          this.choosedItems.push(input.id)
+        } else {
+          input.removeAttribute('checked');
+          let indexToRemove = this.choosedItems.indexOf(input.id);
+          if (indexToRemove !== -1) {
+            this.choosedItems.splice(indexToRemove, 1);
+          }
+        }
+
+      });
+    });
 
   }
 
   showPhone(phone: string) {
-    alert("тел: "+phone);
+    alert("тел: " + phone);
   }
 
   public searching(): void {
@@ -185,10 +207,8 @@ export class SearchComponent implements OnInit {
       this.dataservice.smartSearch(toSearch, this.limit, this.offset).subscribe({
         next: (data: any): void => {
           if (data != null) {
-            console.log(data);
-            this.apartments =  [...this.apartments, ...data?.content];
-            this.offset += this.limit;
-
+            this.apartments = [...this.apartments, ...data?.content];
+            this.offset++;
           }
           this.loading = false;
         }
@@ -567,25 +587,34 @@ export class SearchComponent implements OnInit {
     return String(numberOfRooms + " комнат");
   }
 
-  loadMore():void {
+  loadMore(): void {
+
     this.searching();
+
   }
 
 
   openDialog() {
 
     const dialogRef = this.dialog.open(SmartParametrsComponent,
-      {height: '100%', width: '95%',data: this.smartParameters}
+      {height: '100%', width: '95%', data: this.smartParameters}
     );
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log('Данные из формы:', result);
       }
-      this.apartments =[];
-      this.limit = 10;
-      this.offset = 0;
-      this.searching();
+      this.reload()
+
     });
+  }
+
+  reload() {
+    this.apartments = [];
+    this.choosedItems= [];
+    this.limit = 10;
+    this.offset = 0;
+    this.searching();
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 }

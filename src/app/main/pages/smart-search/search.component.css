@@ -142,3 +142,19 @@ mat-slider {
 .fp-input--sm {
   width:6vw;
 }
+
+.r-item__type-build, .r-item__address, .r-item__categories.price-squad {
+  font-family: 'Lato SemiBold', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 146%;
+  color: #999;
+}
+
+
+.r-item__categories {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 200px auto;
+  line-height: 100%;
+}

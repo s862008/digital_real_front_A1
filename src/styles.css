@@ -132,6 +132,17 @@ ul, li {
   color: #fff;
   border: 0;
 }
+
+.my-btn-long--disabled {
+  border-radius: 10px;
+  width: 280px;
+  height: 47px;
+  background-color: #999999;
+  font-weight: 400;
+  font-size: 24px;
+  color: #676262;
+}
+
 .my-btn-lg {
   border: 1px solid #999999;
 }

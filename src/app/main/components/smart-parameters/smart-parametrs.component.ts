@@ -80,6 +80,7 @@ export class SmartParametrsComponent implements OnInit, AfterViewInit {
     } else {
       this.clearFilter()
     }
+
     const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="range"], input[type="number"]');
 
     checkboxes.forEach(input => {
